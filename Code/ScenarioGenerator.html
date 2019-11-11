@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scenario Generator</title>
+
+</head>
+<body>
+<ol id="scenarios">
+
+</ol>
+<script>
+
+    const age = ["infant", "child", "adult", "elderly"];
+    const people = {
+        infant: {
+            gender: ["male", "female"],
+            prof: ["standard"],
+            disability: ["none"]
+        },
+        child: {
+            gender: ["male", "female"],
+            prof: ["standard"],
+            disability: ["none", "wheelchair", "blind", "crutches"]
+        },
+        adult: {
+            gender: ["male", "female"],
+            prof: ["standard", "homeless", "business person"],
+            disability: ["none", "wheelchair", "blind", "crutches"]
+        },
+        elderly: {
+            gender: ["male", "female"],
+            prof: ["standard", "homeless", "business person"],
+            disability: ["none", "wheelchair", "blind", "crutches"]
+        }
+    };
+    const list = document.getElementById("scenarios");
+    for (let i = 0; i < age.length; i++) {
+        for(let j = 0; j < people[age[i]]["gender"].length; j++) {
+            for(let k = 0; k < people[age[i]]["prof"].length; k++) {
+                for(let l = 0; l < people[age[i]]["disability"].length; l++) {
+                    let node = document.createElement("li");
+                    node.innerHTML = `<ul style="list-style-type: none"><li>Age: ${age[i]}</li><li>Gender: ${people[age[i]]["gender"][j]}</li><li>Profession: ${people[age[i]]["prof"][k]}</li><li>Disability: ${people[age[i]]["disability"][l]}</li><br></ul>`;
+                    list.appendChild(node);
+                }
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
