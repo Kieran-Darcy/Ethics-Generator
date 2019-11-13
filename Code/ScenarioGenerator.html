@@ -11,37 +11,38 @@
 </ol>
 <script>
 
-    const age = ["infant", "child", "adult", "elderly"];
-    const people = {
-        infant: {
+    const people = [
+        {   age: ["infant"],
             gender: ["male", "female"],
             prof: ["standard"],
             disability: ["none"]
         },
-        child: {
+        {   age: ["child"],
             gender: ["male", "female"],
             prof: ["standard"],
             disability: ["none", "wheelchair", "blind", "crutches"]
         },
-        adult: {
+        {   age: ["adult"],
             gender: ["male", "female"],
             prof: ["standard", "homeless", "business person"],
             disability: ["none", "wheelchair", "blind", "crutches"]
         },
-        elderly: {
+        {   age: ["elderly"],
             gender: ["male", "female"],
             prof: ["standard", "homeless", "business person"],
             disability: ["none", "wheelchair", "blind", "crutches"]
         }
-    };
+    ];
     const list = document.getElementById("scenarios");
-    for (let i = 0; i < age.length; i++) {
-        for(let j = 0; j < people[age[i]]["gender"].length; j++) {
-            for(let k = 0; k < people[age[i]]["prof"].length; k++) {
-                for(let l = 0; l < people[age[i]]["disability"].length; l++) {
-                    let node = document.createElement("li");
-                    node.innerHTML = `<ul style="list-style-type: none"><li>Age: ${age[i]}</li><li>Gender: ${people[age[i]]["gender"][j]}</li><li>Profession: ${people[age[i]]["prof"][k]}</li><li>Disability: ${people[age[i]]["disability"][l]}</li><br></ul>`;
-                    list.appendChild(node);
+    for (let i in people) {
+        for(let ages in people[i]["age"]) {
+            for (let genders in people[i]["gender"]) {
+                for (let profs in people[i]["prof"]) {
+                    for (let dis in people[i]["disability"]) {
+                        let node = document.createElement("li");
+                        node.innerHTML = `<ul style="list-style-type: none"><li>Age: ${people[i]["age"][ages]}</li><li>Gender: ${people[i]["gender"][genders]}</li><li>Profession: ${people[i]["prof"][profs]}</li><li>Disability: ${people[i]["disability"][dis]}</li><br></ul>`;
+                        list.appendChild(node);
+                    }
                 }
             }
         }
