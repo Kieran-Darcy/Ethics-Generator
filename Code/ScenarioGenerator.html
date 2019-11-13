@@ -33,6 +33,7 @@
             disability: ["none", "wheelchair", "blind", "crutches"]
         }
     ];
+    let simplePeople = [];
     const list = document.getElementById("scenarios");
     for (let i in people) {
         for(let ages in people[i]["age"]) {
@@ -40,6 +41,7 @@
                 for (let profs in people[i]["prof"]) {
                     for (let dis in people[i]["disability"]) {
                         let node = document.createElement("li");
+                        simplePeople.push([people[i]["age"][ages], people[i]["gender"][genders], people[i]["prof"][profs], people[i]["disability"][dis]]);
                         node.innerHTML = `<ul style="list-style-type: none"><li>Age: ${people[i]["age"][ages]}</li><li>Gender: ${people[i]["gender"][genders]}</li><li>Profession: ${people[i]["prof"][profs]}</li><li>Disability: ${people[i]["disability"][dis]}</li><br></ul>`;
                         list.appendChild(node);
                     }
