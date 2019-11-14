@@ -3,7 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Scenario Generator</title>
-
+    <style>
+        #person {
+            color: white;
+            width: fit-content;
+            height: fit-content;
+            opacity: 0;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        #person:hover {
+            color: black;
+            background-color: lightgray;
+            border: solid 1px black;
+            opacity: 1;
+            transition: 0.3s;
+        }
+        ol,ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
 <ol id="scenarios">
@@ -11,44 +31,63 @@
 </ol>
 <script>
 
-    const people = [
-        {   age: ["infant"],
+    const properties = [
+        {
+            age: ["infant"],
             gender: ["male", "female"],
             prof: ["standard"],
             disability: ["none"]
         },
-        {   age: ["child"],
+        {
+            age: ["child"],
             gender: ["male", "female"],
             prof: ["standard"],
             disability: ["none", "wheelchair", "blind", "crutches"]
         },
-        {   age: ["adult"],
+        {
+            age: ["adult"],
             gender: ["male", "female"],
             prof: ["standard", "homeless", "business person"],
             disability: ["none", "wheelchair", "blind", "crutches"]
         },
-        {   age: ["elderly"],
+        {
+            age: ["elderly"],
             gender: ["male", "female"],
             prof: ["standard", "homeless", "business person"],
             disability: ["none", "wheelchair", "blind", "crutches"]
         }
     ];
-    let simplePeople = [];
-    const list = document.getElementById("scenarios");
-    for (let i in people) {
-        for(let ages in people[i]["age"]) {
-            for (let genders in people[i]["gender"]) {
-                for (let profs in people[i]["prof"]) {
-                    for (let dis in people[i]["disability"]) {
-                        let node = document.createElement("li");
-                        simplePeople.push([people[i]["age"][ages], people[i]["gender"][genders], people[i]["prof"][profs], people[i]["disability"][dis]]);
-                        node.innerHTML = `<ul style="list-style-type: none"><li>Age: ${people[i]["age"][ages]}</li><li>Gender: ${people[i]["gender"][genders]}</li><li>Profession: ${people[i]["prof"][profs]}</li><li>Disability: ${people[i]["disability"][dis]}</li><br></ul>`;
-                        list.appendChild(node);
+
+    function createScenarios() {
+        let arr = [];
+        for (let i in properties) {
+            for (let ages in properties[i]["age"]) {
+                for (let genders in properties[i]["gender"]) {
+                    for (let profs in properties[i]["prof"]) {
+                        for (let dis in properties[i]["disability"]) {
+                            arr.push([properties[i]["age"][ages], properties[i]["gender"][genders], properties[i]["prof"][profs], properties[i]["disability"][dis]]);
+                        }
                     }
                 }
             }
         }
+        return arr;
     }
+
+    function displayScenarios() {
+        const list = document.getElementById("scenarios");
+        people.forEach(person => {
+            let node = document.createElement("li");
+            node.innerHTML = `<ul style="list-style-type: none"><li>Age: ${person[0]}</li><li>Gender: ${person[1]}</li><li>Profession: ${person[2]}</li><li>Disability: ${person[3]}</li><br></ul>`;
+            node.id = "person";
+            list.appendChild(node);
+        });
+
+
+    }
+
+    const people = createScenarios();   // people[[age, gender, profession, disability], [..., ..., ..., ....], ...]
+    displayScenarios();
 
 </script>
 </body>
