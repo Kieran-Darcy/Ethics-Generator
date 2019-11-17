@@ -75,7 +75,9 @@ function displayScene2P(scenes) {
     const list = document.getElementById("scenarios");
     scenes.forEach(scene => {
         let node = document.createElement("li");
-        node.innerHTML = `You're approaching a ${scene[2]}, your unable to stop, you can turn left and kill an ${scene[0][0]} or turn right and kill an ${scene[1][0]}.`;
+        const personA = `(AgeGroup: ${scene[0][0]}, Gender: ${scene[0][1]}, Profession: ${scene[0][2]}, Disability: ${scene[0][3]})`;
+        const personB = `(AgeGroup: ${scene[1][0]}, Gender: ${scene[1][1]}, Profession: ${scene[1][2]}, Disability: ${scene[1][3]})`;
+        node.innerHTML = `You're approaching a ${scene[2]}, your unable to stop, you can turn left and kill <br>A = ${personA} <br>or turn right and kill <br>B = ${personB}. <br>Time = ${scene[3]}`;
         list.appendChild(node);
     });
 }
