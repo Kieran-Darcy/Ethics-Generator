@@ -1,0 +1,121 @@
+ body {
+ 	background-image: url("background.png");
+ } 
+
+
+h1 {
+	background-color: #C46210;
+}
+
+h2 {
+	background-color: #AF002A;
+	width: 23%;
+}
+
+/* ------------------------------------------------------------------- */
+
+.envir{
+	 float: right;
+	 width: 75%;
+	 padding: 5px;
+	 background-color: #B284BE;
+}
+
+#scen {
+	background-color: blue;
+	width: 23%;
+}
+
+.parent{
+	position: relative;
+}
+
+
+.girl {
+	position: absolute;
+	right: 30%;
+	top: 65%;
+}
+
+/* OTHER SIDE OF ROAD */
+
+.busman {
+	position: absolute;
+	right: 23%;
+	top: 62%;
+}
+
+/* CAR */
+
+.car {
+	transform: rotate(-42deg);
+	position: absolute;
+	right: 36.5%;
+	top: 94.5%;
+}
+
+/* ------------------------------------------------------------------- */
+
+.c1 {
+margin-top: 1%;
+font-size: 14px;
+}
+
+
+.c2 {
+margin-top: 2%;
+font-size: 14px;
+
+}
+
+
+.c3 {
+margin-top: 2%;
+font-size: 14px;
+}
+
+.placer {
+margin-top: 1%;
+}
+
+form {
+	background-color: red;
+	width: 22%;
+}
+
+
+
+a {
+  text-decoration: none;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.PS {
+
+  background-color: #f1f1f1;
+  color: black;
+  margin-left: 5%;
+}
+
+.NS {
+  background-color: #E32636;
+  color: white;
+  margin-left: 5%;
+}
+
+#round {
+  border-radius: 50%;
+}
+
+
+
+.submitbtn {
+	background-color: yellow;
+	float: left;
+	margin-top: 0%;
+}
