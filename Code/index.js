@@ -1,11 +1,12 @@
 const express = require('express');
 const mysql = require('mysql');
-const people = require('./Scripts/script.js');
+const script = require('./Scripts/script.js');
 const app = express();
 const port = 80;
 app.use(express.static(__dirname));
+app.use(express.urlencoded({extended: true}));
 
-// Create connection
+/*// Create connection
 const connection = mysql.createConnection({
     host: "192.168.1.1",
     user: "user",
@@ -38,12 +39,20 @@ function insertPeople() {
     });
     console.log("Statement complete!");
     connection.end()
-}
+}*/
 
-/*
 app.get('/', (req, res) => {
-    //res.sendFile('ScenarioGenerator.html', {root: __dirname})
-
+    res.sendFile('Scenario1.html', {root: __dirname})
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));*/
+app.get('/scene', (req, res) => {
+    res.send(script.makeScene());
+});
+
+app.post('/choice', (req, res) => {
+    const option = req.body.option;
+    // if the option isn't null add it to the database along with the question
+    res.send(option !== undefined)
+});
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));

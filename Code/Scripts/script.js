@@ -25,6 +25,8 @@ const conditionP = [ // Conditions for People
     }
 ];
 
+const crossings = ["crossing", "red light", "green light"];
+
 function Person(age, gender, profession, disability) {
     this.age = age;
     this.gender = gender;
@@ -32,11 +34,19 @@ function Person(age, gender, profession, disability) {
     this.disability = disability;
 }
 
-function makeCondition2PS() {
+/*function makeCondition2PS() {
     return { // Conditions for 2 Person Scenarios
         people: createPeople2(),  //  [[personA, personB], [..., ...], ...]
         crossingType: ["crossing", "red light", "green light"],
         timer: [true, false]
+    }
+}*/
+
+function makeScenario() {
+    return { // Conditions for 2 group Scenarios
+        people: randomPeople(),  //  {groupA : [GroupA], groupB : [GroupB]}
+        crossingType: crossings[Math.floor(Math.random()*crossings.length)],
+        timer: Math.random() >= 0.5
     }
 }
 
@@ -57,6 +67,17 @@ function createPeople() {   // create people -  [Person(Age, Gender, Profession,
     return arr
 }
 
+function randomPeople(people = createPeople()) {
+    let randPeople = [];
+    for(let i = 0; i < 10; i++) {   // pick 10 people randomly
+        randPeople.push(people[Math.ceil(Math.random() * (people.length-1))]);
+    }
+    const half = Math.ceil(Math.random() * randPeople.length-1);
+    const peopleA = randPeople.splice(0, half); // split into group A
+    return {groupA : peopleA, groupB : randPeople};  // return groups
+}
+
+/*
 // takes an array of Person objects
 function createPeople2(people = createPeople()) {  // create pairs of people
     let arr = [];
@@ -118,6 +139,6 @@ function revertDisplay(tag) {
         tag.innerHTML = "PersonB";
         console.log(tag.innerHTML)
     }
-}
+}*/
 
-module.exports = createPeople();
+module.exports.makeScene = makeScenario;

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link href="CSS/Scenario1.css" rel="stylesheet">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			<script>
+				$(document).ready(() => {	// use variable names to replace new images
+					function getScene() {
+						$.get("scene", data => {
+							$("#crossing").text(data.crossingType);
+							$("#groupA").empty();
+							data.people["groupA"].forEach(person => {
+								$("#groupA").append(`<li>${person["age"]}</li>`)
+							});
+							$("#groupB").empty();
+							data.people["groupB"].forEach(person => {
+								$("#groupB").append(`<li>${person["age"]}</li>`)
+							})
+						});
+					}
+
+					$("form").submit(() => {
+						const form = $("form").serialize();
+						$.post("choice", form, data => {	// post data
+							if(data) {		// if data was received create new questions
+								getScene();
+							} else {		// else return error message
+								$("<strong style='color: #E32636; text-emphasis: #AF002A'>PICK AN OPTION!!!<br></strong>").insertBefore("form");
+							}
+						});
+					});
+
+					getScene()
+				});
+			</script>
+		</head>
+			<body>
+
+			
+
+			<h1><center>Ethics Generator</center></h1>
+
+			<div id="parent">
+				<div class="envir"><img src="Res/View1C.png" alt="View1" width="1000" height="500"></div>
+				<div class="girl"><img src="Res/girl_normal.png" alt="girl" width="18" height="40"></div>
+				<!-- OTHER SIDE OF ROAD -->
+				<div class="busman"><img src="Res/man_business.png" alt="busman" width="55" height="50"></div>
+				<!-- CAR -->
+				<div class="car"><img src="Res/car.png" alt="car" width="110" height="50"></div>
+			</div>
+
+
+			<h2>Scenario</h2>
+			
+			<p id="scen">You are approaching a <span style="color: #00CC00;" id="crossing"><b>crossing</b></span> and see a pedestrian ahead, so the car goes to brake, when suddenly the brakes on the car are not working; the car has 3 options. A = Proceed in the same lane. B = Swerve to other side of road. C = Swerve into a building.</p>
+
+			<form onsubmit="return false">
+				<div class="c1">
+					<b><input type="radio" class="radio" name="option" value="a">Option A:</b>
+					<p>But Kill - 
+						<ul id="groupA">
+							<li>1 Blind Girl</li>
+						</ul>
+					</p>
+				</div>
+				
+				<div class="c2">
+					<b><input type="radio" class="radio" name="option" value="b">Option B:</b>
+					<p>But Kill - 
+						<ul id="groupB">
+							<li>1 Business Man</li>
+						</ul>
+					</p>
+				</div>
+
+				
+				<div class="c3">
+					<b><input type="radio" class="radio" name="option" value="c">Option C:</b>
+					<p>But Kill - 
+						<ul>
+							<li>Yourself</li>
+						</ul>
+					</p>
+				</div>
+				
+
+				<h5><input type="submit" class="submitbtn" value="Confirm" ></h5>
+			</form>
+			</body>
+	</html>
