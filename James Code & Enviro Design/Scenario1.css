@@ -19,6 +19,7 @@ h2 {
 	 width: 75%;
 	 padding: 5px;
 	 background-color: #B284BE;
+	 background-size: contain;
 }
 
 #scen {
