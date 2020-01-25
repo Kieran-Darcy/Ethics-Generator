@@ -45,6 +45,10 @@ app.get('/', (req, res) => {
     res.sendFile('Scenario1.html', {root: __dirname})
 });
 
+app.get('/CSS/background.png', (req, res) => {
+    res.sendFile('Res/background.png', {root: __dirname})
+});
+
 app.get('/scene', (req, res) => {
     res.send(script.makeScene());
 });
