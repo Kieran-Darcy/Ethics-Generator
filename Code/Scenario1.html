@@ -11,12 +11,16 @@
 						$.get("scene", data => {
 							$("#crossing").text(data.crossingType);
 							$("#groupA").empty();
+							$("#parent").empty();
+							$("#parent").append("<div class='envir'><img src='Res/View1C.png' alt='View1' width='1000' height='500'></div>");
 							data.people["groupA"].forEach(person => {
-								$("#groupA").append(`<li>${person["age"]}</li>`)
+								$("#groupA").append(`<li>${person["age"]}</li>`);
+								$("#parent").append("<img src='Res/"+person["age"]+person["gender"]+person["profession"]+person["disability"]+".png'>")
 							});
 							$("#groupB").empty();
 							data.people["groupB"].forEach(person => {
-								$("#groupB").append(`<li>${person["age"]}</li>`)
+								$("#groupB").append(`<li>${person["age"]}</li>`);
+								$("#parent").append("<img src='Res/"+person["age"]+person["gender"]+person["profession"]+person["disability"]+".png'>")
 							})
 						});
 					}
@@ -25,9 +29,11 @@
 						const form = $("form").serialize();
 						$.post("choice", form, data => {	// post data
 							if(data) {		// if data was received create new questions
+								if($("#warning").length) {$("#warning").remove()}
 								getScene();
+								$(":input[type='radio']").prop("checked", false)
 							} else {		// else return error message
-								$("<strong style='color: #E32636; text-emphasis: #AF002A'>PICK AN OPTION!!!<br></strong>").insertBefore("form");
+								if(!$("#warning").length) {$("<strong id='warning' style='color: #E32636; text-emphasis: #AF002A'>PICK AN OPTION!!!<br></strong>").insertBefore("form");}
 							}
 						});
 					});
@@ -43,12 +49,12 @@
 			<h1><center>Ethics Generator</center></h1>
 
 			<div id="parent">
-				<div class="envir"><img src="Res/View1C.png" alt="View1" width="1000" height="500"></div>
-				<div class="girl"><img src="Res/girl_normal.png" alt="girl" width="18" height="40"></div>
-				<!-- OTHER SIDE OF ROAD -->
-				<div class="busman"><img src="Res/man_business.png" alt="busman" width="55" height="50"></div>
-				<!-- CAR -->
-				<div class="car"><img src="Res/car.png" alt="car" width="110" height="50"></div>
+<!--				<div class="envir"><img src="Res/View1C.png" alt="View1" width="1000" height="500"></div>
+				<div class="childfemale"><img src="Res/childfemalenonenone.png" alt="girl" width="18" height="40"></div>
+				&lt;!&ndash; OTHER SIDE OF ROAD &ndash;&gt;
+				<div class="adultmale"><img src="Res/adultmalebusiness personnone.png" alt="busman" width="55" height="50"></div>
+				&lt;!&ndash; CAR &ndash;&gt;
+				<div class="car"><img src="Res/car.png" alt="car" width="110" height="50"></div>-->
 			</div>
 
 

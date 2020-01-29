@@ -50,7 +50,9 @@ app.get('/CSS/background.png', (req, res) => {
 });
 
 app.get('/scene', (req, res) => {
-    res.send(script.makeScene());
+    const scene = script.makeScene();
+    console.log(scene);
+    res.send(scene);
 });
 
 app.post('/choice', (req, res) => {

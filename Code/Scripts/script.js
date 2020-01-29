@@ -67,7 +67,7 @@ function createPeople() {   // create people -  [Person(Age, Gender, Profession,
     return arr
 }
 
-function randomPeople(people = createPeople()) {
+function randomPeople(people = createPeople()) { //fix!!!
     let randPeople = [];
     for(let i = 0; i < 10; i++) {   // pick 10 people randomly
         randPeople.push(people[Math.ceil(Math.random() * (people.length-1))]);
