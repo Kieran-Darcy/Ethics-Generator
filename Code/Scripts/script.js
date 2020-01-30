@@ -34,14 +34,6 @@ function Person(age, gender, profession, disability) {
     this.disability = disability;
 }
 
-/*function makeCondition2PS() {
-    return { // Conditions for 2 Person Scenarios
-        people: createPeople2(),  //  [[personA, personB], [..., ...], ...]
-        crossingType: ["crossing", "red light", "green light"],
-        timer: [true, false]
-    }
-}*/
-
 /*
 scenario = {
     people: {groupA : [GroupA], groupB : [GroupB]},
