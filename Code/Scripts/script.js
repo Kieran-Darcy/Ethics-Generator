@@ -2,26 +2,26 @@ const conditionP = [ // Conditions for People
     {
         age: ["infant"],
         gender: ["male", "female"],
-        prof: ["none"],
-        disability: ["none"]
+        prof: [""],
+        disability: [""]
     },
     {
         age: ["child"],
         gender: ["male", "female"],
-        prof: ["none"],
-        disability: ["none", "wheelchair", "blind", "crutches"]
+        prof: [""],
+        disability: ["", "wheelchair", "blind", "crutches"]
     },
     {
         age: ["adult"],
         gender: ["male", "female"],
-        prof: ["none", "homeless", "business person"],
-        disability: ["none", "wheelchair", "blind", "crutches"]
+        prof: ["", "homeless", "business person"],
+        disability: ["", "wheelchair", "blind", "crutches"]
     },
     {
         age: ["elderly"],
         gender: ["male", "female"],
-        prof: ["none", "homeless", "business person"],
-        disability: ["none", "wheelchair", "blind", "crutches"]
+        prof: ["", "homeless", "business person"],
+        disability: ["", "wheelchair", "blind", "crutches"]
     }
 ];
 
