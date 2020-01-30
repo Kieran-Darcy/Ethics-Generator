@@ -72,6 +72,8 @@ function randomPeople(people = createPeople()) { //fix!!!
     for(let i = 0; i < 10; i++) {   // pick 10 people randomly
         randPeople.push(people[Math.ceil(Math.random() * (people.length-1))]);
     }
+
+    // make split point at index 5 - 8???
     const half = Math.ceil(Math.random() * randPeople.length-1);
     const peopleA = randPeople.splice(0, half); // split into group A
     return {groupA : peopleA, groupB : randPeople};  // return groups
