@@ -2,26 +2,26 @@ const conditionP = [ // Conditions for People
     {
         age: ["infant"],
         gender: ["male", "female"],
-        prof: ["none"],
-        disability: ["none"]
+        prof: [""],
+        disability: [""]
     },
     {
         age: ["child"],
         gender: ["male", "female"],
-        prof: ["none"],
-        disability: ["none", "wheelchair", "blind", "crutches"]
+        prof: [""],
+        disability: ["", "wheelchair", "blind", "crutches"]
     },
     {
         age: ["adult"],
         gender: ["male", "female"],
-        prof: ["none", "homeless", "business person"],
-        disability: ["none", "wheelchair", "blind", "crutches"]
+        prof: ["", "homeless", "business person"],
+        disability: ["", "wheelchair", "blind", "crutches"]
     },
     {
         age: ["elderly"],
         gender: ["male", "female"],
-        prof: ["none", "homeless", "business person"],
-        disability: ["none", "wheelchair", "blind", "crutches"]
+        prof: ["", "homeless", "business person"],
+        disability: ["", "wheelchair", "blind", "crutches"]
     }
 ];
 
@@ -41,6 +41,14 @@ function Person(age, gender, profession, disability) {
         timer: [true, false]
     }
 }*/
+
+/*
+scenario = {
+    people: {groupA : [GroupA], groupB : [GroupB]},
+    crossingType: "crossing" / "red light" / "green light",
+    timer: true / false
+}
+ */
 
 function makeScenario() {
     return { // Conditions for 2 group Scenarios
@@ -67,78 +75,15 @@ function createPeople() {   // create people -  [Person(Age, Gender, Profession,
     return arr
 }
 
-function randomPeople(people = createPeople()) { //fix!!!
+function randomPeople(people = createPeople()) {
     let randPeople = [];
+    // picks 10 random people
     for(let i = 0; i < 10; i++) {   // pick 10 people randomly
         randPeople.push(people[Math.ceil(Math.random() * (people.length-1))]);
     }
-    const half = Math.ceil(Math.random() * randPeople.length-1);
-    const peopleA = randPeople.splice(0, half); // split into group A
+    const variation = Math.round(Math.random()*2); // chooses a random number between 0 - 9
+    const peopleA = randPeople.splice(0, 4+variation); // split into group A
     return {groupA : peopleA, groupB : randPeople};  // return groups
 }
-
-/*
-// takes an array of Person objects
-function createPeople2(people = createPeople()) {  // create pairs of people
-    let arr = [];
-    for (let personA = 0; personA < people.length - 1; personA++) {
-        for (let personB = personA + 1; personB < people.length; personB++) {
-            arr.push([people[personA], people[personB]])
-        }
-    }
-    return arr
-}
-
-// takes makeCondition2PS() as a parameter
-function createSceneVars2P(condition2PS = makeCondition2PS()) {
-    let scenario = [];
-    for (let person = 0; person < condition2PS["people"].length; person++) {
-        for (let crossType = 0; crossType < condition2PS["crossingType"].length; crossType++) {
-            for (let timed = 0; timed < condition2PS["timer"].length; timed++) {
-                scenario.push([condition2PS["people"][person][0], condition2PS["people"][person][1], condition2PS["crossingType"][crossType], condition2PS["timer"][timed]])
-            }
-        }
-    }
-    return scenario
-}
-
-let peeps = [];
-let num = 0;
-
-function displayScene2P(scenes = createSceneVars2P()) {
-    const list = document.getElementById("scenarios");
-    scenes.forEach(scene => {
-        let li = document.createElement("li");
-        const personA = `(AgeGroup: <strong>${scene[0].age}</strong>, Gender: <strong>${scene[0].gender}</strong>, Profession: <strong>${scene[0].profession}</strong>, Disability: <strong>${scene[0].disability}</strong>)`;
-        const personB = `(AgeGroup: <strong>${scene[1].age}</strong>, Gender: <strong>${scene[1].gender}</strong>, Profession: <strong>${scene[1].profession}</strong>, Disability: <strong>${scene[1].disability}</strong>)`;
-        li.innerHTML = `You're approaching a <strong>${scene[2]}</strong> and see a pedestrian ahead, so the car goes to brake, when suddenly the brakes in the car stop working; the car has 3 options: <br> A = Proceed in the same lane and Kill <span id="a${num}" onmouseover="displayPerson(this)" onmouseout="revertDisplay(this)">PersonA</span> <br> B = Swerve to other side of road and Kill <span id="b${num}" onmouseover="displayPerson(this)" onmouseout="revertDisplay(this)" >PersonB</span> <br> C = Swerve into a building and Kill Yourself <br> Time = <strong>${scene[3]}</strong>`;
-        list.appendChild(li);
-        list.appendChild(document.createElement("br"));
-        num++;
-        peeps.push([personA, personB])
-    })
-}
-
-function displayPerson(tag, p = peeps) {
-    const id = tag.id;
-    if (id[0] === "a") {
-        tag.innerHTML = p[id.slice(1, id.length)][0];
-        console.log(tag.innerHTML)
-    } else {
-        tag.innerHTML = p[id.slice(1, id.length)][1];
-        console.log(tag.innerHTML)
-    }
-}
-
-function revertDisplay(tag) {
-    const id = tag.id;
-    if (id[0] === "a") {
-        tag.innerHTML = "PersonA";
-        console.log(tag.innerHTML)
-    } else {
-        tag.innerHTML = "PersonB";
-        console.log(tag.innerHTML)
-    }
-}*/
 
 module.exports.makeScene = makeScenario;

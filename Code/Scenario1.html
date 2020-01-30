@@ -9,21 +9,30 @@
 				$(document).ready(() => {	// use variable names to replace new images
 					function getScene() {
 						$.get("scene", data => {
+							/*
+
+							 */
 							$("#crossing").text(data.crossingType);
-							$("#groupA").empty();
-							$("#parent").empty();
-							$("#parent").append("<div class='envir'><img src='Res/View1C.png' alt='View1' width='1000' height='500'></div>");
+							$("#groupA").empty(); // clears group A
+							$("#groupB").empty(); // clears group B
+							$("#parent").empty(); // clears any images
+
+							$("#parent").append("<div class='envir'><img src='Res/View1C.png' alt='View1' width='1000' height='500'></div>"); // this inserts road background
+
+
+							// people[groupA] = {Person, Person, Person, ...}
 							data.people["groupA"].forEach(person => {
-								$("#groupA").append(`<li>${person["age"]}</li>`);
-								$("#parent").append("<img src='Res/"+person["age"]+person["gender"]+person["profession"]+person["disability"]+".png'>")
+								$("#groupA").append(`<li>${person["age"]} ${person["gender"]} ${person["profession"]} ${person["disability"]}</li>`); // insert all people from from group A into id = "groupA"
+								$("#parent").append("<img src='Res/"+person["age"]+person["gender"]+person["profession"]+person["disability"]+".png'>") // inserts all images from group A
 							});
-							$("#groupB").empty();
+
 							data.people["groupB"].forEach(person => {
-								$("#groupB").append(`<li>${person["age"]}</li>`);
-								$("#parent").append("<img src='Res/"+person["age"]+person["gender"]+person["profession"]+person["disability"]+".png'>")
+								$("#groupB").append(`<li>${person["age"]}</li>`); // insert people for group B into id = "groupB"
+								$("#parent").append("<img src='Res/"+person["age"]+person["gender"]+person["profession"]+person["disability"]+".png'>") // inserts all images from group B
 							})
 						});
 					}
+
 
 					$("form").submit(() => {
 						const form = $("form").serialize();
