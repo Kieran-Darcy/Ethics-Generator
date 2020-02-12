@@ -31,11 +31,77 @@ h2 {
 }
 
 
-.girl {
+InfantMaleL
+
+
+
+
+#ChildMaleL {
 	position: absolute;
 	right: 30%;
 	top: 65%;
+	width: 18px;
+	height: 35px;
 }
+
+#ChildFemaleL {
+	position: absolute;
+	right: 30%;
+	top: 65%;
+	width: 18px;
+	height: 35px;
+}
+
+#AdultMaleL {
+	position: absolute;
+	right: 30%;
+	top: 65%;
+	width: 25px;
+	width: 50px;
+}
+
+#AdultFemaleL {
+	position: absolute;
+	right: 30%;
+	top: 65%;
+	width: 37px;
+	height: 50px;
+}
+
+#AdultMaleEntrepreneurL {
+	position: absolute;
+	right: 30%;
+	top: 65%;
+	width: 25px;
+	height: 50px;
+}
+
+#AdultFemaleEntrepreneurL {
+	position: absolute;
+	right: 30%;
+	top: 65%;
+	width: 37px;
+	height: 50px;
+}
+
+#ElderlyMaleL {
+	position: absolute;
+	right: 30%;
+	top: 65%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyFemaleL {
+	position: absolute;
+	right: 30%;
+	top: 65%;
+	width: 22px;
+	height: 42px;
+}
+
+
+
 
 /* OTHER SIDE OF ROAD */
 
