@@ -34,14 +34,6 @@ function Person(age, gender, profession, disability) {
     this.disability = disability;
 }
 
-/*
-scenario = {
-    people: {groupA : [GroupA], groupB : [GroupB]},
-    crossingType: "crossing" / "red light" / "green light",
-    timer: true / false
-}
- */
-
 function makeScenario() {
     return { // Conditions for 2 group Scenarios
         people: randomPeople(),  //  {groupA : [GroupA], groupB : [GroupB]}
@@ -77,3 +69,7 @@ function randomPeople(people = createPeople()) {
     const peopleA = randPeople.splice(0, 4+variation); // split into group A
     return {groupA : peopleA, groupB : randPeople};  // return groups
 }
+
+module.exports.createPeople = createPeople;
+module.exports.randomPeople = randomPeople;
+module.exports.makeScene = makeScenario;
