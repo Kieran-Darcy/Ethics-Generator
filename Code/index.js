@@ -5,6 +5,7 @@ const app = express();
 const port = 80;
 app.use(express.static(__dirname));
 app.use(express.urlencoded({extended: true}));
+let currentScenario = {};
 
 /*// Create connection
 const connection = mysql.createConnection({
@@ -23,7 +24,7 @@ const connection = mysql.createConnection({
     multipleStatements: true
 });
 
-function randomPeople() {
+function randomPeople(people) {
     let randPeople = [];
     // picks 10 random people
     for(let i = 0; i < 10; i++) {   // pick 10 people randomly
@@ -42,13 +43,6 @@ function query(statement, request) {
     });
 }
 
-// Complete query without callback
-function query(statement) {
-    connection.query(statement, (err, result) => {
-        if (err) throw err;
-    });
-}
-
 function getPeople(numOfPeople = 10, response) {
     query(`SELECT * FROM person ORDER BY RAND() LIMIT ${numOfPeople}`, results => {
         return response(results)
@@ -57,7 +51,7 @@ function getPeople(numOfPeople = 10, response) {
 
 function getCrossing(response) {
     query('SELECT * FROM crossings ORDER BY RAND() LIMIT 1', result => {
-        return response(result[0].crossings)
+        return response(result[0].crossing)
     });
 }
 
@@ -67,7 +61,7 @@ function makeScene(response) {
         getCrossing(result => {
             return response({
                 people: randomPeople(people),  //  {groupA : [GroupA], groupB : [GroupB]}
-                crossingType: result[0].crossings,  // crossing / green light / red light
+                crossingType: result,  // crossing / green light / red light
                 timer: Math.random() >= 0.5
             })
         })
@@ -96,13 +90,16 @@ app.get('/CSS/background.png', (req, res) => {
 });
 
 app.get('/scene', (req, res) => {
-    res.send(script.makeScene())
+    currentScenario = script.makeScene();
+    res.send(currentScenario)
 /*    makeScene(results => {
-        res.send(results)
+        currentScenario = results;
+        res.send(currentScenario)
     })*/
 });
 
 app.post('/choice', (req, res) => {
+    console.log(currentScenario);
     const option = req.body.option;
     // if the option isn't null add it to the database along with the question
     res.send(option !== undefined)
