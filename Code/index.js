@@ -1,18 +1,19 @@
 const express = require('express');
 const mysql = require('mysql');
+const script = require(__dirname+'/Scripts/script.js');
 const app = express();
 const port = 80;
 app.use(express.static(__dirname));
 app.use(express.urlencoded({extended: true}));
 
-// Create connection
+/*// Create connection
 const connection = mysql.createConnection({
     host: "94.0.241.58",
     user: "user",
     password: "password",
     database: "ethicsgenerator",
     multipleStatements: true
-});
+});*/
 
 function randomPeople() {
     let randPeople = [];
@@ -77,9 +78,10 @@ app.get('/CSS/background.png', (req, res) => {
 });
 
 app.get('/scene', (req, res) => {
-    makeScene(results => {
+    res.send(script.makeScene())
+/*    makeScene(results => {
         res.send(results)
-    })
+    })*/
 });
 
 app.post('/choice', (req, res) => {
