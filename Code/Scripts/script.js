@@ -9,19 +9,19 @@ const conditionP = [ // Conditions for People
         age: ["Child"],
         gender: ["Male", "Female"],
         prof: [""],
-        disability: ["", "Wheelchair_Bound", "Blind"]
+        disability: ["", "Wheelchair_Bound"]
     },
     {
         age: ["Adult"],
         gender: ["Male", "Female"],
         prof: ["", "Homeless", "Entrepreneur"],
-        disability: ["", "Wheelchair_Bound", "Blind"]
+        disability: ["", "Wheelchair_Bound"]
     },
     {
         age: ["Elderly"],
         gender: ["Male", "Female"],
         prof: ["", "Homeless"],
-        disability: ["", "Wheelchair_Bound", "Blind"]
+        disability: ["", "Wheelchair_Bound"]
     }
 ];
 
