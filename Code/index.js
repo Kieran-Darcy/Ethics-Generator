@@ -73,7 +73,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/CSS/background.png', (req, res) => {
-    res.sendFile('Res/background.png', {root: __dirname})
+    res.sendFile('background.png', {root: __dirname})
 });
 
 app.get('/scene', (req, res) => {

@@ -1,31 +1,31 @@
 const conditionP = [ // Conditions for People
     {
-        age: ["infant"],
-        gender: ["male", "female"],
+        age: ["Infant"],
+        gender: ["Male", "Female"],
         prof: [""],
         disability: [""]
     },
     {
-        age: ["child"],
-        gender: ["male", "female"],
+        age: ["Child"],
+        gender: ["Male", "Female"],
         prof: [""],
-        disability: ["", "wheelchair", "blind", "crutches"]
+        disability: ["", "Wheelchair_Bound", "Blind"]
     },
     {
-        age: ["adult"],
-        gender: ["male", "female"],
-        prof: ["", "homeless", "business person"],
-        disability: ["", "wheelchair", "blind", "crutches"]
+        age: ["Adult"],
+        gender: ["Male", "Female"],
+        prof: ["", "Homeless", "Entrepreneur"],
+        disability: ["", "Wheelchair_Bound", "Blind"]
     },
     {
-        age: ["elderly"],
-        gender: ["male", "female"],
-        prof: ["", "homeless", "business person"],
-        disability: ["", "wheelchair", "blind", "crutches"]
+        age: ["Elderly"],
+        gender: ["Male", "Female"],
+        prof: ["", "Homeless"],
+        disability: ["", "Wheelchair_Bound", "Blind"]
     }
 ];
 
-const crossings = ["crossing", "red light", "green light"];
+const crossings = ["Zebra Crossing", "Red Light", "Green Light"];
 
 function Person(age, gender, profession, disability) {
     this.age = age;
