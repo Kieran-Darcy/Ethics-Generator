@@ -9,21 +9,21 @@
 				$(document).ready(() => {	// use variable names to replace new images
 					function getScene() {
 						$.get("scene", data => {
-							/*
+							
 
-							 */
+							console.log("hello garry"); 
 							$("#crossing").text(data.crossingType);
 							$("#groupA").empty(); // clears group A
 							$("#groupB").empty(); // clears group B
 							$("#parent").empty(); // clears any images
 
-							$("#parent").append("<div class='envir'><img src='Res/View1C.png' alt='View1' width='1000' height='500'></div>"); // this inserts road background
+							$("#parent").append("<div class='envir'><img src='View1C.png' alt='View1' width='1000' height='500'></div>"); // this inserts road background
 
 
 							// people[groupA] = {Person, Person, Person, ...}
 							data.people["groupA"].forEach(person => {
 								$("#groupA").append(`<li>${person["age"]} ${person["gender"]} ${person["profession"]} ${person["disability"]}</li>`); // insert all people from from group A into id = "groupA"
-								$("#parent").append("<img src='Res/"+person["age"]+person["gender"]+person["profession"]+person["disability"]+".png'>") // inserts all images from group A
+								$("#parent").append("<img id='"${person["age"]} ${person["gender"]} ${person["profession"]} ${person["disability"]}"' src='Res/"+person["age"]+person["gender"]+person["profession"]+person["disability"]+".png'>") // inserts all images from group A
 							});
 
 							data.people["groupB"].forEach(person => {
@@ -57,13 +57,94 @@
 
 			<h1><center>Ethics Generator</center></h1>
 
-			<div id="parent">
-<!--				<div class="envir"><img src="Res/View1C.png" alt="View1" width="1000" height="500"></div>
-				<div class="childfemale"><img src="Res/childfemalenonenone.png" alt="girl" width="18" height="40"></div>
-				&lt;!&ndash; OTHER SIDE OF ROAD &ndash;&gt;
-				<div class="adultmale"><img src="Res/adultmalebusiness personnone.png" alt="busman" width="55" height="50"></div>
-				&lt;!&ndash; CAR &ndash;&gt;
-				<div class="car"><img src="Res/car.png" alt="car" width="110" height="50"></div>-->
+			<div id="parent">	
+
+				<div class="envir"><img src="View1C.png" alt="View1" width="1000" height="500"></div>
+
+				<!-- **************************************************************LEFT********************************************************************** -->
+
+				<div id="InfantMale"><img src="x.png" alt="InfantMale" width="18" height="35"></div>
+				<div id="InfantFemale"><img src="x.png" alt="InfantFemale" width="18" height="35"></div>
+				<div id="ChildMale"><img src="ChildMale.png" alt="ChildMale" width="18" height="35"></div>
+				<div id="ChildMaleWheelchair_Bound"><img src="x.png" alt="ChildMaleWheelchair_Bound" width="18" height="35"></div>
+				<div id="ChildMaleBlind"><img src="x.png" alt="ChildMaleBlind" width="18" height="35"></div>
+				<div id="ChildFemale"><img src="x.png" alt="ChildFemale" width="18" height="35"></div>
+				<div id="ChildFemaleWheelchair_Bound"><img src="x.png" alt="ChildFemaleWheelchair_Bound" width="18" height="35"></div>
+				<div id="ChildFemaleBlind"><img src="x.png" alt="ChildFemaleBlind" width="18" height="35"></div>
+				<div id="AdultMale"><img src="x.png" alt="AdultMale" width="25" height="50"></div>
+				<div id="AdultMaleWheelchair_Bound"><img src="x.png" alt="AdultMaleWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultMaleBlind"><img src="x.png" alt="AdultMaleBlind" width="25" height="50"></div>
+				<div id="AdultMaleHomeless"><img src="x.png" alt="AdultMaleHomeless" width="25" height="50"></div>
+				<div id="AdultMaleHomelessWheelchair_Bound"><img src="x.png" alt="AdultMaleHomelessWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultMaleHomelessBlind"><img src="x.png" alt="AdultMaleHomelessBlind" width="25" height="50"></div>
+				<div id="AdultMaleEntrepreneur"><img src="x.png" alt="AdultMaleEntrepreneur" width="25" height="50"></div>
+				<div id="AdultMaleEntrepreneurWheelchair_Bound"><img src="x.png" alt="AdultMaleEntrepreneurWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultMaleEntrepreneurBlind"><img src="x.png" alt="AdultMaleEntrepreneurBlind" width="25" height="50"></div>
+				<div id="AdultFemale"><img src="x.png" alt="AdultFemale" width="37" height="50"></div>
+				<div id="AdultFemaleWheelchair_Bound"><img src="x.png" alt="AdultFemaleWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultFemaleBlind"><img src="x.png" alt="AdultFemaleBlind" width="25" height="50"></div>
+				<div id="AdultFemaleHomeless"><img src="x.png" alt="AdultFemaleHomeless" width="37" height="50"></div>
+				<div id="AdultFemaleHomelessWheelchair_Bound"><img src="x.png" alt="AdultFemaleHomelessWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultFemaleHomelessBlind"><img src="x.png" alt="AdultFemaleHomelessBlind" width="25" height="50"></div>
+				<div id="AdultFemaleEntrepreneur"><img src="x.png" alt="AdultFemaleEntrepreneur" width="37" height="50"></div>
+				<div id="AdultFemaleEntrepreneurWheelchair_Bound"><img src="x.png" alt="AdultFemaleEntrepreneurWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultFemaleEntrepreneurBlind"><img src="x.png" alt="AdultFemaleEntrepreneurBlind" width="25" height="50"></div>
+				<div id="ElderlyMale"><img src="x.png" alt="ElderlyMale" width="22" height="42"></div>
+				<div id="ElderlyMaleWheelchair_Bound"><img src="x.png" alt="ElderlyMaleWheelchair_Bound" width="22" height="42"></div>
+				<div id="ElderlyMaleBlind"><img src="x.png" alt="ElderlyMaleBlind" width="22" height="42"></div>
+				<div id="ElderlyMaleHomeless"><img src="x.png" alt="ElderlyMaleHomeless" width="22" height="42"></div>
+				<div id="ElderlyMaleHomelessWheelchair_Bound"><img src="x.png" alt="ElderlyMaleHomelessWheelchair_Bound" width="22" height="42"></div>
+				<div id="ElderlyMaleHomelessBlind"><img src="x.png" alt="ElderlyMaleBlind" width="22" height="42"></div>
+				<div id="ElderlyFemale"><img src="x.png" alt="ElderlyFemale" width="22" height="42"></div>
+				<div id="ElderlyFemaleWheelchair_Bound"><img src="x.png" alt="ElderlyFemaleWheelchair_Bound" width="22" height="42"></div>
+				<div id="ElderlyFemaleBlind"><img src="x.png" alt="ElderlyFemaleBlind" width="22" height="42"></div>
+				<div id="ElderlyFemaleHomeless"><img src="x.png" alt="ElderlyFemaleHomeless" width="22" height="42"></div>
+				<div id="ElderlyFemaleHomelessWheelchair_Bound"><img src="x.png" alt="ElderlyFemaleHomelessWheelchair_Bound" width="22" height="42"></div>
+				<div id="ElderlyFemaleHomelessBlind"><img src="x.png" alt="ElderlyFemaleHomelessBlind" width="22" height="42"></div>
+
+				<!-- *******************************************************RIGHT********************************************************************** 
+
+				<div id="InfantMale"><img src="x.png" alt="InfantMale" width="18" height="35"></div>
+				<div id="InfantFemale"><img src="x.png" alt="ChildMale" width="18" height="35"></div>
+				<div id="ChildMale"><img src="x.png" alt="ChildMale" width="18" height="35"></div>
+				<div id="ChildMaleWheelchair_Bound"><img src="x.png" alt="ChildMaleWheelchair_Bound" width="18" height="35"></div>
+				<div id="ChildMaleBlind"><img src="x.png" alt="ChildMaleBlind" width="18" height="35"></div>
+				<div id="ChildFemale"><img src="x.png" alt="ChildFemale" width="18" height="35"></div>
+				<div id="ChildFemaleWheelchair_Bound"><img src="x.png" alt="ChildFemaleWheelchair_Bound" width="18" height="35"></div>
+				<div id="ChildFemaleBlind"><img src="x.png" alt="ChildFemaleBlind" width="18" height="35"></div>
+				<div id="AdultMale"><img src="x.png" alt="AdultMale" width="25" height="50"></div>
+				<div id="AdultMaleWheelchair_Bound"><img src="x.png" alt="AdultMaleWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultMaleBlind"><img src="x.png" alt="AdultMaleBlind" width="25" height="50"></div>
+				<div id="AdultMaleHomeless"><img src="x.png" alt="AdultMaleHomeless" width="25" height="50"></div>
+				<div id="AdultMaleHomelessWheelchair_Bound"><img src="x.png" alt="AdultMaleHomelessWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultMaleHomelessBlind"><img src="x.png" alt="AdultMaleHomelessBlind" width="25" height="50"></div>
+				<div id="AdultMaleEntrepreneur"><img src="x.png" alt="AdultMaleEntrepreneur" width="25" height="50"></div>
+				<div id="AdultMaleEntrepreneurWheelchair_Bound"><img src="x.png" alt="AdultMaleEntrepreneurWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultMaleEntrepreneurBlind"><img src="x.png" alt="AdultMaleEntrepreneurBlind" width="25" height="50"></div>
+				<div id="AdultFemale"><img src="x.png" alt="AdultFemale" width="37" height="50"></div>
+				<div id="AdultFemaleWheelchair_Bound"><img src="x.png" alt="AdultFemaleWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultFemaleBlind"><img src="x.png" alt="AdultFemaleBlind" width="25" height="50"></div>
+				<div id="AdultFemaleHomeless"><img src="x.png" alt="AdultFemaleHomeless" width="37" height="50"></div>
+				<div id="AdultFemaleHomelessWheelchair_Bound"><img src="x.png" alt="AdultFemaleHomelessWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultFemaleHomelessBlind"><img src="x.png" alt="AdultFemaleHomelessBlind" width="25" height="50"></div>
+				<div id="AdultFemaleEntrepreneur"><img src="x.png" alt="AdultFemaleEntrepreneur" width="37" height="50"></div>
+				<div id="AdultFemaleEntrepreneurWheelchair_Bound"><img src="x.png" alt="AdultFemaleEntrepreneurWheelchair_Bound" width="25" height="50"></div>
+				<div id="AdultFemaleEntrepreneurBlind"><img src="x.png" alt="AdultFemaleEntrepreneurBlind" width="25" height="50"></div>
+				<div id="ElderlyMale"><img src="x.png" alt="AdultMale" width="22" height="42"></div>
+				<div id="ElderlyMaleWheelchair_Bound"><img src="x.png" alt="AdultMale" width="22" height="42"></div>
+				<div id="ElderlyMaleBlind"><img src="x.png" alt="AdultMale" width="22" height="42"></div>
+				<div id="ElderlyMaleHomeless"><img src="x.png" alt="ElderlyMaleHomeless" width="22" height="42"></div>
+				<div id="ElderlyMaleHomelessWheelchair_Bound"><img src="x.png" alt="ElderlyMaleHomelessWheelchair_Bound" width="22" height="42"></div>
+				<div id="ElderlyMaleHomelessBlind"><img src="x.png" alt="ElderlyMaleBlind" width="22" height="42"></div>
+				<div id="ElderlyFemale"><img src="x.png" alt="ElderlyMaleHomeless" width="22" height="42"></div>
+				<div id="ElderlyFemaleWheelchair_Bound"><img src="x.png" alt="ElderlyMaleHomeless" width="22" height="42"></div>
+				<div id="ElderlyFemaleBlind"><img src="x.png" alt="ElderlyFemaleBlind" width="22" height="42"></div>
+				<div id="ElderlyFemaleHomeless"><img src="x.png" alt="ElderlyFemaleHomeless" width="22" height="42"></div>
+				<div id="ElderlyFemaleHomelessWheelchair_Bound"><img src="x.png" alt="ElderlyFemaleHomelessWheelchair_Bound" width="22" height="42"></div>
+				<div id="ElderlyFemaleHomelessBlind"><img src="x.png" alt="ElderlyFemaleHomelessBlind" width="22" height="42"></div>
+
+			-->
+				
 			</div>
 
 
