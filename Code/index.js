@@ -15,6 +15,14 @@ const connection = mysql.createConnection({
     multipleStatements: true
 });*/
 
+const connection = mysql.createConnection({
+    host: "dragon.kent.ac.uk",
+    user: "kd333",
+    password: "lar/nar",
+    database: "kd333",
+    multipleStatements: true
+});
+
 function randomPeople() {
     let randPeople = [];
     // picks 10 random people
@@ -26,11 +34,18 @@ function randomPeople() {
     return {groupA : peopleA, groupB : randPeople};  // return groups
 }
 
-// Complete query
+// Complete query with callback
 function query(statement, request) {
     connection.query(statement, (err, results) => {
         if (err) throw err;
         return request(results);
+    });
+}
+
+// Complete query without callback
+function query(statement) {
+    connection.query(statement, (err, result) => {
+        if (err) throw err;
     });
 }
 
@@ -60,14 +75,17 @@ function makeScene(response) {
 }
 
 // Insert people to the table
-/*function insertPeople() {
+/*function insertData() {
     script.createPeople().forEach(person => {
         let statement = `INSERT INTO person (age, gender, profession, disability) VALUES ('${person.age}', '${person.gender}', '${person.profession}', '${person.disability}')`;
-        console.log(query(statement))
+        query(statement)
+    });
+    script.crossings.forEach(crossings => {
+        let statement = `INSERT INTO crossings (crossing) VALUES ('${crossings}')`;
+        query(statement)
     });
     console.log("Statement complete!");
 }*/
-
 
 app.get('/', (req, res) => {
     res.sendFile('Scenario1.html', {root: __dirname})

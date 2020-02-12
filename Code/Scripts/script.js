@@ -73,3 +73,4 @@ function randomPeople(people = createPeople()) {
 module.exports.createPeople = createPeople;
 module.exports.randomPeople = randomPeople;
 module.exports.makeScene = makeScenario;
+module.exports.crossings = crossings;

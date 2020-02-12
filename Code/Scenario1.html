@@ -9,9 +9,7 @@
 				$(document).ready(() => {	// use variable names to replace new images
 					function getScene() {
 						$.get("scene", data => {
-							console.table(data);
 
-							console.log("hello garry"); 
 							$("#crossing").text(data.crossingType);
 							$("#groupA").empty(); // clears group A
 							$("#groupB").empty(); // clears group B
