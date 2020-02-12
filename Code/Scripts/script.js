@@ -77,5 +77,3 @@ function randomPeople(people = createPeople()) {
     const peopleA = randPeople.splice(0, 4+variation); // split into group A
     return {groupA : peopleA, groupB : randPeople};  // return groups
 }
-
-module.exports.makeScene = makeScenario;
