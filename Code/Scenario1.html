@@ -9,7 +9,7 @@
 				$(document).ready(() => {	// use variable names to replace new images
 					function getScene() {
 						$.get("scene", data => {
-							
+							console.table(data);
 
 							console.log("hello garry"); 
 							$("#crossing").text(data.crossingType);
@@ -23,7 +23,7 @@
 							// people[groupA] = {Person, Person, Person, ...}
 							data.people["groupA"].forEach(person => {
 								$("#groupA").append(`<li>${person["age"]} ${person["gender"]} ${person["profession"]} ${person["disability"]}</li>`); // insert all people from from group A into id = "groupA"
-								$("#parent").append("<img id='"${person["age"]} ${person["gender"]} ${person["profession"]} ${person["disability"]}"' src='Res/"+person["age"]+person["gender"]+person["profession"]+person["disability"]+".png'>") // inserts all images from group A
+								$("#parent").append(`<img id='${person["age"]}${person["gender"]}${person["profession"]}${person["disability"]}' src='Res/"${person["age"]}${person["gender"]}${person["profession"]}${person["disability"]}.png>`) // inserts all images from group A
 							});
 
 							data.people["groupB"].forEach(person => {
