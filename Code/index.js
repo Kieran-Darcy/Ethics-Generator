@@ -7,22 +7,22 @@ app.use(express.static(__dirname));
 app.use(express.urlencoded({extended: true}));
 let currentScenario = {};
 
-/*// Create connection
+// Create connection
 const connection = mysql.createConnection({
-    host: "94.0.241.58",
+    host: "151.231.205.6",
     user: "user",
     password: "password",
     database: "ethicsgenerator",
     multipleStatements: true
-});*/
+});
 
-const connection = mysql.createConnection({
+/*const connection = mysql.createConnection({
     host: "dragon.kent.ac.uk",
     user: "kd333",
     password: "lar/nar",
     database: "kd333",
     multipleStatements: true
-});
+});*/
 
 function randomPeople(people) {
     let randPeople = [];
@@ -39,7 +39,7 @@ function randomPeople(people) {
 function query(statement, request) {
     connection.query(statement, (err, results) => {
         if (err) throw err;
-        return request(results);
+        return (request === undefined) ? null : request(results);
     });
 }
 
@@ -79,7 +79,8 @@ function makeScene(response) {
         query(statement)
     });
     console.log("Statement complete!");
-}*/
+}
+insertData();*/
 
 app.get('/', (req, res) => {
     res.sendFile('Scenario1.html', {root: __dirname})
@@ -90,12 +91,12 @@ app.get('/CSS/background.png', (req, res) => {
 });
 
 app.get('/scene', (req, res) => {
-    currentScenario = script.makeScene();
-    res.send(currentScenario)
-/*    makeScene(results => {
+/*    currentScenario = script.makeScene();
+    res.send(currentScenario)*/
+    makeScene(results => {
         currentScenario = results;
         res.send(currentScenario)
-    })*/
+    })
 });
 
 app.post('/choice', (req, res) => {
