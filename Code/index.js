@@ -68,6 +68,10 @@ function makeScene(response) {
     })
 }
 
+function saveResults(id, scene, choice) {
+    query(`INSERT INTO results (id, scenario, choice) VALUES ('${id}', '${scene}', '${choice}')`)
+}
+
 // Insert people to the table
 /*function insertData() {
     script.createPeople().forEach(person => {
@@ -100,10 +104,14 @@ app.get('/scene', (req, res) => {
 });
 
 app.post('/choice', (req, res) => {
-    console.log(currentScenario);
     const option = req.body.option;
     // if the option isn't null add it to the database along with the question
-    res.send(option !== undefined)
+    res.send(option !== undefined);
+    if (option !== undefined) {
+        /*
+        saveResults(id, scenario, choice);
+         */
+    }
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
