@@ -1,6 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
-const script = require(__dirname+'/Scripts/script.js');
+const script = require(__dirname + '/Scripts/script.js');
 const app = express();
 const port = 80;
 app.use(express.static(__dirname));
@@ -24,15 +24,11 @@ const connection = mysql.createConnection({
     multipleStatements: true
 });*/
 
-function randomPeople(people) {
-    let randPeople = [];
-    // picks 10 random people
-    for(let i = 0; i < 10; i++) {   // pick 10 people randomly
-        randPeople.push(people[Math.ceil(Math.random() * (people.length-1))]);
-    }
-    const variation = Math.round(Math.random()*2); // chooses a random number between 0 - 9
-    const peopleA = randPeople.splice(0, 4+variation); // split into group A
-    return {groupA : peopleA, groupB : randPeople};  // return groups
+function sortPeople(groupAB, groupC) {
+    let people = groupAB;
+    const variation = Math.round(Math.random() - Math.random()); // chooses a random number between -1 - 1
+    const peopleA = people.splice(0, Math.round(people.length/2) + variation); // split into group A
+    return {groupA: peopleA, groupB: people, groupC: groupC} // return groups
 }
 
 // Complete query with callback
@@ -57,12 +53,15 @@ function getCrossing(response) {
 
 // Make a scene for 2 group Scenarios
 function makeScene(response) {
-    getPeople(10, people => {
-        getCrossing(result => {
-            return response({
-                people: randomPeople(people),  //  {groupA : [GroupA], groupB : [GroupB]}
-                crossingType: result,  // crossing / green light / red light
-                timer: Math.random() >= 0.5
+    const numOfPeople = 4+(Math.round(Math.random()*(10-4)));
+    getPeople(numOfPeople, groupAB => {
+        getPeople((numOfPeople > 4) ? Math.round(Math.random()*4) : 0, groupC => {
+            getCrossing(result => {
+                return response({
+                    people: sortPeople(groupAB, groupC),  //  {groupA : [GroupA], groupB : [GroupB], groupC : [GroupC]}
+                    crossingType: result,  // crossing / green light / red light
+                    timer: Math.random() >= 0.5
+                })
             })
         })
     })
@@ -95,8 +94,8 @@ app.get('/CSS/background.png', (req, res) => {
 });
 
 app.get('/scene', (req, res) => {
-/*    currentScenario = script.makeScene();
-    res.send(currentScenario)*/
+    /*    currentScenario = script.makeScene();
+        res.send(currentScenario)*/
     makeScene(results => {
         currentScenario = results;
         res.send(currentScenario)
