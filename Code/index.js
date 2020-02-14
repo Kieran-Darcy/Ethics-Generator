@@ -27,7 +27,7 @@ const connection = mysql.createConnection({
 function sortPeople(groupAB, groupC) {
     let people = groupAB;
     const variation = Math.round(Math.random() - Math.random()); // chooses a random number between -1 - 1
-    const peopleA = people.splice(0, Math.round(people.length/2) + variation); // split into group A
+    const peopleA = people.splice(0, Math.round(people.length/2) /*+ variation*/); // split into group A
     return {groupA: peopleA, groupB: people, groupC: groupC} // return groups
 }
 
@@ -53,9 +53,9 @@ function getCrossing(response) {
 
 // Make a scene for 2 group Scenarios
 function makeScene(response) {
-    const numOfPeople = 4+(Math.round(Math.random()*(10-4)));
+    const numOfPeople = 2+(Math.round(Math.random()*(10-2)));
     getPeople(numOfPeople, groupAB => {
-        getPeople((numOfPeople > 4) ? Math.round(Math.random()*4) : 0, groupC => {
+        getPeople((numOfPeople > 4) ? 1+Math.round(Math.random()*(4-1)) : 0, groupC => {
             getCrossing(result => {
                 return response({
                     people: sortPeople(groupAB, groupC),  //  {groupA : [GroupA], groupB : [GroupB], groupC : [GroupC]}
@@ -69,6 +69,12 @@ function makeScene(response) {
 
 function saveResults(id, scene, choice) {
     query(`INSERT INTO results (id, scenario, choice) VALUES ('${id}', '${scene}', '${choice}')`)
+}
+
+function getResults(id, response) {
+    query(`SELECT * FROM results WHERE id = '${id}'`, results => {
+        return response(results)
+    })
 }
 
 // Insert people to the table
@@ -105,12 +111,11 @@ app.get('/scene', (req, res) => {
 app.post('/choice', (req, res) => {
     const option = req.body.option;
     // if the option isn't null add it to the database along with the question
-    res.send(option !== undefined);
     if (option !== undefined) {
-        /*
-        saveResults(id, scenario, choice);
-         */
+        let id = "fakeID";
+        saveResults(id, (JSON.stringify(currentScenario)), option);
     }
+    res.send(option !== undefined);
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
