@@ -15,17 +15,17 @@ const conditionP = [ // Conditions for People
         age: ["Adult"],
         gender: ["Male", "Female"],
         prof: ["", "Homeless", "Entrepreneur"],
-        disability: ["", "Wheelchair_Bound", "Blind"]
+        disability: ["", "Wheelchair_Bound"]
     },
     {
         age: ["Elderly"],
         gender: ["Male", "Female"],
         prof: ["", "Homeless"],
-        disability: ["", "Wheelchair_Bound", "Blind"]
+        disability: ["", "Blind"]
     }
 ];
 
-const crossings = ["Zebra_Crossing", "Red_Light", "Green_Light"];
+const crossings = ["zebra crossing", "red light", "green light"];
 
 function Person(age, gender, profession, disability) {
     this.age = age;

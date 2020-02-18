@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="homepage.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <script src="scripts.js"></script>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>AUTONOMOUS ETHICS</h1>
+        <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="">GENERATOR</a></li>
+            <li><a href="">STATS</a></li>
+        </ul>
+
+    <center><button type="button" class="collapsible" >START</button></center>
+    <div class="content">
+        <p>Testing</p>
+    </div>
+
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+        </script>
+    <hr class="col-xs-12">
+        <h3>INSTRUCTIONS</h3>
+            <p>1. ()</p>
+            <p>2.</p>
+            <p>3.</p>
+
+    </body>
+</html>

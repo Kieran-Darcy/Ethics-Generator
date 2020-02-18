@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #333;
+    display: block;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+.collapsible {
+    background-color: #555555;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 10%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
+    text-align: center;
+}
+
+.active, .collapsible:hover {
+    background-color: #555555;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+h1  {
+    font-family: Poppins;
+    font-weight: 400;
+}
+
+a{
+    font-weight: bold;
+}
+
+h1 {
+    padding-left: 5px;
+}
+
+button {
+    position: static;
+    top: 60px;
+    font-family: Poppins;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+li {
+    font-weight: 700;
+    font-family: Poppins;
+
+}
+
+h3 {
+    font-weight: 400;
+    font-family: Poppins;
+    text-align: center;
+    padding-top: 20px;
+}
+
+hr {
+    background-color: white;
+}
+
+p {
+    text-align: center;
+    font-family: Poppins;
+}
+/* Dropdown button on hover & focus */
+
+/* The container <div> - needed to position the dropdown content */
+
+
