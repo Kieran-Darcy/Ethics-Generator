@@ -5,54 +5,96 @@ body {
 }
 
 h1 {
-	
+	font-family: 'Poppins';
 }
 
 h2 {
 	width: 23%;
+	padding-left: 5px;
+	font-family: 'Poppins';
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------- */
-* {
-	box-sizing: border-box;
+
+
+.nav ul {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  
 }
 
-#design ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow: hidden;
-    background-color: #333;
-    display: block;
+.nav li {
+  float: left;
 }
 
-#design li {
-    float: left;
+.nav li a {
+  display: block;
+  padding: 14px 16px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Poppins';
+  font-weight: 900;
+  font-style: normal;
+  font-size: 16px;
 }
 
-#design li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-#design li a:hover {
+li a:hover {
     background-color: #111;
+}
+
+.c1 b {
+	font-family: 'Poppins';
+	font-size: 12px;
+}
+
+.c2 b {
+	font-family: 'Poppins';
+	font-size: 12px;
+}
+
+.c3 b {
+	font-family: 'Poppins';
+	font-size: 12px;
+}
+
+.c1 p, ul {
+	font-family: 'Poppins';
+	font-size: 12px;
+	
+}
+
+.c2 p, ul {
+	font-family: 'Poppins';
+	font-size: 12px;
+	
+}
+
+.c3 p, ul {
+	font-family: 'Poppins';
+	font-size: 12px;
+	
 }
 
 /********************************************************* TAYLORS NAV DESIGN *****************************************************************************/
 
-.envir{
+.envir img{
 	float: right;
 	padding: 5px;
+	padding-top: 25px;
+	border-radius: 400px 400px 175px 175px;
 }
 
 #scen {
 	width: 23%;
+	padding-left: 5px;
+	font-family: 'Poppins';
+	font-size: 12.5px;
+	text-align: justify;
 }
 
 .parent{
@@ -564,7 +606,7 @@ margin-top: 1%;
 }
 
 form {
-	background-color: rgb(171,39,79, 0.4);
+	background-color: rgb(153,102,255, 0.6);
 	width: 23%;
 	border-radius: 7.5%;
 	padding-left: 1%;
@@ -573,12 +615,12 @@ form {
 }
 
 
-
-
-
 .submitbtn {
 	float: left;
-	margin-left: 80%;
+	margin-left: 75%;
+	font-family: 'Poppins';
+	margin-bottom: 10%;
+	border-radius: 5%;
 
 }
 
