@@ -1,31 +1,100 @@
 body {
  	background-image: url("background.png");
-	background-repeat: no-repeat;
-	background-size: cover;
- }
-
+ 	background-repeat: no-repeat;
+ 	background-size: cover;
+}
 
 h1 {
-	background-color: #C46210;
+	font-family: 'Poppins';
 }
 
 h2 {
-	background-color: #AF002A;
 	width: 23%;
+	padding-left: 5px;
+	font-family: 'Poppins';
 }
 
-/* ------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
-.envir{
-	 float: right;
-	 width: 75%;
-	 padding: 5px;
-	 background-color: #B284BE;
+
+.nav ul {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  
+}
+
+.nav li {
+  float: left;
+}
+
+.nav li a {
+  display: block;
+  padding: 14px 16px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Poppins';
+  font-weight: 900;
+  font-style: normal;
+  font-size: 16px;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.c1 b {
+	font-family: 'Poppins';
+	font-size: 12px;
+}
+
+.c2 b {
+	font-family: 'Poppins';
+	font-size: 12px;
+}
+
+.c3 b {
+	font-family: 'Poppins';
+	font-size: 12px;
+}
+
+.c1 p, ul {
+	font-family: 'Poppins';
+	font-size: 12px;
+	
+}
+
+.c2 p, ul {
+	font-family: 'Poppins';
+	font-size: 12px;
+	
+}
+
+.c3 p, ul {
+	font-family: 'Poppins';
+	font-size: 12px;
+	
+}
+
+/********************************************************* TAYLORS NAV DESIGN *****************************************************************************/
+
+.envir img{
+	float: right;
+	padding: 5px;
+	padding-top: 25px;
+	border-radius: 400px 400px 175px 175px;
 }
 
 #scen {
-	background-color: blue;
 	width: 23%;
+	padding-left: 5px;
+	font-family: 'Poppins';
+	font-size: 12.5px;
+	text-align: justify;
 }
 
 .parent{
@@ -33,30 +102,487 @@ h2 {
 }
 
 
-.girl {
+.InfantMaleL {
 	position: absolute;
 	right: 30%;
 	top: 65%;
+	width: 18px;
+	height: 35px;
 }
 
-/* OTHER SIDE OF ROAD */
+.InfantFemaleL {
+	position: absolute;
+	right: 30.5%;
+	top: 65%;
+	width: 18px;
+	height: 35px;
+}
 
-.busman {
+
+#ChildMaleL {
+	position: absolute;
+	right: 29%;
+	top: 61%;
+	width: 18px;
+	height: 35px;
+}
+
+#ChildMaleWheelchair_BoundL {
+	position: absolute;
+	right: 29%;
+	top: 61%;
+	width: 22px;
+	height: 30px;
+}
+
+#ChildMaleBlindL {
+	position: absolute;
+	right: 29%;
+	top: 61%;
+	width: 18px;
+	height: 35px;
+}
+
+#ChildFemaleL {
+	position: absolute;
+	right: 27%;
+	top: 62%;
+	width: 18px;
+	height: 35px;
+	z-index: 1;
+}
+
+#ChildFemaleWheelchair_BoundL {
+	position: absolute;
+	right: 27%;
+	top: 62%;
+	width: 22px;
+	height: 30px;
+}
+
+#ChildFemaleBlindL {
+	position: absolute;
+	right: 27%;
+	top: 62%;
+	width: 18px;
+	height: 35px;
+}
+
+#AdultMaleL {
+	position: absolute;
+	right: 28%;
+	top: 59.5%;
+	width: 15px;
+	height: 25px;
+}
+
+#AdultMaleWheelchair_BoundL {
+	position: absolute;
+	right: 28%;
+	top: 59.5%;
+	width: 30px;
+	height: 40px;
+}
+
+
+#AdultMaleHomelessL {
+	position: absolute;
+	right: 28%;
+	top: 59.5%;
+	width: 15px;
+	width: 25px;
+}
+
+#AdultMaleHomelessWheelchair_BoundL {
+	position: absolute;
+	right: 28%;
+	top: 59.5%;
+	width: 15px;
+	height: 25px;
+}
+
+
+#AdultMaleEntrepreneurL {
+	position: absolute;
+	right: 28%;
+	top: 54%;
+	width: 52px;
+	height: 50px;
+	z-index: 1;
+}
+
+#AdultMaleEntrepreneurWheelchair_BoundL {
+	position: absolute;
+	right: 28%;
+	top: 54%;
+	width: 52px;
+	height: 50px;
+	z-index: 1;
+}
+
+
+#AdultFemaleL {
+	position: absolute;
+	right: 28%;
+	top: 60%;
+	width: 25px;
+	height: 50px;
+	z-index: 1;
+}
+
+#AdultFemaleWheelchair_BoundL {
+	position: absolute;
+	right: 28%;
+	top: 60%;
+	width: 30px;
+	height: 40px;
+}
+
+
+#AdultFemaleHomelessL {
+	position: absolute;
+	right: 28%;
+	top: 60%;
+	width: 25px;
+	height: 50px;
+}
+
+#AdultFemaleHomelessWheelchair_BoundL {
+	position: absolute;
+	right: 28%;
+	top: 60%;
+	width: 25px;
+	height: 50px;
+}
+
+#AdultFemaleEntrepreneurL {
+	position: absolute;
+	right: 27%;
+	top: 58%;
+	width: 35px;
+	height: 50px;
+}
+
+#AdultFemaleEntrepreneurWheelchair_BoundL {
+	position: absolute;
+	right: 27%;
+	top: 58%;
+	width: 35px;
+	height: 50px;
+}
+
+#ElderlyMaleL {
+	position: absolute;
+	right: 27%;
+	top: 57%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyMaleBlindL {
+	position: absolute;
+	right: 27%;
+	top: 57%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyMaleHomelessL {
+	position: absolute;
+	right: 27%;
+	top: 57%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyMaleHomelessBlindL {
+	position: absolute;
+	right: 27%;
+	top: 57%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyFemaleL {
+	position: absolute;
+	right: 30%;
+	top: 60%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyFemaleBlindL {
+	position: absolute;
+	right: 30%;
+	top: 60%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyFemaleHomelessL {
+	position: absolute;
+	right: 30%;
+	top: 60%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyFemaleHomelessBlindL {
+	position: absolute;
+	right: 30%;
+	top: 60%;
+	width: 22px;
+	height: 42px;
+}
+
+
+
+
+
+/******************************************************************** OTHER SIDE OF ROAD ******************************************************************/
+
+.InfantMaleR {
+	position: absolute;
+	right: 21%;
+	top: 654%;
+	width: 18px;
+	height: 35px;
+}
+
+.InfantFemaleR {
+	position: absolute;
+	right: 21%;
+	top: 654%;
+	width: 18px;
+	height: 35px;
+}
+
+
+#ChildMaleR {
+	position: absolute;
+	right: 22%;
+	top: 61%;
+	width: 18px;
+	height: 35px;
+}
+
+#ChildMaleWheelchair_BoundR {
+	position: absolute;
+	right: 22%;
+	top: 61%;
+	width: 22px;
+	height: 30px;
+}
+
+#ChildMaleBlindR {
+	position: absolute;
+	right: 22%;
+	top: 614%;
+	width: 18px;
+	height: 35px;
+}
+
+#ChildFemaleR {
+	position: absolute;
+	right: 22.5%;
+	top: 61%;
+	width: 18px;
+	height: 35px;
+}
+
+#ChildFemaleWheelchair_BoundR {
+	position: absolute;
+	right: 22.5%;
+	top: 61%;
+	width: 22px;
+	height: 30px;
+}
+
+#ChildFemaleBlindR {
+	position: absolute;
+	right: 22.5%;
+	top: 614%;
+	width: 18px;
+	height: 35px;
+}
+
+#AdultMaleR {
 	position: absolute;
 	right: 23%;
-	top: 62%;
+	top: 59.5%;
+	width: 23px;
+	height: 50px;
+	z-index: 4;
 }
 
-/* CAR */
+#AdultMaleWheelchair_BoundR {
+	position: absolute;
+	right: 23%;
+	top: 59.5%;
+	width: 30px;
+	height: 40px;
+}
 
-.car {
+#AdultMaleEntrepreneurR {
+	position: absolute;
+	right: 23%;
+	top: 55%;
+	width: 52px;
+	height: 50px;
+	z-index: 0;
+}
+
+#AdultMaleEntrepreneurWheelchair_BoundR {
+	position: absolute;
+	right: 23%;
+	top: 554%;
+	width: 52px;
+	height: 50px;
+	z-index: 0;
+}
+
+#AdultMaleHomelessR {
+	position: absolute;
+	right: 23%;
+	top: 554%;
+	width: 52px;
+	height: 50px;
+}
+
+#AdultMaleHomelessWheelchair_BoundR {
+	position: absolute;
+	right: 23%;
+	top: 554%;
+	width: 52px;
+	height: 50px;
+}
+
+#AdultFemaleR {
+	position: absolute;
+	right: 23%;
+	top: 61.5%;
+	width: 22px;
+	height: 50px;
+	z-index: 3;
+}
+
+#AdultFemaleWheelchair_BoundR {
+	position: absolute;
+	right: 25%;
+	top: 61.5%;
+	width: 30px;
+	height: 40px;
+}
+
+#AdultFemaleEntrepreneurR {
+	position: absolute;
+	right: 23%;
+	top: 59%;
+	width: 35px;
+	height: 50px;
+	z-index: 2;
+}
+
+#AdultFemaleEntrepreneurWheelchair_BoundR {
+	position: absolute;
+	right: 23%;
+	top: 614.5%;
+	width: 22px;
+	height: 50px;
+}
+
+#AdultFemaleHomelessR {
+	position: absolute;
+	right: 23%;
+	top: 614.5%;
+	width: 22px;
+	height: 50px;
+}
+
+#AdultFemaleHomelessWheelchair_BoundR {
+	position: absolute;
+	right: 23%;
+	top: 614.5%;
+	width: 22px;
+	height: 50px;
+}
+
+#ElderlyMaleR {
+	position: absolute;
+	right: 24%;
+	top: 59%;
+	width: 22px;
+	height: 42px;
+	z-index: 1;
+}
+
+#ElderlyMaleBlindR {
+	position: absolute;
+	right: 24%;
+	top: 594%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyMaleHomelessR {
+	position: absolute;
+	right: 24%;
+	top: 594%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyMaleHomelessBlindR {
+	position: absolute;
+	right: 24%;
+	top: 594%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyFemaleR {
+	position: absolute;
+	right: 21.5%;
+	top: 60%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyFemaleBlindR {
+	position: absolute;
+	right: 21.5%;
+	top: 604%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyFemaleHomelessR {
+	position: absolute;
+	right: 21.5%;
+	top: 604%;
+	width: 22px;
+	height: 42px;
+}
+
+#ElderlyFemaleHomelessBlindR {
+	position: absolute;
+	right: 21.5%;
+	top: 604%;
+	width: 22px;
+	height: 42px;
+}
+
+/*************************************************************** CAR & TRAFFIC LIGHTS ********************************************************************/
+
+#car {
 	transform: rotate(-42deg);
 	position: absolute;
 	right: 36.5%;
-	top: 94.5%;
+	top: 85.5%;
+	
 }
 
-/* ------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 .c1 {
 margin-top: 1%;
@@ -70,7 +596,6 @@ font-size: 14px;
 
 }
 
-
 .c3 {
 margin-top: 2%;
 font-size: 14px;
@@ -81,43 +606,34 @@ margin-top: 1%;
 }
 
 form {
-	background-color: red;
-	width: 22%;
+	background-color: rgb(153,102,255, 0.6);
+	width: 23%;
+	border-radius: 7.5%;
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-top: 1%;
 }
-
-
-
-a {
-  text-decoration: none;
-  padding: 8px 16px;
-}
-
-a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.PS {
-
-  background-color: #f1f1f1;
-  color: black;
-  margin-left: 5%;
-}
-
-.NS {
-  background-color: #E32636;
-  color: white;
-  margin-left: 5%;
-}
-
-#round {
-  border-radius: 50%;
-}
-
 
 
 .submitbtn {
-	background-color: yellow;
 	float: left;
-	margin-top: 0%;
+	margin-left: 75%;
+	font-family: 'Poppins';
+	margin-bottom: 10%;
+	border-radius: 5%;
+
 }
+
+
+/********************************************************** HIGHLIGHTING THE CHARS IN EACH GROUP *********************************************************/
+
+.c2 b:hover~ {
+	border:2px solid red;  
+	box-shadow: 0 0 10px #333;
+}
+
+.c1 b:hover~#${person["age"]}${person["gender"]}${person["profession"]}${person["disability"]}L {
+	background-color: blue;
+}
+
+~

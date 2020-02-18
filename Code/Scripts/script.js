@@ -25,7 +25,7 @@ const conditionP = [ // Conditions for People
     }
 ];
 
-const crossings = ["Zebra_Crossing", "Red_Light", "Green_Light"];
+const crossings = ["zebra crossing", "red light", "green light"];
 
 function Person(age, gender, profession, disability) {
     this.age = age;
