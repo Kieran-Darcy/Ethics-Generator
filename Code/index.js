@@ -1,6 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
-const script = require(__dirname + '/Scripts/script.js');
+// const script = require(__dirname + '/Scripts/script.js');
 const app = express();
 const port = 80;
 app.use(express.static(__dirname));
