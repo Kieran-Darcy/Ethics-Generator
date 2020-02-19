@@ -72,9 +72,21 @@ function saveResults(id, scene, choice) {
 }
 
 function getResults(id, response) {
-    query(`SELECT * FROM results WHERE id = '${id}'`, results => {
-        return response(results)
-    })
+    if(!id) {
+        query(`SELECT * FROM results`, results => {
+            results.forEach(result => {
+                result.scenario = JSON.parse(result.scenario)
+            });
+            return response(results)
+        })
+    } else {
+        query(`SELECT * FROM results WHERE id = '${id}'`, results => {
+            results.forEach(result => {
+                result.scenario = JSON.parse(result.scenario)
+            });
+            return response(results)
+        })
+    }
 }
 
 // Insert people to the table
@@ -95,6 +107,25 @@ app.get('/', (req, res) => {
     res.sendFile('Scenario1.html', {root: __dirname})
 });
 
+app.get('/scenario1', (req, res) => {
+    res.sendFile('Scenario1.html', {root: __dirname})
+});
+
+app.get('/homepage', (req, res) => {
+    res.sendFile('homepage.html', {root: __dirname})
+});
+
+app.get('/results', (req, res) => {
+    res.sendFile('results.html', {root: __dirname})
+});
+
+app.get('/getResults', (req, res) => {
+    getResults('fakeuser', results => {
+        res.send(results)
+    });
+
+});
+
 app.get('/CSS/background.png', (req, res) => {
     res.sendFile('Res/background.png', {root: __dirname})
 });
@@ -112,8 +143,8 @@ app.post('/choice', (req, res) => {
     const option = req.body.option;
     // if the option isn't null add it to the database along with the question
     if (option !== undefined) {
-        let id = "fakeID";
-        saveResults(id, (JSON.stringify(currentScenario)), option);
+/*        let id = "fakeuser";
+        saveResults(id, (JSON.stringify(currentScenario)), option);*/
     }
     res.send(option !== undefined);
 });

@@ -1,19 +1,62 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>Your Results</title>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <link rel="stylesheet" href="result.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(() => {
+            $.get("getResults", results => {
+                // all the information you need is in results
+                console.log(results)
+            })
+        });
 
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+            let data = new google.visualization.arrayToDataTable([
+                ['Opening Move', 'Percentage'],
+                ["Saving yourself", 44],
+                ["Old over young", 31],
+                ["Young over old", 12],
+                ["Groups over Individual", 10],
+                ['Other', 3]
+            ]);
+
+            let options = {
+                title: 'Results',
+                width: 900,
+                legend: { position: 'none' },
+                chart: { title: 'Results',
+                    subtitle: 'popularity by percentage' },
+                bars: 'horizontal', // Required for Material Bar Charts.
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'Percentage'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: "90%" }
+            };
+
+            let chart = new google.charts.Bar(document.getElementById('top_x_div'));
+            chart.draw(data, options);
+        }
+
+    </script>
 </head>
 
 <h1>AUTONOMOUS ETHICS</h1>
     <ul>
-        <li><a href="homepage.html">HOME</a></li>
-        <li><a href="Scenario1.html">GENERATOR</a></li>
-        <li><a href="results.html">STATS</a></li>
+        <li><a href="homepage">HOME</a></li>
+        <li><a href="scenario">GENERATOR</a></li>
+        <li><a href="stats">STATS</a></li>
+        <li><a href="results">RESULTS</a></li>
     </ul>
 
 <br>
@@ -21,7 +64,7 @@
 <body>
   <div class="type-info">
     <h1>
-      <span> personality </span>
+      <span> Utiliterian </span>
     </h1>
   </div>
 </body>
@@ -30,11 +73,23 @@
   <article class="description">
   <h2>Introduction</h2>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium at libero ac hendrerit. Etiam at nisi hendrerit, fringilla nisl sed, accumsan orci. Donec fringilla rhoncus blandit. Mauris semper urna id nisl congue, commodo posuere nisl ornare. Nullam accumsan arcu nulla, quis semper nisi bibendum id. Donec rutrum consequat leo vitae efficitur. Sed blandit et ex a hendrerit. Ut interdum risus mauris, vel dictum eros lobortis ac.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium at libero ac hendrerit.
+    Etiam at nisi hendrerit, fringilla nisl sed, accumsan orci. Donec fringilla rhoncus blandit.
+    Mauris semper urna id nisl congue, commodo posuere nisl ornare. Nullam accumsan arcu nulla,
+     quis semper nisi bibendum id. Donec rutrum consequat leo vitae efficitur. Sed blandit et
+      ex a hendrerit. Ut interdum risus mauris, vel dictum eros lobortis ac.
 
-Suspendisse vulputate mollis ligula nec sagittis. In lacinia lacus nisl, eu congue justo auctor quis. Integer volutpat neque sed eros porttitor, laoreet aliquam diam convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus tempus venenatis purus, nec feugiat sem mattis at. Pellentesque eros lorem, rutrum vel turpis sit amet, pretium accumsan nulla. Quisque ornare enim ut accumsan pharetra. Nulla id ipsum eget quam dignissim pretium. Nam lacinia tellus sem, a sodales quam malesuada vitae. Integer non feugiat mi. Nulla id auctor ante.
+Suspendisse vulputate mollis ligula nec sagittis. In lacinia lacus nisl, eu congue justo auctor quis. Integer
+volutpat neque sed eros porttitor, laoreet aliquam diam convallis. Lorem ipsum dolor sit amet,
+consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+ per inceptos himenaeos. Phasellus tempus venenatis purus, nec feugiat sem mattis at. Pellentesque
+ eros lorem, rutrum vel turpis sit amet, pretium accumsan nulla. Quisque ornare enim ut accumsan pharetra.
+  Nulla id ipsum eget quam dignissim pretium. Nam lacinia tellus sem, a sodales quam malesuada vitae. Integer non feugiat mi. Nulla id auctor ante.
 
-Nunc pretium maximus tellus non vulputate. Proin quis augue lacinia, lobortis nulla et, dictum magna. Ut fermentum, tellus sodales cursus faucibus, diam ante mattis neque, egestas rhoncus ex nulla et nisi. In tempor nibh malesuada, dapibus eros non, sagittis mi. Nulla eu nisl ultricies ipsum sagittis malesuada. Proin hendrerit et sapien et aliquet. Suspendisse congue magna in porta sodales. Integer nunc dolor, porttitor vel dui sed, fermentum rutrum mi. Aenean a elit aliquam, commodo sapien in, varius elit. Phasellus nec ullamcorper libero.
+Nunc pretium maximus tellus non vulputate. Proin quis augue lacinia, lobortis nulla et, dictum magna. Ut fermentum,
+tellus sodales cursus faucibus, diam ante mattis neque, egestas rhoncus ex nulla et nisi. In tempor nibh malesuada,
+dapibus eros non, sagittis mi. Nulla eu nisl ultricies ipsum sagittis malesuada. Proin hendrerit et sapien et aliquet.
+Suspendisse congue magna in porta sodales. Integer nunc dolor, porttitor vel dui sed, fermentum rutrum mi. Aenean a elit aliquam, commodo sapien in, varius elit. Phasellus nec ullamcorper libero.
 
 Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed eu libero non justo ultrices condimentum vel nec tellus. Ut at risus dui. Pellentesque id vestibulum erat, ut vestibulum sem. Vivamus maximus tortor mollis ullamcorper convallis. Nulla cursus a diam quis tempor. Suspendisse a tristique quam, ut pretium quam.
 
@@ -42,5 +97,33 @@ Curabitur in nisi velit. Class aptent taciti sociosqu ad litora torquent per con
 
 </p>
 
+<h4>Your Results</h4>
+  <p>
+
+
+
+
+
+
+
+
+
+
+  </p>
+  <h5>What this means</h5>
+  <p>
+
+
+
+
+
+
+
+
+
+  </p>
+  <br>
+
+<div id="top_x_div" style="width: 900px; height: 500px;"></div>
 </article>
 </div>
