@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            $("form").on("submit", () => {
+                const form = $("form").serialize();
+                $.post("register", form, result => {
+                    if(result) {
+                        alert("Username already exists. Please enter a different one!")
+                    } else {
+                        window.location.href = "homepage";
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<strong>Enter a unique username and your session will last for 4 hours</strong>
+    <form onsubmit="return false">
+        <label>Username: </label>
+        <input type="text" name="username">
+        <input type="submit">
+    </form>
+</body>
+</html>

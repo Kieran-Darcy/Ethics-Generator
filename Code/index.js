@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const mysql = require('mysql');
 // const script = require(__dirname + '/Scripts/script.js');
 const app = express();
@@ -6,6 +7,17 @@ const port = 80;
 app.use(express.static(__dirname));
 app.use(express.urlencoded({extended: true}));
 let currentScenario = {};
+app.use(session({
+    name: 'sid',
+    resave: false,
+    saveUninitialized: false,
+    secret: 'i,am,a,secret',
+    cookie: {
+        sameSite: true,
+        secure: false,
+        maxAge: undefined //1000 * 60 * 60 * 4 // 1s -> 1min -> 1hour -> 2hours
+    }
+}));
 
 // Create connection
 const connection = mysql.createConnection({
@@ -24,6 +36,15 @@ const connection = mysql.createConnection({
     multipleStatements: true
 });*/
 
+const redirectLogin = (req, res, next) => {
+    req.session.userID = 'fakeuser';    // delete statement when ready
+    if(!req.session.userID) {
+        res.sendFile('register.html', {root: __dirname})
+    } else {
+        next()
+    }
+};
+
 function sortPeople(groupAB, groupC) {
     let people = groupAB;
     const variation = Math.round(Math.random() - Math.random()); // chooses a random number between -1 - 1
@@ -35,7 +56,7 @@ function sortPeople(groupAB, groupC) {
 function query(statement, request) {
     connection.query(statement, (err, results) => {
         if (err) throw err;
-        return (request === undefined) ? null : request(results);
+        return (!request) ? null : request(results);
     });
 }
 
@@ -89,6 +110,12 @@ function getResults(id, response) {
     }
 }
 
+function checkUser(username, response) {
+    query(`SELECT id FROM results WHERE id = '${username}'`, result => {
+        return response(result[0])
+    })
+}
+
 // Insert people to the table
 /*function insertData() {
     script.createPeople().forEach(person => {
@@ -103,11 +130,11 @@ function getResults(id, response) {
 }
 insertData();*/
 
-app.get('/', (req, res) => {
+app.get('/', redirectLogin, (req, res) => {
     res.sendFile('Scenario1.html', {root: __dirname})
 });
 
-app.get('/scenario1', (req, res) => {
+app.get('/scenario1', redirectLogin, (req, res) => {
     res.sendFile('Scenario1.html', {root: __dirname})
 });
 
@@ -115,12 +142,12 @@ app.get('/homepage', (req, res) => {
     res.sendFile('homepage.html', {root: __dirname})
 });
 
-app.get('/results', (req, res) => {
+app.get('/results', redirectLogin, (req, res) => {
     res.sendFile('results.html', {root: __dirname})
 });
 
 app.get('/getResults', (req, res) => {
-    getResults('fakeuser', results => {
+    getResults(req.session.userID, results => {
         res.send(results)
     });
 
@@ -139,14 +166,25 @@ app.get('/scene', (req, res) => {
     })
 });
 
+app.post('/register', (req, res) => {
+    const {username} = req.body;
+    checkUser(username.toLowerCase(), exists => {
+        if (!exists) {
+            req.session.userID = username.toLowerCase();
+            res.send(exists)
+        } else {
+            res.send(exists)
+        }
+    })
+});
+
 app.post('/choice', (req, res) => {
     const option = req.body.option;
     // if the option isn't null add it to the database along with the question
-    if (option !== undefined) {
-/*        let id = "fakeuser";
-        saveResults(id, (JSON.stringify(currentScenario)), option);*/
+    if (option) {
+       //saveResults(req.session.userID, (JSON.stringify(currentScenario)), option);    // uncomment when ready
     }
     res.send(option !== undefined);
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`Starting server at http://localhost:80`));
