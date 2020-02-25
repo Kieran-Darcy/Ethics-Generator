@@ -101,52 +101,52 @@ li a:hover {
 	position: relative;
 }
 
+/*********************************************************************************************************************************************************/
 
-.InfantMaleL {
+#InfantMaleL {
 	position: absolute;
 	right: 30%;
-	top: 65%;
-	width: 18px;
-	height: 35px;
+	top: 66%;
+	width: 15px;
+	height: 15px;
 }
 
-.InfantFemaleL {
+#InfantFemaleL {
 	position: absolute;
 	right: 30.5%;
-	top: 65%;
-	width: 18px;
-	height: 35px;
+	top: 74%;
+	width: 15px;
+	height: 15px;
 }
-
 
 #ChildMaleL {
 	position: absolute;
 	right: 29%;
-	top: 61%;
+	top: 69%;
 	width: 18px;
 	height: 35px;
 }
 
 #ChildMaleWheelchair_BoundL {
 	position: absolute;
-	right: 29%;
-	top: 61%;
+	right: 32%;
+	top: 73%;
 	width: 22px;
 	height: 30px;
 }
 
 #ChildMaleBlindL {
 	position: absolute;
-	right: 29%;
-	top: 61%;
-	width: 18px;
+	right: 33%;
+	top: 72%
+	width: 26px;
 	height: 35px;
 }
 
 #ChildFemaleL {
 	position: absolute;
-	right: 27%;
-	top: 62%;
+	right: 31%;
+	top: 69.75%;
 	width: 18px;
 	height: 35px;
 	z-index: 1;
@@ -154,32 +154,32 @@ li a:hover {
 
 #ChildFemaleWheelchair_BoundL {
 	position: absolute;
-	right: 27%;
-	top: 62%;
+	right: 28%;
+	top: 69%;
 	width: 22px;
 	height: 30px;
 }
 
 #ChildFemaleBlindL {
 	position: absolute;
-	right: 27%;
-	top: 62%;
-	width: 18px;
+	right: 31%;
+	top: 71%;
+	width: 26px;
 	height: 35px;
 }
 
 #AdultMaleL {
 	position: absolute;
-	right: 28%;
-	top: 59.5%;
-	width: 15px;
-	height: 25px;
+	right: 30%;
+	top: 70%;
+	width: 32px;
+	height: 50px;
 }
 
 #AdultMaleWheelchair_BoundL {
 	position: absolute;
-	right: 28%;
-	top: 59.5%;
+	right: 29%;
+	top: 70.5%;
 	width: 30px;
 	height: 40px;
 }
@@ -187,16 +187,16 @@ li a:hover {
 
 #AdultMaleHomelessL {
 	position: absolute;
-	right: 28%;
-	top: 59.5%;
+	right: 30%;
+	top: 71%;
 	width: 15px;
 	width: 25px;
 }
 
 #AdultMaleHomelessWheelchair_BoundL {
 	position: absolute;
-	right: 28%;
-	top: 59.5%;
+	right: 31%;
+	top: 70%;
 	width: 15px;
 	height: 25px;
 }
@@ -204,8 +204,8 @@ li a:hover {
 
 #AdultMaleEntrepreneurL {
 	position: absolute;
-	right: 28%;
-	top: 54%;
+	right: 31%;
+	top: 69.75%;
 	width: 52px;
 	height: 50px;
 	z-index: 1;
@@ -213,8 +213,8 @@ li a:hover {
 
 #AdultMaleEntrepreneurWheelchair_BoundL {
 	position: absolute;
-	right: 28%;
-	top: 54%;
+	right: 31%;
+	top: 69%;
 	width: 52px;
 	height: 50px;
 	z-index: 1;
@@ -224,89 +224,89 @@ li a:hover {
 #AdultFemaleL {
 	position: absolute;
 	right: 28%;
-	top: 60%;
-	width: 25px;
-	height: 50px;
+	top: 68.5%;
+	width: 20px;
+	height: 44px;
 	z-index: 1;
 }
 
 #AdultFemaleWheelchair_BoundL {
 	position: absolute;
 	right: 28%;
-	top: 60%;
+	top: 68%;
 	width: 30px;
 	height: 40px;
 }
 
-
 #AdultFemaleHomelessL {
 	position: absolute;
-	right: 28%;
-	top: 60%;
+	right: 29%;
+	top: 67.5%;
 	width: 25px;
 	height: 50px;
 }
 
 #AdultFemaleHomelessWheelchair_BoundL {
 	position: absolute;
-	right: 28%;
-	top: 60%;
+	right: 30.5%;
+	top: 69.75%;
 	width: 25px;
 	height: 50px;
 }
 
 #AdultFemaleEntrepreneurL {
 	position: absolute;
-	right: 27%;
-	top: 58%;
+	right: 32%;
+	top: 72%;
 	width: 35px;
 	height: 50px;
+	z-index: 2;
 }
 
 #AdultFemaleEntrepreneurWheelchair_BoundL {
 	position: absolute;
-	right: 27%;
-	top: 58%;
+	right: 29.75%;
+	top: 71%;
 	width: 35px;
 	height: 50px;
 }
 
 #ElderlyMaleL {
 	position: absolute;
-	right: 27%;
-	top: 57%;
+	right: 30.25%;
+	top: 69.5%;
 	width: 22px;
 	height: 42px;
 }
 
 #ElderlyMaleBlindL {
 	position: absolute;
-	right: 27%;
-	top: 57%;
-	width: 22px;
+	right: 29.5%;
+	top: 69%;
+	width: 26px;
 	height: 42px;
 }
 
 #ElderlyMaleHomelessL {
 	position: absolute;
-	right: 27%;
-	top: 57%;
+	right: 29%;
+	top: 68.5%;
 	width: 22px;
 	height: 42px;
 }
 
 #ElderlyMaleHomelessBlindL {
 	position: absolute;
-	right: 27%;
-	top: 57%;
-	width: 22px;
-	height: 42px;
+	right: 29%;
+	top: 67%;
+	width: 34px;
+	height: 44px;
 }
 
 #ElderlyFemaleL {
 	position: absolute;
 	right: 30%;
-	top: 60%;
+	top: 71%;
 	width: 22px;
 	height: 42px;
 }
@@ -314,15 +314,15 @@ li a:hover {
 #ElderlyFemaleBlindL {
 	position: absolute;
 	right: 30%;
-	top: 60%;
-	width: 22px;
-	height: 42px;
+	top: 67%;
+	width: 32px;
+	height: 44px;
 }
 
 #ElderlyFemaleHomelessL {
 	position: absolute;
 	right: 30%;
-	top: 60%;
+	top: 69%;
 	width: 22px;
 	height: 42px;
 }
@@ -330,9 +330,9 @@ li a:hover {
 #ElderlyFemaleHomelessBlindL {
 	position: absolute;
 	right: 30%;
-	top: 60%;
-	width: 22px;
-	height: 42px;
+	top: 68%;
+	width: 34px;
+	height: 44px;
 }
 
 
@@ -341,75 +341,75 @@ li a:hover {
 
 /******************************************************************** OTHER SIDE OF ROAD ******************************************************************/
 
-.InfantMaleR {
+#InfantMaleR {
 	position: absolute;
-	right: 21%;
-	top: 654%;
-	width: 18px;
-	height: 35px;
+	right: 25%;
+	top: 73%;
+	width: 15px;
+	height: 15px;
 }
 
-.InfantFemaleR {
+#InfantFemaleR {
 	position: absolute;
-	right: 21%;
-	top: 654%;
-	width: 18px;
-	height: 35px;
+	right: 30%;
+	top: 69%;
+	width: 15px;
+	height: 15px;
 }
 
 
 #ChildMaleR {
 	position: absolute;
-	right: 22%;
-	top: 61%;
+	right: 27%;
+	top: 71%;
 	width: 18px;
 	height: 35px;
 }
 
 #ChildMaleWheelchair_BoundR {
 	position: absolute;
-	right: 22%;
-	top: 61%;
+	right: 26%;
+	top: 71%;
 	width: 22px;
-	height: 30px;
+	height: 32px;
 }
 
 #ChildMaleBlindR {
 	position: absolute;
-	right: 22%;
-	top: 614%;
-	width: 18px;
+	right: 25%;
+	top: 72%;
+	width: 26px;
 	height: 35px;
 }
 
 #ChildFemaleR {
 	position: absolute;
-	right: 22.5%;
-	top: 61%;
+	right: 26%;
+	top: 73%;
 	width: 18px;
 	height: 35px;
 }
 
 #ChildFemaleWheelchair_BoundR {
 	position: absolute;
-	right: 22.5%;
-	top: 61%;
+	right: 26%;
+	top: 73%;
 	width: 22px;
-	height: 30px;
+	height: 32px;
 }
 
 #ChildFemaleBlindR {
 	position: absolute;
-	right: 22.5%;
-	top: 614%;
-	width: 18px;
+	right: 27%;
+	top: 74%;
+	width: 26px;
 	height: 35px;
 }
 
 #AdultMaleR {
 	position: absolute;
-	right: 23%;
-	top: 59.5%;
+	right: 25%;
+	top: 72%;
 	width: 23px;
 	height: 50px;
 	z-index: 4;
@@ -417,8 +417,8 @@ li a:hover {
 
 #AdultMaleWheelchair_BoundR {
 	position: absolute;
-	right: 23%;
-	top: 59.5%;
+	right: 25%;
+	top: 72%;
 	width: 30px;
 	height: 40px;
 }
@@ -426,7 +426,7 @@ li a:hover {
 #AdultMaleEntrepreneurR {
 	position: absolute;
 	right: 23%;
-	top: 55%;
+	top: 71%;
 	width: 52px;
 	height: 50px;
 	z-index: 0;
@@ -434,8 +434,8 @@ li a:hover {
 
 #AdultMaleEntrepreneurWheelchair_BoundR {
 	position: absolute;
-	right: 23%;
-	top: 554%;
+	right: 27%;
+	top: 73%;
 	width: 52px;
 	height: 50px;
 	z-index: 0;
@@ -443,24 +443,24 @@ li a:hover {
 
 #AdultMaleHomelessR {
 	position: absolute;
-	right: 23%;
-	top: 554%;
-	width: 52px;
+	right: 26%;
+	top: 72%;
+	width: 26px;
 	height: 50px;
 }
 
 #AdultMaleHomelessWheelchair_BoundR {
 	position: absolute;
-	right: 23%;
-	top: 554%;
+	right: 26.5%;
+	top: 75%;
 	width: 52px;
 	height: 50px;
 }
 
 #AdultFemaleR {
 	position: absolute;
-	right: 23%;
-	top: 61.5%;
+	right: 27.75%;
+	top: 73%;
 	width: 22px;
 	height: 50px;
 	z-index: 3;
@@ -468,16 +468,16 @@ li a:hover {
 
 #AdultFemaleWheelchair_BoundR {
 	position: absolute;
-	right: 25%;
-	top: 61.5%;
+	right: 29%;
+	top: 74%;
 	width: 30px;
 	height: 40px;
 }
 
 #AdultFemaleEntrepreneurR {
 	position: absolute;
-	right: 23%;
-	top: 59%;
+	right: 28%;
+	top: 73%;
 	width: 35px;
 	height: 50px;
 	z-index: 2;
@@ -485,32 +485,32 @@ li a:hover {
 
 #AdultFemaleEntrepreneurWheelchair_BoundR {
 	position: absolute;
-	right: 23%;
-	top: 614.5%;
+	right: 26%;
+	top: 73%;
 	width: 22px;
 	height: 50px;
 }
 
 #AdultFemaleHomelessR {
 	position: absolute;
-	right: 23%;
-	top: 614.5%;
+	right: 25%;
+	top: 71%;
 	width: 22px;
 	height: 50px;
 }
 
 #AdultFemaleHomelessWheelchair_BoundR {
 	position: absolute;
-	right: 23%;
-	top: 614.5%;
+	right: 25.5%;
+	top: 71%;
 	width: 22px;
 	height: 50px;
 }
 
 #ElderlyMaleR {
 	position: absolute;
-	right: 24%;
-	top: 59%;
+	right: 27%;
+	top: 71%;
 	width: 22px;
 	height: 42px;
 	z-index: 1;
@@ -518,67 +518,67 @@ li a:hover {
 
 #ElderlyMaleBlindR {
 	position: absolute;
-	right: 24%;
-	top: 594%;
-	width: 22px;
+	right: 26%;
+	top: 71%;
+	width: 26px;
 	height: 42px;
 }
 
 #ElderlyMaleHomelessR {
 	position: absolute;
-	right: 24%;
-	top: 594%;
+	right: 25%;
+	top: 72%;
 	width: 22px;
 	height: 42px;
 }
 
 #ElderlyMaleHomelessBlindR {
 	position: absolute;
-	right: 24%;
-	top: 594%;
-	width: 22px;
+	right: 27%;
+	top: 72%;
+	width: 32px;
 	height: 42px;
 }
 
 #ElderlyFemaleR {
 	position: absolute;
-	right: 21.5%;
-	top: 60%;
+	right: 26.5%;
+	top: 71%;
 	width: 22px;
 	height: 42px;
 }
 
 #ElderlyFemaleBlindR {
 	position: absolute;
-	right: 21.5%;
-	top: 604%;
-	width: 22px;
+	right: 27.5%;
+	top: 73%;
+	width: 28px;
 	height: 42px;
 }
 
 #ElderlyFemaleHomelessR {
 	position: absolute;
-	right: 21.5%;
-	top: 604%;
+	right: 27.5%;
+	top: 73.5%;
 	width: 22px;
 	height: 42px;
 }
 
 #ElderlyFemaleHomelessBlindR {
 	position: absolute;
-	right: 21.5%;
-	top: 604%;
-	width: 22px;
+	right: 26.5%;
+	top: 72%;
+	width: 32px;
 	height: 42px;
 }
 
 /*************************************************************** CAR & TRAFFIC LIGHTS ********************************************************************/
 
 #car {
-	transform: rotate(-42deg);
+	transform: rotate(-45deg);
 	position: absolute;
-	right: 36.5%;
-	top: 85.5%;
+	right: 37.5%;
+	top: 95.5%;
 	
 }
 
@@ -614,14 +614,24 @@ form {
 	padding-top: 1%;
 }
 
-
 .submitbtn {
 	float: left;
 	margin-left: 75%;
 	font-family: 'Poppins';
 	margin-bottom: 10%;
-	border-radius: 5%;
+	border-radius: 20%;
+}
 
+.red_light {
+	position: absolute;
+	right: 34%;
+	top: 79%;
+}
+
+.green_light {
+	position: absolute;
+	right: 31%;
+	top: 83%;
 }
 
 

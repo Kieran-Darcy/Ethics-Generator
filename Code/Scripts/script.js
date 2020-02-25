@@ -1,4 +1,4 @@
-const conditionP = [ // Conditions for People
+/*const conditionP = [ // Conditions for People
     {
         age: ["Infant"],
         gender: ["Male", "Female"],
@@ -74,3 +74,4 @@ module.exports.createPeople = createPeople;
 module.exports.randomPeople = randomPeople;
 module.exports.makeScene = makeScenario;
 module.exports.crossings = crossings;
+*/
