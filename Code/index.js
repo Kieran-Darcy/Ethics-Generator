@@ -15,7 +15,7 @@ app.use(session({
     cookie: {
         sameSite: true,
         secure: false,
-        maxAge: undefined //1000 * 60 * 60 * 4 // 1s -> 1min -> 1hour -> 2hours
+        maxAge: undefined   //1000 * 60 * 60 * 2 // 1s -> 1min -> 1hour -> 2hours
     }
 }));
 
@@ -37,7 +37,7 @@ const connection = mysql.createConnection({
 });*/
 
 const redirectLogin = (req, res, next) => {
-    req.session.userID = 'fakeuser';    // delete statement when ready
+    req.session.userID = 'fakeuser';    // please delete when production ready
     if(!req.session.userID) {
         res.sendFile('register.html', {root: __dirname})
     } else {
