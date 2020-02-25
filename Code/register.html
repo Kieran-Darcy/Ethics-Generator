@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+
+        body {
+            background-image: url("Res/background.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            display: grid;
+            height: 100vh;
+            justify-items: center;
+            align-items: center;
+        }
+
+        #container {
+            background: #555;
+            border-radius: 10px;
+            height: 20vh;
+            padding: 10px;
+        }
+
+        #container * {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        label {
+            width: 20%;
+            color: white;
+            margin-top: 30px;
+        }
+
+        input[type="text"] {
+            width: 50%;
+            height: 25px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border-radius: 0;
+            transition: 0.5s;
+        }
+
+        input[type="text"]:hover {
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+
+        input[type="submit"] {
+            border-radius: 5px;
+            background: white;
+            height: 30px;
+            width: 25%;
+        }
+
+        input[type="submit"]:hover {
+            background: #eee;
+            border-color: #e7e7e7;
+        }
+
+        strong {
+            color: white;
+            font-size: 1em;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            $("form").on("submit", () => {
+                const form = $("form").serialize();
+                $.post("register", form, result => {
+                    if(result) {
+                        alert("Username already exists. Please enter a different one!")
+                    } else {
+                        window.location.href = "homepage";
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="usernameinput">
+    <strong>Enter a unique username and your session will last for 2 hours</strong>
+        <form onsubmit="return false">
+            <label for="username">Username:</label>
+            <input id="username" type="text" name="username">
+            <input type="submit">
+        </form>
+        </div>
+    </div>
+</body>
+</html>
