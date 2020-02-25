@@ -38,11 +38,21 @@
 
 							$("#groupC").append("<li>Yourself</li>");
 							data.people["groupC"].forEach(person => {
-								$("#groupC").append(`<li>${person["age"]} ${person["gender"]} ${person["profession"]} ${person["disability"]}</li>`); // insert people for group C into id = "groupB"
+								$("#groupC").append(`<li>${person["age"]} ${person["gender"]} ${person["profession"]} ${person["disability"]}</li>`); // insert people for group C into id = "groupC"
 							})
+
+							
+							$("#parent").append(`<img src='Res/${data.crossingType}.png' id="${data.crossingType}>`); // insert traffic light image into generated one given
+
+
+							
 						});
 					}
 
+
+					$("#AdultFemaleL").hover(function() { 
+               	 		$(this).css("background-color", "green");
+               	 	}); 
 
 					$("form").submit(() => {
 						const form = $("form").serialize();
@@ -143,12 +153,11 @@
 							<div id="ElderlyFemaleHomelessBlindR"><img src="x.png" alt="ElderlyFemaleHomelessBlindR"></div>-->
 						</div>
 						
-							<!-- RED LIGHT 
-							<div class="redlight"><img src="Res/RedLight.png" alt="redlight" width="55" height="165"></div>
-							<!-- GREEN LIGHT 
-							<div class="greenlight"><img src="Res/GreenLight.png" alt="greenlight" width="55" height="165"></div>
-						
-							-->
+						<!--RED LIGHT--> 
+						<div class="red_light"><img src="Res/RedLight.png" alt="redlight" width="55" height="165"></div>
+						<!--GREEN LIGHT--> 
+						<div class="green_light"><img src="Res/GreenLight.png" alt="greenlight" width="55" height="165"></div>
+				
 						
 
 						
@@ -194,6 +203,9 @@
 
 					<!-- CAR -->
 					<div id="car"><img src="Res/car.png" alt="car" width="100" height="55"></div>
+
+					
+							
 
 				</div>
 

@@ -101,23 +101,23 @@ li a:hover {
 	position: relative;
 }
 
+/*********************************************************************************************************************************************************/
 
-.InfantMaleL {
+#InfantMaleL {
 	position: absolute;
 	right: 30%;
 	top: 66%;
-	width: 18px;
-	height: 35px;
+	width: 15px;
+	height: 15px;
 }
 
-.InfantFemaleL {
+#InfantFemaleL {
 	position: absolute;
 	right: 30.5%;
-	top: 67%;
-	width: 18px;
-	height: 35px;
+	top: 74%;
+	width: 15px;
+	height: 15px;
 }
-
 
 #ChildMaleL {
 	position: absolute;
@@ -138,8 +138,8 @@ li a:hover {
 #ChildMaleBlindL {
 	position: absolute;
 	right: 33%;
-	top: 72%;
-	width: 18px;
+	top: 72%
+	width: 26px;
 	height: 35px;
 }
 
@@ -164,7 +164,7 @@ li a:hover {
 	position: absolute;
 	right: 31%;
 	top: 71%;
-	width: 18px;
+	width: 26px;
 	height: 35px;
 }
 
@@ -225,8 +225,8 @@ li a:hover {
 	position: absolute;
 	right: 28%;
 	top: 68.5%;
-	width: 22px;
-	height: 50px;
+	width: 20px;
+	height: 44px;
 	z-index: 1;
 }
 
@@ -260,6 +260,7 @@ li a:hover {
 	top: 72%;
 	width: 35px;
 	height: 50px;
+	z-index: 2;
 }
 
 #AdultFemaleEntrepreneurWheelchair_BoundL {
@@ -340,20 +341,20 @@ li a:hover {
 
 /******************************************************************** OTHER SIDE OF ROAD ******************************************************************/
 
-.InfantMaleR {
+#InfantMaleR {
 	position: absolute;
-	right: 21%;
-	top: 654%;
-	width: 18px;
-	height: 35px;
+	right: 25%;
+	top: 73%;
+	width: 15px;
+	height: 15px;
 }
 
-.InfantFemaleR {
+#InfantFemaleR {
 	position: absolute;
-	right: 21%;
-	top: 654%;
-	width: 18px;
-	height: 35px;
+	right: 30%;
+	top: 69%;
+	width: 15px;
+	height: 15px;
 }
 
 
@@ -377,7 +378,7 @@ li a:hover {
 	position: absolute;
 	right: 25%;
 	top: 72%;
-	width: 18px;
+	width: 26px;
 	height: 35px;
 }
 
@@ -401,7 +402,7 @@ li a:hover {
 	position: absolute;
 	right: 27%;
 	top: 74%;
-	width: 18px;
+	width: 26px;
 	height: 35px;
 }
 
@@ -444,7 +445,7 @@ li a:hover {
 	position: absolute;
 	right: 26%;
 	top: 72%;
-	width: 37px;
+	width: 26px;
 	height: 50px;
 }
 
@@ -613,14 +614,24 @@ form {
 	padding-top: 1%;
 }
 
-
 .submitbtn {
 	float: left;
 	margin-left: 75%;
 	font-family: 'Poppins';
 	margin-bottom: 10%;
-	border-radius: 5%;
+	border-radius: 20%;
+}
 
+.red_light {
+	position: absolute;
+	right: 34%;
+	top: 79%;
+}
+
+.green_light {
+	position: absolute;
+	right: 31%;
+	top: 83%;
 }
 
 
