@@ -579,7 +579,7 @@ li a:hover {
 	position: absolute;
 	right: 37.5%;
 	top: 95.5%;
-	
+	z-index: 1;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -634,6 +634,24 @@ form {
 	top: 83%;
 }
 
+/*.LeftLine {
+	position: absolute;
+	right: 34%;
+	top: 83%;
+}*/
+
+.MiddleLine {
+	position: absolute;
+	right: 32%;
+	top: 77%;
+}
+
+.RightLine {
+	position: absolute;
+	right: 29%;
+	top: 77%;
+	transform: rotate(10deg);
+}
 
 /********************************************************** HIGHLIGHTING THE CHARS IN EACH GROUP *********************************************************/
 
