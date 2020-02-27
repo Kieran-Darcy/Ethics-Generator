@@ -634,16 +634,19 @@ form {
 	top: 83%;
 }
 
-/*.LeftLine {
+.LeftLine img{
 	position: absolute;
-	right: 34%;
-	top: 83%;
-}*/
+	right: 39%;
+	top: 76%;
+	transform: rotate(-70deg);
+	filter: blur(1px);
+}
 
 .MiddleLine {
 	position: absolute;
 	right: 32%;
 	top: 77%;
+	filter: blur(1px);
 }
 
 .RightLine {
@@ -651,6 +654,7 @@ form {
 	right: 29%;
 	top: 77%;
 	transform: rotate(10deg);
+	filter: blur(1px);
 }
 
 /********************************************************** HIGHLIGHTING THE CHARS IN EACH GROUP *********************************************************/
