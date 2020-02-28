@@ -73,15 +73,18 @@ function getCrossing(response) {
 }
 
 // Make a scene for 2 group Scenarios
-function makeScene(response) {
+function makeScene(id, response) {
     const numOfPeople = 2+(Math.round(Math.random()*(10-2)));
     getPeople(numOfPeople, groupAB => {
         getPeople((numOfPeople > 4) ? 1+Math.round(Math.random()*(4-1)) : 0, groupC => {
-            getCrossing(result => {
-                return response({
-                    people: sortPeople(groupAB, groupC),  //  {groupA : [GroupA], groupB : [GroupB], groupC : [GroupC]}
-                    crossingType: result,  // crossing / green light / red light
-                    timer: Math.random() >= 0.5
+            getCrossing(crossing => {
+                query(`SELECT COUNT(id) FROM results WHERE id = '${id}'`,count => {
+                    return response({
+                        people: sortPeople(groupAB, groupC),  //  {groupA : [GroupA], groupB : [GroupB], groupC : [GroupC]}
+                        crossingType: crossing,  // crossing / green light / red light
+                        timer: Math.random() >= 0.5,
+                        questionNum: count+1   // questions answered
+                    })
                 })
             })
         })
@@ -160,7 +163,7 @@ app.get('/CSS/background.png', (req, res) => {
 app.get('/scene', (req, res) => {
     /*    currentScenario = script.makeScene();
         res.send(currentScenario)*/
-    makeScene(results => {
+    makeScene(req.session.userID,results => {
         currentScenario = results;
         res.send(currentScenario)
     })
