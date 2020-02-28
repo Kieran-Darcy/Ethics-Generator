@@ -1,5 +1,7 @@
 element.style {
+
 }
+
 .type-info {
     background-color: #e2a942;
     color: #fff;
@@ -37,12 +39,10 @@ h2 {
     color: #576071;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 body {
-    margin: 0;
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 ul {
@@ -55,19 +55,32 @@ ul {
     display: block;
 }
 
-li {
-    float: left;
+.nav ul {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+.nav li {
+  float: left;
 }
 
-/* Change the link color to #111 (black) on hover */
+.nav li a {
+  display: block;
+  padding: 14px 16px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Poppins';
+  font-weight: 900;
+  font-style: normal;
+  font-size: 16px;
+}
+
 li a:hover {
     background-color: #111;
 }
@@ -96,18 +109,15 @@ li a:hover {
     background-color: #f1f1f1;
 }
 
-h1  {
-    font-family: Poppins;
-    font-weight: 400;
+h1 {
+    font-family: 'Poppins';
 }
 
 a{
     font-weight: bold;
 }
 
-h1 {
-    padding-left: 5px;
-}
+
 
 button {
     position: static;
@@ -130,9 +140,6 @@ h3 {
     padding-top: 20px;
 }
 
-hr {
-    background-color: white;
-}
 
 p {
     text-align: center;

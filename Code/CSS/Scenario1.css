@@ -106,9 +106,9 @@ li a:hover {
 #InfantMaleL {
 	position: absolute;
 	right: 30%;
-	top: 66%;
+	top: 69%;
 	width: 15px;
-	height: 15px;
+	height: 8px;
 }
 
 #InfantFemaleL {
@@ -116,7 +116,7 @@ li a:hover {
 	right: 30.5%;
 	top: 74%;
 	width: 15px;
-	height: 15px;
+	height: 8px;
 }
 
 #ChildMaleL {
@@ -138,7 +138,7 @@ li a:hover {
 #ChildMaleBlindL {
 	position: absolute;
 	right: 33%;
-	top: 72%
+	top: 72%;
 	width: 26px;
 	height: 35px;
 }
@@ -172,16 +172,16 @@ li a:hover {
 	position: absolute;
 	right: 30%;
 	top: 70%;
-	width: 32px;
-	height: 50px;
+	width: 27.5px;
+	height: 47.5px;
 }
 
 #AdultMaleWheelchair_BoundL {
 	position: absolute;
 	right: 29%;
 	top: 70.5%;
-	width: 30px;
-	height: 40px;
+	width: 25px;
+	height: 35px;
 }
 
 
@@ -215,8 +215,8 @@ li a:hover {
 	position: absolute;
 	right: 31%;
 	top: 69%;
-	width: 52px;
-	height: 50px;
+	width: 22px;
+	height: 32.5px;
 	z-index: 1;
 }
 
@@ -234,8 +234,8 @@ li a:hover {
 	position: absolute;
 	right: 28%;
 	top: 68%;
-	width: 30px;
-	height: 40px;
+	width: 27px;
+	height: 35px;
 }
 
 #AdultFemaleHomelessL {
@@ -251,7 +251,7 @@ li a:hover {
 	right: 30.5%;
 	top: 69.75%;
 	width: 25px;
-	height: 50px;
+	height: 35px;
 }
 
 #AdultFemaleEntrepreneurL {
@@ -267,8 +267,8 @@ li a:hover {
 	position: absolute;
 	right: 29.75%;
 	top: 71%;
-	width: 35px;
-	height: 50px;
+	width: 22px;
+	height: 32.5px;
 }
 
 #ElderlyMaleL {
@@ -346,7 +346,7 @@ li a:hover {
 	right: 25%;
 	top: 73%;
 	width: 15px;
-	height: 15px;
+	height: 8px;
 }
 
 #InfantFemaleR {
@@ -354,7 +354,7 @@ li a:hover {
 	right: 30%;
 	top: 69%;
 	width: 15px;
-	height: 15px;
+	height: 8px;
 }
 
 
@@ -410,14 +410,14 @@ li a:hover {
 	position: absolute;
 	right: 25%;
 	top: 72%;
-	width: 23px;
-	height: 50px;
+	width: 27.5px;
+	height: 47.5px;
 	z-index: 4;
 }
 
 #AdultMaleWheelchair_BoundR {
 	position: absolute;
-	right: 25%;
+	right: 27%;
 	top: 72%;
 	width: 30px;
 	height: 40px;
@@ -436,8 +436,8 @@ li a:hover {
 	position: absolute;
 	right: 27%;
 	top: 73%;
-	width: 52px;
-	height: 50px;
+	width: 22px;
+	height: 32.5px;
 	z-index: 0;
 }
 
@@ -453,8 +453,8 @@ li a:hover {
 	position: absolute;
 	right: 26.5%;
 	top: 75%;
-	width: 52px;
-	height: 50px;
+	width: 35px;
+	height: 35px;
 }
 
 #AdultFemaleR {
@@ -470,8 +470,8 @@ li a:hover {
 	position: absolute;
 	right: 29%;
 	top: 74%;
-	width: 30px;
-	height: 40px;
+	width: 25px;
+	height: 32.5px;
 }
 
 #AdultFemaleEntrepreneurR {
@@ -488,7 +488,8 @@ li a:hover {
 	right: 26%;
 	top: 73%;
 	width: 22px;
-	height: 50px;
+	height: 32.5px;
+	z-index: 3;
 }
 
 #AdultFemaleHomelessR {
@@ -504,7 +505,7 @@ li a:hover {
 	right: 25.5%;
 	top: 71%;
 	width: 22px;
-	height: 50px;
+	height: 35px;
 }
 
 #ElderlyMaleR {
@@ -585,10 +586,9 @@ li a:hover {
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 .c1 {
-margin-top: 1%;
-font-size: 14px;
+	margin-top: 1%;
+	font-size: 14px;
 }
-
 
 .c2 {
 margin-top: 2%;
@@ -634,12 +634,16 @@ form {
 	top: 83%;
 }
 
-.LeftLine img{
+.LeftLine {
 	position: absolute;
 	right: 39%;
 	top: 76%;
 	transform: rotate(-70deg);
 	filter: blur(1px);
+}
+
+.LeftLine img:hover {
+	filter: grayscale(100%);
 }
 
 .MiddleLine {
@@ -649,13 +653,23 @@ form {
 	filter: blur(1px);
 }
 
+.MiddleLine img:hover {
+	filter: grayscale(100%);
+}
+
 .RightLine {
 	position: absolute;
-	right: 29%;
-	top: 77%;
+	right: 29.5%;
+	top: 79%;
 	transform: rotate(10deg);
 	filter: blur(1px);
 }
+
+.RightLine img:hover {
+	filter: grayscale(100%);
+}
+
+
 
 /********************************************************** HIGHLIGHTING THE CHARS IN EACH GROUP *********************************************************/
 
@@ -668,4 +682,3 @@ form {
 	background-color: blue;
 }
 
-~
