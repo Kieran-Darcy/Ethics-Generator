@@ -26,9 +26,20 @@
             }
 
 
-            $.get("getResults", person => {
-                // person has 1 person in it right now. looks like this {age: ..., gender: ..., profession: ..., disability: ...}   example below
-                $("body").append(`<h1>The most hated person is a ${person.disability ? 'disabled' : ''} ${person.profession} ${person.gender} ${person.age}</h1><img src="Res/${person.age}${person.gender}${person.profession}${person.disability}.png">`)
+            $.get("getResults", everything => {
+                // everything has everything in it. it looks like this {mostHatedPerson: ..., mostPickedOption: ..., mostHatedAge: ..., mostFavouredAge: ..., results: ...}
+
+                // appends the text and image of the most hated person
+                $("body").append(`<h1>The most hated person is a ${everything.mostHatedPerson.disability ? 'disabled' : ''} ${everything.mostHatedPerson.profession} ${everything.mostHatedPerson.gender} ${everything.mostHatedPerson.age}</h1><img src="Res/${everything.mostHatedPerson.age}${everything.mostHatedPerson.gender}${everything.mostHatedPerson.profession}${everything.mostHatedPerson.disability}.png">`);
+
+                // appends the text and image of the most hated age, most favoured age, most picked option
+                $("body").append(`<h1>The most hated age is ${everything.mostHatedAge}</h1><h1>The most favoured age is ${everything.mostFavouredAge}</h1><h1>Most picked option is ${everything.mostPickedOption.toUpperCase()}</h1>`);
+
+                // this is just all the results in case you wanted to display them all
+                everything.results.forEach(result => {
+                    $("body").append(`<strong>Next Object Below</strong><br><p>${JSON.stringify(result)}</p><br>`)
+                });
+
             })
         });
 

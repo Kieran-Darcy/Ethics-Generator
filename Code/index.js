@@ -6,6 +6,7 @@ const port = 80;
 app.use(express.static(__dirname));
 app.use(express.urlencoded({extended: true}));
 let currentScenario = {};
+let timer = 0;
 app.use(session({
     name: 'sid',
     resave: false,
@@ -78,12 +79,12 @@ function makeScene(id, response) {
         getPeople((numOfPeople > 4) ? 1+Math.round(Math.random()*(4-1)) : 0, groupC => {
             getCrossing(crossing => {
                 query(`SELECT COUNT(id) FROM results WHERE id = '${id}'`,count => {
-                    return count > 15 ?
+                    return count[0]["COUNT(id)"] < 15 ?
                     response({
                         people: sortPeople(groupAB, groupC),  //  {groupA : [GroupA], groupB : [GroupB], groupC : [GroupC]}
                         crossingType: crossing,  // crossing / green light / red light
                         timer: Math.random() >= 0.5,
-                        questionNum: count+1   // questions answered
+                        questionNum: count[0]["COUNT(id)"]+1   // questions answered
                     }) : response('results.html')
                 })
             })
@@ -91,8 +92,8 @@ function makeScene(id, response) {
     })
 }
 
-function saveResults(id, scene, choice) {
-    query(`INSERT INTO results (id, scenario, choice) VALUES ('${id}', '${scene}', '${choice}')`)
+function saveResults(id, scene, choice, time) {
+    query(`INSERT INTO results (id, scenario, choice, timer) VALUES ('${id}', '${scene}', '${choice}', ${time})`)
 }
 
 function getResults(id, response) {
@@ -133,36 +134,71 @@ function getMax(arr) {
     return max;
 }
 
-function mostHated(people) {
+function getStats(people) {
+    let choices = {
+        a: 0,
+        b: 0,
+        c: 0
+    };
+    let mostHatedAge = {
+        Infant: 0,
+        Child: 0,
+        Adult: 0,
+        Elderly: 0
+    };
+    let mostFavouredAge = {
+        Infant: 0,
+        Child: 0,
+        Adult: 0,
+        Elderly: 0
+    };
     let count = {};
     people.forEach(result => {
         if (result.choice === 'a') {
+            choices.a++;
             result.scenario.people.groupA.forEach(person => {
+                mostHatedAge[person.age]++;
                 if (count[JSON.stringify(person)]) {
                     count[JSON.stringify(person)]++;
                 } else {
                     count[JSON.stringify(person)] = 1;
                 }
-            })
+            });
+            result.scenario.people.groupB.forEach(person => mostFavouredAge[person.age]++);
+            result.scenario.people.groupC.forEach(person => mostFavouredAge[person.age]++)
         } else if (result.choice === 'b') {
+            choices.b++;
             result.scenario.people.groupB.forEach(person => {
+                mostHatedAge[person.age]++;
                 if (count[JSON.stringify(person)]) {
                     count[JSON.stringify(person)]++;
                 } else {
                     count[JSON.stringify(person)] = 1;
                 }
-            })
+            });
+            result.scenario.people.groupA.forEach(person => mostFavouredAge[person.age]++);
+            result.scenario.people.groupC.forEach(person => mostFavouredAge[person.age]++)
         } else {
+            choices.c++;
             result.scenario.people.groupC.forEach(person => {
+                mostHatedAge[person.age]++;
                 if (count[JSON.stringify(person)]) {
                     count[JSON.stringify(person)]++;
                 } else {
                     count[JSON.stringify(person)] = 1;
                 }
-            })
+            });
+            result.scenario.people.groupA.forEach(person => mostFavouredAge[person.age]++);
+            result.scenario.people.groupB.forEach(person => mostFavouredAge[person.age]++)
         }
     });
-    return JSON.parse(getMax(count))
+    return {
+        mostHatedPerson: JSON.parse(getMax(count)),
+        mostPickedOption: getMax(choices),
+        mostHatedAge: getMax(mostHatedAge),
+        mostFavouredAge: getMax(mostFavouredAge),
+        results: people
+    }
 }
 
 // Insert people to the table
@@ -197,7 +233,7 @@ app.get('/results', redirectLogin, (req, res) => {
 
 app.get('/getResults', (req, res) => {
     getResults(req.session.userID, results => {
-        res.send(mostHated(results))
+        res.send(getStats(results))
     });
 });
 
@@ -207,6 +243,7 @@ app.get('/CSS/background.png', (req, res) => {
 
 app.get('/scene', (req, res) => {
     makeScene(req.session.userID,results => {
+        timer = Date.now();
         currentScenario = results;
         res.send(currentScenario)
     })
@@ -228,7 +265,7 @@ app.post('/choice', (req, res) => {
     const option = req.body.option;
     // if the option isn't null add it to the database along with the question
     if (option) {
-       //saveResults(req.session.userID, (JSON.stringify(currentScenario)), option);    // uncomment when ready
+       //saveResults(req.session.userID, (JSON.stringify(currentScenario)), option, (Date.now()-timer)/1000);    // uncomment when ready
     }
     res.send(option !== undefined);
 });
