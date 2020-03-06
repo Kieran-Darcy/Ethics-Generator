@@ -1,7 +1,6 @@
 const express = require('express');
 const session = require('express-session');
 const mysql = require('mysql');
-// const script = require(__dirname + '/Scripts/script.js');
 const app = express();
 const port = 80;
 app.use(express.static(__dirname));
@@ -37,7 +36,7 @@ const connection = mysql.createConnection({
 });*/
 
 const redirectLogin = (req, res, next) => {
-    //req.session.userID = 'fakeuser';    // please delete when production ready
+    req.session.userID = 'fakeuser';    // please delete when production ready
     if(!req.session.userID) {
         res.sendFile('register.html', {root: __dirname})
     } else {
@@ -79,12 +78,13 @@ function makeScene(id, response) {
         getPeople((numOfPeople > 4) ? 1+Math.round(Math.random()*(4-1)) : 0, groupC => {
             getCrossing(crossing => {
                 query(`SELECT COUNT(id) FROM results WHERE id = '${id}'`,count => {
-                    return response({
+                    return count > 15 ?
+                    response({
                         people: sortPeople(groupAB, groupC),  //  {groupA : [GroupA], groupB : [GroupB], groupC : [GroupC]}
                         crossingType: crossing,  // crossing / green light / red light
                         timer: Math.random() >= 0.5,
                         questionNum: count+1   // questions answered
-                    })
+                    }) : response('results.html')
                 })
             })
         })
@@ -119,6 +119,52 @@ function checkUser(username, response) {
     })
 }
 
+function getMax(arr) {
+    let max = null;
+    for (let key in arr) {
+        if (max) {
+            if (arr[max] < arr[key]) {
+                max = key
+            }
+        } else {
+            max = key;
+        }
+    }
+    return max;
+}
+
+function mostHated(people) {
+    let count = {};
+    people.forEach(result => {
+        if (result.choice === 'a') {
+            result.scenario.people.groupA.forEach(person => {
+                if (count[JSON.stringify(person)]) {
+                    count[JSON.stringify(person)]++;
+                } else {
+                    count[JSON.stringify(person)] = 1;
+                }
+            })
+        } else if (result.choice === 'b') {
+            result.scenario.people.groupB.forEach(person => {
+                if (count[JSON.stringify(person)]) {
+                    count[JSON.stringify(person)]++;
+                } else {
+                    count[JSON.stringify(person)] = 1;
+                }
+            })
+        } else {
+            result.scenario.people.groupC.forEach(person => {
+                if (count[JSON.stringify(person)]) {
+                    count[JSON.stringify(person)]++;
+                } else {
+                    count[JSON.stringify(person)] = 1;
+                }
+            })
+        }
+    });
+    return JSON.parse(getMax(count))
+}
+
 // Insert people to the table
 /*function insertData() {
     script.createPeople().forEach(person => {
@@ -151,9 +197,8 @@ app.get('/results', redirectLogin, (req, res) => {
 
 app.get('/getResults', (req, res) => {
     getResults(req.session.userID, results => {
-        res.send(results)
+        res.send(mostHated(results))
     });
-
 });
 
 app.get('/CSS/background.png', (req, res) => {
@@ -161,8 +206,6 @@ app.get('/CSS/background.png', (req, res) => {
 });
 
 app.get('/scene', (req, res) => {
-    /*    currentScenario = script.makeScene();
-        res.send(currentScenario)*/
     makeScene(req.session.userID,results => {
         currentScenario = results;
         res.send(currentScenario)
@@ -185,7 +228,7 @@ app.post('/choice', (req, res) => {
     const option = req.body.option;
     // if the option isn't null add it to the database along with the question
     if (option) {
-       saveResults(req.session.userID, (JSON.stringify(currentScenario)), option);    // uncomment when ready
+       //saveResults(req.session.userID, (JSON.stringify(currentScenario)), option);    // uncomment when ready
     }
     res.send(option !== undefined);
 });

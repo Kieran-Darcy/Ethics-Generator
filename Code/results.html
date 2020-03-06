@@ -1,136 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <meta http-equiv="X-UA-Compatible" content="ie=edge">
-          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-          <link rel="stylesheet" href="CSS/result.css">
-          <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(() => {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="CSS/result.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(() => {
 
-              function getMax(arr) {
+            function getMax(arr) {
                 let max = null;
-                for(let key in arr) {
-                  if (max) {
-                    if (arr[max] < arr[key]) {max = key}
-                  } else {
-                    max = key;
-                  }
+                for (let key in arr) {
+                    if (max) {
+                        if (arr[max] < arr[key]) {
+                            max = key
+                        }
+                    } else {
+                        max = key;
+                    }
                 }
                 return max;
-              }
+            }
 
 
-                $.get("getResults", results => {
-                    // all the information you need is in results
-                    let count = {};
-                    results.forEach(result => {
-                      if(result.choice === 'a') {
-                        result.scenario.people.groupA.forEach(person => {
-                          if(count[JSON.stringify(person)]) {
-                            count[JSON.stringify(person)]++;
-                          } else {
-                            count[JSON.stringify(person)] = 1;
-                          }
-                        })                        
-                      } else if(result.choice === 'b') {
-                        result.scenario.people.groupB.forEach(person => {
-                          if(count[JSON.stringify(person)]) {
-                            count[JSON.stringify(person)]++;
-                          } else {
-                            count[JSON.stringify(person)] = 1;
-                          }
-                        })
-                      } else {
-                        result.scenario.people.groupC.forEach(person => {
-                          if(count[JSON.stringify(person)]) {
-                            count[JSON.stringify(person)]++;
-                          } else {
-                            count[JSON.stringify(person)] = 1;
-                          }
-                        })
-                      }
-                    })
-                    console.table(count);
-                    console.log(getMax(count));
-                }) 
-            });
-          
+            $.get("getResults", person => {
+                // person has 1 person in it right now. looks like this {age: ..., gender: ..., profession: ..., disability: ...}   example below
+                $("body").append(`<h1>The most hated person is a ${person.disability ? 'disabled' : ''} ${person.profession} ${person.gender} ${person.age}</h1><img src="Res/${person.age}${person.gender}${person.profession}${person.disability}.png">`)
+            })
+        });
 
-              
 
-            /*google.charts.load('current', {'packages':['bar']});
-            google.charts.setOnLoadCallback(drawStuff);
+        /*google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
 
-            function drawStuff() {
-                let data = new google.visualization.arrayToDataTable([
-                    ['Opening Move', 'Percentage'],
-                    ["Saving yourself", 44],
-                    ["Old over young", 31],
-                    ["Young over old", 12],
-                    ["Groups over Individual", 10],
-                    ['Other', 3]
-                ]);
+        function drawStuff() {
+            let data = new google.visualization.arrayToDataTable([
+                ['Opening Move', 'Percentage'],
+                ["Saving yourself", 44],
+                ["Old over young", 31],
+                ["Young over old", 12],
+                ["Groups over Individual", 10],
+                ['Other', 3]
+            ]);
 
-                let options = {
-                    title: 'Results',
-                    width: 900,
-                    legend: { position: 'none' },
-                    chart: { title: 'Results',
-                        subtitle: 'popularity by percentage' },
-                    bars: 'horizontal', // Required for Material Bar Charts.
-                    axes: {
-                        x: {
-                            0: { side: 'top', label: 'Percentage'} // Top x-axis.
-                        }
-                    },
-                    bar: { groupWidth: "90%" }
-                };
+            let options = {
+                title: 'Results',
+                width: 900,
+                legend: { position: 'none' },
+                chart: { title: 'Results',
+                    subtitle: 'popularity by percentage' },
+                bars: 'horizontal', // Required for Material Bar Charts.
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'Percentage'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: "90%" }
+            };
 
-                let chart = new google.charts.Bar(document.getElementById('top_x_div'));
-                chart.draw(data, options);
-            }*/
+            let chart = new google.charts.Bar(document.getElementById('top_x_div'));
+            chart.draw(data, options);
+        }*/
 
-        </script>
-    </head>
+    </script>
+</head>
 
-    <body>
+<body>
 
-         <h1><center>GENERATOR RESULTS</center></h1>
+<h1>
+    <center>GENERATOR RESULTS</center>
+</h1>
 
-          <div class="nav">
-            <ul>
-              <li><a href="homepage">HOME</a></li>
-              <li><a href="scenario1">GENERATOR</a></li>
-              <li><a href="stats">STATS</a></li>
-              <li><a href="results">RESULTS</a></li>
-            </ul>
-          </div>
+<div class="nav">
+    <ul>
+        <li><a href="homepage">HOME</a></li>
+        <li><a href="scenario1">GENERATOR</a></li>
+        <li><a href="stats">STATS</a></li>
+        <li><a href="results">RESULTS</a></li>
+    </ul>
+</div>
 
-        <div class="type-info">
-          <h1>
-            <span> Your Results </span>
-          </h1>
-        </div>
-      
-        <div class="container">
-          <article class="description">
-            <!--<h2>Introduction</h2>-->
-            <p>
-                  
-            </p>
-            <p>
+<div class="type-info">
+    <h1>
+        <span> Your Results </span>
+    </h1>
+</div>
 
-            </p>
-            <!--<h5>What this means</h5>-->
-            <p>
-            </p>
-            <br>
-            <div id="top_x_div" style="width: 900px; height: 500px;"></div>
-          </article>
-        </div>
-    </body>
+<div class="container">
+    <article class="description">
+        <!--<h2>Introduction</h2>-->
+        <p>
+
+        </p>
+        <p>
+
+        </p>
+        <!--<h5>What this means</h5>-->
+        <p>
+        </p>
+        <br>
+        <div id="top_x_div" style="width: 900px; height: 500px;"></div>
+    </article>
+</div>
+</body>
 </html>
