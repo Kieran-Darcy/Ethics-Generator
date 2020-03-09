@@ -37,7 +37,7 @@ const connection = mysql.createConnection({
 });*/
 
 const redirectLogin = (req, res, next) => {
-    req.session.userID = 'fakeuser';    // please delete when production ready
+    //req.session.userID = 'fakeuser';    // please delete when production ready
     if(!req.session.userID) {
         res.sendFile('register.html', {root: __dirname})
     } else {
@@ -265,7 +265,7 @@ app.post('/choice', (req, res) => {
     const option = req.body.option;
     // if the option isn't null add it to the database along with the question
     if (option) {
-       //saveResults(req.session.userID, (JSON.stringify(currentScenario)), option, (Date.now()-timer)/1000);    // uncomment when ready
+       saveResults(req.session.userID, (JSON.stringify(currentScenario)), option, (Date.now()-timer)/1000);    // uncomment when ready
     }
     res.send(option !== undefined);
 });
