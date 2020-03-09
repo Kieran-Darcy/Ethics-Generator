@@ -678,7 +678,7 @@ form {
 	box-shadow: 0 0 10px #333;
 }
 
-.c1 b:hover~#${person["age"]}${person["gender"]}${person["profession"]}${person["disability"]}L {
+.c1 b:hover~#scen p {
 	background-color: blue;
 }
 

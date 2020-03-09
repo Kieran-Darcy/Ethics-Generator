@@ -24,11 +24,6 @@
 							data.people["groupA"].forEach(person => {
 								$("#groupA").append(`<li>${person["age"]} ${person["gender"]} ${person["profession"]} ${person["disability"]}</li>`); // insert all people from from group A into id = "groupA"
 								$("#parent").append(`<img src='Res/${person["age"]}${person["gender"]}${person["profession"]}${person["disability"]}.png' id="${person["age"]}${person["gender"]}${person["profession"]}${person["disability"]}L">`)// inserts all images from group A
-
-
-								 //$("#groupA").hover(function(){
-								    //$(`${person["age"]}${person["gender"]}${person["profession"]}${person["disability"]}L`).css("background-color", "yellow"); 
-								  //})
 							});
 
 							data.people["groupB"].forEach(person => {
@@ -155,31 +150,27 @@
 						<div class="green_light"><img src="Res/green_light.png" alt="greenlight" width="55" height="165"></div>
 
 <!--*******************************************************************************************************************************************************-->
-
-
-						
-
 						
 					</div>
 
 
 					<h2>Scenarios</h2>
 					
-					<p id="scen">You are approaching a <span style="color: #00CC00;" id="crossing"><b>crossing</b></span> and see a pedestrian ahead, so the car goes to brake, when suddenly the brakes on the car are not working; the car has 3 options. A = Proceed in the same lane. B = Swerve to other side of road. C = Swerve into a building.</p>
+					<p id="scen">You are approaching a <b><span style="color: #00CC00;" id="crossing">crossing</span></b> and see a pedestrian ahead, so the car goes to brake, when suddenly the brakes on the car are not working; the car has 3 options.<span style="color:#FF0000"> <b>A</b></span> = Proceed in the same lane.<span style="color:#996600"> <b>B</b></span> = Swerve to other side of road.<span style="color:#FFFF00"> <b>C</b></span> = Swerve into a building.</p>
 
 					
 						<form onsubmit="return false">
 							<div class="c1">
-								<b><input type="radio" class="radio" name="option" value="a">Option A:</b>
-								<p>But Kill...
+								<b><input type="radio" class="radio" name="option" value="a"><span style="color:#FF0000">Option A:</span></b>
+								<p>Proceed in the same lane, but kill...
 									<ul id="groupA">
 									</ul>
 								</p>
 							</div>
 							
 							<div class="c2">
-								<b><input type="radio" class="radio" name="option" value="b">Option B:</b>
-								<p>But Kill... 
+								<b><input type="radio" class="radio" name="option" value="b"><span style="color:#996600">Option B:</b>
+								<p>Swerve to the other side of the road, but kill... 
 									<ul id="groupB">
 									</ul>
 								</p>
@@ -187,8 +178,8 @@
 
 							
 							<div class="c3">
-								<b class="c"><input type="radio" class="radio" name="option" value="c">Option C:</b>
-								<p>But Kill...
+								<b class="c"><input type="radio" class="radio" name="option" value="c"><span style="color:#FFFF00">Option C:</b>
+								<p>Swerve into a building, but kill...
 									<ul id="groupC">
 										<li>Yourself</li>
 									</ul>
