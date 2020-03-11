@@ -15,7 +15,7 @@ app.use(session({
     cookie: {
         sameSite: true,
         secure: false,
-        maxAge: undefined   //1000 * 60 * 60 * 2 // 1s -> 1min -> 1hour -> 2hours
+        maxAge: 1000 * 60 * 60 * 2 // 1s -> 1min -> 1hour -> 2hours
     }
 }));
 
@@ -37,7 +37,7 @@ const connection = mysql.createConnection({
 });*/
 
 const redirectLogin = (req, res, next) => {
-    req.session.userID = 'fakeuser';    // please delete when production ready
+    //req.session.userID = 'fakeuser';    // please delete when production ready
     if(!req.session.userID) {
         res.sendFile('register.html', {root: __dirname})
     } else {
@@ -47,7 +47,7 @@ const redirectLogin = (req, res, next) => {
 
 function sortPeople(groupAB, groupC) {
     let people = groupAB;
-    const variation = Math.round(Math.random() - Math.random()); // chooses a random number between -1 - 1
+    //const variation = Math.round(Math.random() - Math.random()); // chooses a random number between -1 - 1
     const peopleA = people.splice(0, Math.round(people.length/2) /*+ variation*/); // split into group A
     return {groupA: peopleA, groupB: people, groupC: groupC} // return groups
 }
@@ -79,7 +79,7 @@ function makeScene(id, response) {
         getPeople((numOfPeople > 4) ? 1+Math.round(Math.random()*(4-1)) : 0, groupC => {
             getCrossing(crossing => {
                 query(`SELECT COUNT(id) FROM results WHERE id = '${id}'`,count => {
-                    return count[0]["COUNT(id)"] < 15 ?
+                    return count[0]["COUNT(id)"] < 5 ?
                     response({
                         people: sortPeople(groupAB, groupC),  //  {groupA : [GroupA], groupB : [GroupB], groupC : [GroupC]}
                         crossingType: crossing,  // crossing / green light / red light
@@ -102,14 +102,14 @@ function getResults(id, response) {
             results.forEach(result => {
                 result.scenario = JSON.parse(result.scenario)
             });
-            return response(results)
+            return response({results: results, user: id})
         })
     } else {
         query(`SELECT * FROM results WHERE id = '${id}'`, results => {
             results.forEach(result => {
                 result.scenario = JSON.parse(result.scenario)
             });
-            return response(results)
+            return response({results: results, user: id})
         })
     }
 }
@@ -135,6 +135,8 @@ function getMax(arr) {
 }
 
 function getStats(people) {
+    const user = people.user;
+    people = people.results;
     let choices = {
         a: 0,
         b: 0,
@@ -193,6 +195,7 @@ function getStats(people) {
         }
     });
     return {
+        userID: user,
         mostHatedPerson: JSON.parse(getMax(count)),
         mostPickedOption: getMax(choices),
         mostHatedAge: getMax(mostHatedAge),
@@ -227,7 +230,7 @@ app.get('/homepage', (req, res) => {
     res.sendFile('homepage.html', {root: __dirname})
 });
 
-app.get('/results', redirectLogin, (req, res) => {
+app.get('/results', (req, res) => {
     res.sendFile('results.html', {root: __dirname})
 });
 
@@ -249,6 +252,10 @@ app.get('/scene', (req, res) => {
     })
 });
 
+app.get('/newUser', (req, res) => {
+    res.sendFile('register.html', {root: __dirname})
+});
+
 app.post('/register', (req, res) => {
     const {username} = req.body;
     checkUser(username.toLowerCase(), exists => {
@@ -265,7 +272,7 @@ app.post('/choice', (req, res) => {
     const option = req.body.option;
     // if the option isn't null add it to the database along with the question
     if (option) {
-       //saveResults(req.session.userID, (JSON.stringify(currentScenario)), option, (Date.now()-timer)/1000);    // uncomment when ready
+       saveResults(req.session.userID, (JSON.stringify(currentScenario)), option, (Date.now()-timer)/1000);    // uncomment when ready
     }
     res.send(option !== undefined);
 });
