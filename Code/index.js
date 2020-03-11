@@ -219,7 +219,7 @@ function getStats(people) {
 insertData();*/
 
 app.get('/', redirectLogin, (req, res) => {
-    res.sendFile('Scenario1.html', {root: __dirname})
+    res.sendFile('homepage.html', {root: __dirname})
 });
 
 app.get('/scenario1', redirectLogin, (req, res) => {
