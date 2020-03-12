@@ -204,20 +204,6 @@ function getStats(people) {
     }
 }
 
-// Insert people to the table
-/*function insertData() {
-    script.createPeople().forEach(person => {
-        let statement = `INSERT INTO person (age, gender, profession, disability) VALUES ('${person.age}', '${person.gender}', '${person.profession}', '${person.disability}')`;
-        query(statement)
-    });
-    script.crossings.forEach(crossings => {
-        let statement = `INSERT INTO crossings (crossing) VALUES ('${crossings}')`;
-        query(statement)
-    });
-    console.log("Statement complete!");
-}
-insertData();*/
-
 app.get('/', (req, res) => {
     res.sendFile('homepage.html', {root: __dirname})
 });
