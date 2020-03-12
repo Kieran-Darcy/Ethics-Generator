@@ -30,15 +30,15 @@
 							data.people["groupB"].forEach(person => {
 								$("#groupB").append(`<li>${person["age"]} ${person["gender"]} ${person["profession"]} ${person["disability"]}</li>`); // insert people for group B into id = "groupB"
 								$("#parent").append(`<img src='Res/${person["age"]}${person["gender"]}${person["profession"]}${person["disability"]}.png' id="${person["age"]}${person["gender"]}${person["profession"]}${person["disability"]}R">`) // inserts all images from group B
-							})
+							});
 
 							$("#groupC").append("<li>Yourself</li>");
 							data.people["groupC"].forEach(person => {
 								$("#groupC").append(`<li>${person["age"]} ${person["gender"]} ${person["profession"]} ${person["disability"]}</li>`); // insert people for group C into id = "groupC"
-							})
+							});
 
-							
-							$("#parent").append(`<img src='Res/${data.crossingType}.png' id="${data.crossingType}>`); // insert traffic light image into generated one given
+
+							$("#parent").append(`<img src='Res/${data.crossingType}.png' id="${data.crossingType}>"`); // insert traffic light image into generated one given
 
 
 							/*$("#AdultMaleEntrepreneurL").hover(function(){
