@@ -21,7 +21,7 @@
 							$("#parent").append("<div class='envir'><img src='Res/View1C.png' alt='View1' width='915' height='500'></div>"); // this inserts road background
 
 							// The questions
-							$("questNo.").append("Question: "+data.questionNum+"/5"); // change accordingly
+							$("#questionNum").text(`Scenario: ${data.questionNum}/5`);
 
 							//people[groupA] = {Person, Person, Person, ...}
 							data.people["groupA"].forEach(person => {
@@ -84,9 +84,8 @@
 			</script>
 
 		</head>
-			<body>
+			<body>			
 
-				<div class="webcontainer">					
 
 					<h1><center>ETHICS GENERATOR</center></h1>
 
@@ -94,7 +93,7 @@
 						<ul>
 						  <li><a href="homepage">HOME</a></li>
 						  <li><a href="scenario1">GENERATOR</a></li>
-							<li><a href="stats">STATS</a></li>
+						  <li><a href="stats">STATS</a></li>
 						  <li><a href="results">RESULTS</a></li>
 						</ul>
 					</div>
@@ -176,7 +175,7 @@
 					</div>
 
 
-					<h2>Scenarios</h2>
+					<h2 id="questionNum">Scenario: 0/5</h2>
 					
 					<p id="scen">You are approaching a <b><span id="crossing" style="color:#996600">crossing</span></b> and see a pedestrian ahead, so the car goes to brake, when suddenly the brakes on the car are not working; the car has 3 options.</p>
 
@@ -225,10 +224,6 @@
 
 					<!--Right Line-->
 					<div class="RightLine"><img src="Res/MiddleLine.png" alt="RightLine" width="110" height="120"></div>
-					
-							
-
-				</div>
 
 			</body>
 	</html>
