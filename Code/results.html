@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <link rel="stylesheet" href="CSS/result.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(() => {
+    <head>
+          <title>Results</title>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+          <link rel="stylesheet" href="CSS/result.css">
+          <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(() => {
 
-            function getMax(arr) {
+              function getMax(arr) {
                 let max = null;
                 for (let key in arr) {
                     if (max) {
@@ -30,10 +31,14 @@
                 // everything has everything in it. it looks like this {mostHatedPerson: ..., mostPickedOption: ..., mostHatedAge: ..., mostFavouredAge: ..., results: ...}
 
                 // appends the text and image of the most hated person
-                $("body").append(`<h1>The most hated person is a ${everything.mostHatedPerson.disability ? 'disabled' : ''} ${everything.mostHatedPerson.profession} ${everything.mostHatedPerson.gender} ${everything.mostHatedPerson.age}</h1><img src="Res/${everything.mostHatedPerson.age}${everything.mostHatedPerson.gender}${everything.mostHatedPerson.profession}${everything.mostHatedPerson.disability}.png">`);
+                $("body").append(`<h1>Person you killed the most was a ${everything.mostHatedPerson.disability ? 'disabled' : ''} ${everything.mostHatedPerson.profession} ${everything.mostHatedPerson.gender} ${everything.mostHatedPerson.age}</h1><img src="Res/${everything.mostHatedPerson.age}${everything.mostHatedPerson.gender}${everything.mostHatedPerson.profession}${everything.mostHatedPerson.disability}.png" width="100" height="100"><p>Ibraheem Type your text in here for this question</p>`);
 
                 // appends the text and image of the most hated age, most favoured age, most picked option
-                $("body").append(`<h1>The most hated age is ${everything.mostHatedAge}</h1><h1>The most favoured age is ${everything.mostFavouredAge}</h1><h1>Most picked option is ${everything.mostPickedOption.toUpperCase()}</h1>`);
+                $("body").append(`<h1>Age you killed the most was ${everything.mostHatedAge}</h1><p>Ibraheem Type your text in here for this question</p><h1>Age you killed the least was ${everything.mostFavouredAge}</h1><p>Ibraheem Type your text in here for this question</p><h1>Most picked option was ${everything.mostPickedOption.toUpperCase()}</h1><p>Ibraheem Type your text in here for this question</p>`);
+
+                everything.results.forEach(result => {
+                  result.timer;
+                })
 
                 // this is just all the results in case you wanted to display them all
                 everything.results.forEach(result => {
@@ -76,45 +81,31 @@
             chart.draw(data, options);
         }*/
 
-    </script>
-</head>
+        </script>
+    </head>
 
-<body>
+  <body>
 
-<h1>
-    <center>GENERATOR RESULTS</center>
-</h1>
+      <h1>
+          <center>GENERATOR RESULTS</center>
+      </h1>
 
-<div class="nav">
-    <ul>
-        <li><a href="homepage">HOME</a></li>
-        <li><a href="scenario1">GENERATOR</a></li>
-        <li><a href="stats">STATS</a></li>
-        <li><a href="results">RESULTS</a></li>
-    </ul>
-</div>
+      <div class="nav">
+          <ul>
+              <li><a href="homepage">HOME</a></li>
+              <li><a href="scenario1">GENERATOR</a></li>
+              <li><a href="stats">STATS</a></li>
+              <li><a href="results">RESULTS</a></li>
+          </ul>
+      </div>
 
-<div class="type-info">
-    <h1>
-        <span> Your Results </span>
-    </h1>
-</div>
+      <div class="type-info">
+          <h1>
+              <span> Your Results </span>
+          </h1>
+      </div>
 
-<div class="container">
-    <article class="description">
-        <!--<h2>Introduction</h2>-->
-        <p>
+  </body>
 
-        </p>
-        <p>
 
-        </p>
-        <!--<h5>What this means</h5>-->
-        <p>
-        </p>
-        <br>
-        <div id="top_x_div" style="width: 900px; height: 500px;"></div>
-    </article>
-</div>
-</body>
 </html>

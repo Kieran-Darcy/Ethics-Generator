@@ -106,7 +106,7 @@ li a:hover {
 #InfantMaleL {
 	position: absolute;
 	right: 30%;
-	top: 69%;
+	top: 76%;
 	width: 15px;
 	height: 8px;
 }
@@ -114,7 +114,7 @@ li a:hover {
 #InfantFemaleL {
 	position: absolute;
 	right: 30.5%;
-	top: 74%;
+	top: 76%;
 	width: 15px;
 	height: 8px;
 }
@@ -344,7 +344,7 @@ li a:hover {
 #InfantMaleR {
 	position: absolute;
 	right: 25%;
-	top: 73%;
+	top: 77%;
 	width: 15px;
 	height: 8px;
 }
@@ -352,7 +352,7 @@ li a:hover {
 #InfantFemaleR {
 	position: absolute;
 	right: 30%;
-	top: 69%;
+	top: 78%;
 	width: 15px;
 	height: 8px;
 }
@@ -678,7 +678,7 @@ form {
 	box-shadow: 0 0 10px #333;
 }
 
-.c1 b:hover~#${person["age"]}${person["gender"]}${person["profession"]}${person["disability"]}L {
+.c1 b:hover~#scen p {
 	background-color: blue;
 }
 
