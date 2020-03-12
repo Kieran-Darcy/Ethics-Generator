@@ -41,6 +41,19 @@
 							$("#parent").append(`<img src='Res/${data.crossingType}.png' id="${data.crossingType}>`); // insert traffic light image into generated one given
 
 
+							/*$("#AdultMaleEntrepreneurL").hover(function(){
+								$this.width(1.25*$(this).width());
+								$this.height(1.25*$(this).height());
+							}), $(function){
+								$this.width(0.8*$(this).width());
+								$this.height(0.5*$(this).height());
+							};*/
+
+							$('#AdultMaleEntrepreneurL').mouseover(function(){
+								$('#InfantMaleL').fadeIn(500);
+							}).mouseout(function(){
+								$('#InfantMaleL').fadeOut(500);
+							});
 							
 						});
 					}
@@ -59,7 +72,26 @@
 					});
 
 					getScene()
+
+					
 				});
+
+				//function Yourselfover() {
+						//alert("hello");
+					//}
+			</script>
+
+			<script type="text/javascript">
+				
+				
+
+
+
+
+
+
+
+
 			</script>
 
 		</head>
@@ -157,30 +189,30 @@
 
 					<h2>Scenarios</h2>
 					
-					<p id="scen">You are approaching a <b><span style="color: #00CC00;" id="crossing">crossing</span></b> and see a pedestrian ahead, so the car goes to brake, when suddenly the brakes on the car are not working; the car has 3 options.<span style="color:#FF0000"> <b>A</b></span> = Proceed in the same lane.<span style="color:#996600"> <b>B</b></span> = Swerve to other side of road.<span style="color:#FFFF00"> <b>C</b></span> = Swerve into a building.</p>
+					<p id="scen">You are approaching a <b><span id="crossing" style="color:#996600">crossing</span></b> and see a pedestrian ahead, so the car goes to brake, when suddenly the brakes on the car are not working; the car has 3 options.</p>
 
 					
 						<form onsubmit="return false">
 							<div class="c1">
-								<b><input type="radio" class="radio" name="option" value="a"><span style="color:#FF0000">Option A:</span></b>
-								<p>Proceed in the same lane, but kill...
+								<b><input type="radio" class="radio" name="option" value="a"><u>Option A:</u></b>
+								<p><b><span style="color:#996600">Proceed in the same lane, but kill...</span></b>
 									<ul id="groupA">
 									</ul>
 								</p>
 							</div>
 							
 							<div class="c2">
-								<b><input type="radio" class="radio" name="option" value="b"><span style="color:#996600">Option B:</b>
-								<p>Swerve to the other side of the road, but kill... 
+								<b><input type="radio" class="radio" name="option" value="b"><u>Option B:</u></b>
+								<p><b><span style="color:#996600">Swerve to the other side of the road, but kill...</span></b> 
 									<ul id="groupB">
 									</ul>
 								</p>
 							</div>
 
 							
-							<div class="c3">
-								<b class="c"><input type="radio" class="radio" name="option" value="c"><span style="color:#FFFF00">Option C:</b>
-								<p>Swerve into a building, but kill...
+							<div class="c3" onmouseover="Yourselfover();">
+								<b class="c"><input type="radio" class="radio" name="option" value="c"><u>Option C:</u></b>
+								<p><b><span style="color:#996600">Swerve into a building, but kill...</span></b>
 									<ul id="groupC">
 										<li>Yourself</li>
 									</ul>
