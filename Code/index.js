@@ -218,7 +218,7 @@ function getStats(people) {
 }
 insertData();*/
 
-app.get('/', redirectLogin, (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile('homepage.html', {root: __dirname})
 });
 
