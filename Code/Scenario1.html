@@ -52,7 +52,6 @@
             }
 
             function checkA() {
-                alert("check A was called!!!!");
                 $(".c1 b input").prop("checked", true);
                 $(".c2 b input").prop("checked", false);
                 $(".c3 b input").prop("checked", false);
@@ -65,7 +64,6 @@
                     if (data === 'results.html') {
                         window.location.href = 'results'
                     }
-                    console.log(data.timer);
 
                     $("#crossing").text(data.crossingType);
                     $("#groupA").empty(); // clears group A
@@ -125,16 +123,12 @@
 
             function submitForm(timeout = false) {
                 let t = (timer.timed) ? (timeout ? timer.stop(timeout, checkA) : timer.stop(timeout, null)) : null;
-                console.log("t: ", t);
                 let form = {option: $("form").serialize(), timer: t};
-                console.log("Preform: ", form);
                 if (form.option) {
                     if (form.option.length > 0) {
                         form.option = form.option[form.option.length - 1]
                     }
-                } // reformatting option due to the way it's serialised
-                console.log("Form: ", form);
-                alert("Waiting...");
+                } // reformatting option due to the way it's serialisedf
                 $.post("choice", form, data => {	// post data
                     if (data) {		// if data was received create new questions
                         if ($("#warning").length) {
