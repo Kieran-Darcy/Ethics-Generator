@@ -96,14 +96,6 @@
                     $("#parent").append(`<img src='Res/${data.crossingType}.png' id="${data.crossingType}">`); // insert traffic light image into generated one given
 
 
-							/*$("#AdultMaleEntrepreneurL").hover(function(){
-								$this.width(1.25*$(this).width());
-								$this.height(1.25*$(this).height());
-							}), $(function){
-								$this.width(0.8*$(this).width());
-								$this.height(0.5*$(this).height());
-							};*/
-
                     $('#AdultMaleEntrepreneurL').mouseover(function () {
                         $('#InfantMaleL').fadeIn(500);
                     }).mouseout(function () {
@@ -289,180 +281,149 @@
 			</script>
 
 </head>
-<body>
+	<body>
 
-<h1>
-    <center>ETHICS GENERATOR</center>
-</h1>
+	<h1>
+	    <center>ETHICS GENERATOR</center>
+	</h1>
 
-<div class="nav">
-    <ul>
-        <li><a href="homepage">HOME</a></li>
-        <li><a href="newUser">LOGIN</a></li>
-        <li><a href="scenario1">GENERATOR</a></li>
-        <li><a href="results">RESULTS</a></li>
-		<li id="timer">Timer: 0/20</li>
-    </ul>
-</div>
+	<div class="nav">
+	    <ul>
+	        <li><a href="homepage">HOME</a></li>
+	        <li><a href="newUser">LOGIN</a></li>
+	        <li><a href="scenario1">GENERATOR</a></li>
+	        <li><a href="results">RESULTS</a></li>
+			<li id="timer">Timer: 0/20</li>
+	    </ul>
+	</div>
 
-<div id="parent">
+	<div id="parent">
 
-    <div class="envir"><img src="View1C.png" alt="View1" width="1000" height="500"></div>
+	    <div class="envir"><img src="View1C.png" alt="View1" width="1000" height="500"></div>
 
-    <!-- ***********************************************************LEFT******************************************************************* -->
-    <div class="LEFT">
-        <div id="InfantMaleL"><img src="x.png" alt="InfantMaleL"></div>
-        <div id="InfantFemaleL"><img src="x.png" alt="InfantFemaleL"></div>
-        <div id="ChildMaleL"><img src="ChildMale.png" alt="ChildMaleL"></div>
-        <div id="ChildMaleWheelchair_BoundL"><img src="x.png" alt="ChildMaleWheelchair_BoundL"></div>
-        <div id="ChildMaleBlindL"><img src="x.png" alt="ChildMaleBlindL"></div>
-        <div id="ChildFemaleL"><img src="ChildFemale.png" alt="ChildFemaleL"></div>
-        <div id="ChildFemaleWheelchair_BoundL"><img src="x.png" alt="ChildFemaleWheelchair_BoundL" width="18"></div>
-        <div id="ChildFemaleBlindL"><img src="x.png" alt="ChildFemaleBlindL"></div>
-        <div id="AdultMaleL"><img src="AdultMale.png" alt="AdultMaleL"></div>
-        <div id="AdultMaleWheelchair_BoundL"><img src="x.png" alt="AdultMaleWheelchair_BoundL"></div>
-        <div id="AdultMaleHomelessL"><img src="x.png" alt="AdultMaleHomelessL"></div>
-        <div id="AdultMaleHomelessWheelchair_BoundL"><img src="x.png" alt="AdultMaleHomelessWheelchair_BoundL"></div>
-        <div id="AdultMaleEntrepreneurL"><img src="AdultMaleEntrepreneur.png" alt="AdultMaleEntrepreneurL"></div>
-        <div id="AdultMaleEntrepreneurWheelchair_BoundL"><img src="x.png" alt="AdultMaleEntrepreneurWheelchair_BoundL">
-        </div>
-        <div id="AdultFemaleL"><img src="AdultFemale.png" alt="AdultFemaleL"></div>
-        <div id="AdultFemaleWheelchair_BoundL"><img src="x.png" alt="AdultFemaleWheelchair_BoundL"></div>
-        <div id="AdultFemaleHomelessL"><img src="x.png" alt="AdultFemaleHomelessL"></div>
-        <div id="AdultFemaleHomelessWheelchair_BoundL"><img src="x.png" alt="AdultFemaleHomelessWheelchair_BoundL">
-        </div>
-        <div id="AdultFemaleEntrepreneurL"><img src="x.png" alt="AdultFemaleEntrepreneurL"></div>
-        <div id="AdultFemaleEntrepreneurWheelchair_BoundL"><img src="x.png"
-                                                                alt="AdultFemaleEntrepreneurWheelchair_BoundL"></div>
-        <div id="ElderlyMaleL"><img src="ElderlyMale.png" alt="ElderlyMaleL"></div>
-        <div id="ElderlyMaleBlindL"><img src="x.png" alt="ElderlyMaleBlindL"></div>
-        <div id="ElderlyMaleHomelessL"><img src="x.png" alt="ElderlyMaleHomelessL"></div>
-        <div id="ElderlyMaleHomelessBlindL"><img src="x.png" alt="ElderlyMaleBlindL"></div>
-        <div id="ElderlyFemaleL"><img src="ElderlyFemale.png" alt="ElderlyFemaleL"></div>
-        <div id="ElderlyFemaleBlindL"><img src="x.png" alt="ElderlyFemaleBlinL"></div>
-        <div id="ElderlyFemaleHomelessL"><img src="x.png" alt="ElderlyFemaleHomelessL"></div>
-        <div id="ElderlyFemaleHomelessBlindL"><img src="x.png" alt="ElderlyFemaleHomelessBlindL"></div>
-    </div>
-    <!-- *******************************************************RIGHT********************************************************************** -->
-    <div class="RIGHT">
-        <div id="InfantMaleR"><img src="x.png" alt="InfantMaleR"></div>
-        -->
-        <div id="InfantFemaleR"><img src="x.png" alt="InfantFemaleR"></div>
-        -->
-        <div id="ChildMaleR"><img src="ChildMale.png" alt="ChildMaleR"></div>
-        -->
-        <div id="ChildMaleWheelchair_BoundR"><img src="x.png" alt="ChildMaleWheelchair_BoundR"></div>
-        -->
-        <div id="ChildMaleBlindR"><img src="x.png" alt="ChildMaleBlindR"></div>
-        -->
-        <div id="ChildFemaleR"><img src="ChildFemale.png" alt="ChildFemaleR"></div>
-        <div id="ChildFemaleWheelchair_BoundR"><img src="x.png" alt="ChildFemaleWheelchair_BoundR"></div>
-        -->
-        <div id="ChildFemaleBlindR"><img src="x.png" alt="ChildFemaleBlindR"></div>
-        <div id="AdultMaleR"><img src="AdultMale.png" alt="AdultMaleR"></div>
-        <div id="AdultMaleWheelchair_BoundR"><img src="x.png" alt="AdultMaleWheelchair_BoundR"></div>
-        -->
-        <div id="AdultMaleHomelessR"><img src="x.png" alt="AdultMaleHomelessR"></div>
-        -->
-        <div id="AdultMaleHomelessWheelchair_BoundR"><img src="x.png" alt="AdultMaleHomelessWheelchair_BoundR"></div>
-        -->
-        <div id="AdultMaleEntrepreneurR"><img src="AdultMaleEntrepreneur.png" alt="AdultMaleEntrepreneurR"></div>
-        -->
-        <div id="AdultMaleEntrepreneurWheelchair_BoundR"><img src="x.png" alt="AdultMaleEntrepreneurWheelchair_BoundR">
-        </div>
-        -->
-        <div id="AdultFemaleR"><img src="AdultFemale.png" alt="AdultFemaleR"></div>
-        -->
-        <div id="AdultFemaleWheelchair_BoundR"><img src="x.png" alt="AdultFemaleWheelchair_BoundR"></div>
-        -->
-        <div id="AdultFemaleHomelessR"><img src="x.png" alt="AdultFemaleHomelessR"></div>
-        -->
-        <div id="AdultFemaleHomelessWheelchair_BoundR"><img src="x.png" alt="AdultFemaleHomelessWheelchair_BoundR">
-        </div>
-        -->
-        <div id="AdultFemaleEntrepreneurR"><img src="x.png" alt="AdultFemaleEntrepreneurR"></div>
-        -->
-        <div id="AdultFemaleEntrepreneurWheelchair_BoundR"><img src="x.png"
-                                                                alt="AdultFemaleEntrepreneurWheelchair_BoundR"></div>
-        -->
-        <div id="ElderlyMaleR"><img src="ElderlyMale.png" alt="ElderlyMaleR"></div>
-        -->
-        <div id="ElderlyMaleBlindR"><img src="x.png" alt="ElderlyMaleBlindR"></div>
-        -->
-        <div id="ElderlyMaleHomelessR"><img src="x.png" alt="ElderlyMaleHomelessR"></div>
-        -->
-        <div id="ElderlyMaleHomelessBlindR"><img src="x.png" alt="ElderlyMaleBlindR"></div>
-        -->
-        <div id="ElderlyFemaleR"><img src="ElderlyFemale.png" alt="ElderlyFemaleR"></div>
-        -->
-        <div id="ElderlyFemaleBlindR"><img src="x.png" alt="ElderlyFemaleBlinR"></div>
-        -->
-        <div id="ElderlyFemaleHomelessR"><img src="x.png" alt="ElderlyFemaleHomelessR"></div>
-        -->
-        <div id="ElderlyFemaleHomelessBlindR"><img src="x.png" alt="ElderlyFemaleHomelessBlindR"></div>
-        -->
-    </div>
+	    <!-- ***********************************************************LEFT******************************************************************* -->
+	    <div class="LEFT">
+	        <div id="InfantMaleL"><img src="x.png" alt="InfantMaleL"></div>
+	        <div id="InfantFemaleL"><img src="x.png" alt="InfantFemaleL"></div>
+	        <div id="ChildMaleL"><img src="ChildMale.png" alt="ChildMaleL"></div>
+	        <div id="ChildMaleWheelchair_BoundL"><img src="x.png" alt="ChildMaleWheelchair_BoundL"></div>
+	        <div id="ChildMaleBlindL"><img src="x.png" alt="ChildMaleBlindL"></div>
+	        <div id="ChildFemaleL"><img src="ChildFemale.png" alt="ChildFemaleL"></div>
+	        <div id="ChildFemaleWheelchair_BoundL"><img src="x.png" alt="ChildFemaleWheelchair_BoundL"></div>
+	        <div id="ChildFemaleBlindL"><img src="x.png" alt="ChildFemaleBlindL"></div>
+	        <div id="AdultMaleL"><img src="AdultMale.png" alt="AdultMaleL"></div>
+	        <div id="AdultMaleWheelchair_BoundL"><img src="x.png" alt="AdultMaleWheelchair_BoundL"></div>
+	        <div id="AdultMaleHomelessL"><img src="x.png" alt="AdultMaleHomelessL"></div>
+	        <div id="AdultMaleHomelessWheelchair_BoundL"><img src="x.png" alt="AdultMaleHomelessWheelchair_BoundL"></div>
+	        <div id="AdultMaleEntrepreneurL"><img src="AdultMaleEntrepreneur.png" alt="AdultMaleEntrepreneurL"></div>
+	        <div id="AdultMaleEntrepreneurWheelchair_BoundL"><img src="x.png" alt="AdultMaleEntrepreneurWheelchair_BoundL"></div>
+	        <div id="AdultFemaleL"><img src="AdultFemale.png" alt="AdultFemaleL"></div>
+	        <div id="AdultFemaleWheelchair_BoundL"><img src="x.png" alt="AdultFemaleWheelchair_BoundL"></div>
+	        <div id="AdultFemaleHomelessL"><img src="x.png" alt="AdultFemaleHomelessL"></div>
+	        <div id="AdultFemaleHomelessWheelchair_BoundL"><img src="x.png" alt="AdultFemaleHomelessWheelchair_BoundL"></div>
+	        <div id="AdultFemaleEntrepreneurL"><img src="x.png" alt="AdultFemaleEntrepreneurL"></div>
+	        <div id="AdultFemaleEntrepreneurWheelchair_BoundL"><img src="x.png" alt="AdultFemaleEntrepreneurWheelchair_BoundL"></div>
+	        <div id="ElderlyMaleL"><img src="ElderlyMale.png" alt="ElderlyMaleL"></div>
+	        <div id="ElderlyMaleBlindL"><img src="x.png" alt="ElderlyMaleBlindL"></div>
+	        <div id="ElderlyMaleHomelessL"><img src="x.png" alt="ElderlyMaleHomelessL"></div>
+	        <div id="ElderlyMaleHomelessBlindL"><img src="x.png" alt="ElderlyMaleBlindL"></div>
+	        <div id="ElderlyFemaleL"><img src="ElderlyFemale.png" alt="ElderlyFemaleL"></div>
+	        <div id="ElderlyFemaleBlindL"><img src="x.png" alt="ElderlyFemaleBlinL"></div>
+	        <div id="ElderlyFemaleHomelessL"><img src="x.png" alt="ElderlyFemaleHomelessL"></div>
+	        <div id="ElderlyFemaleHomelessBlindL"><img src="x.png" alt="ElderlyFemaleHomelessBlindL"></div>
+	    </div>
+	    <!-- *******************************************************RIGHT********************************************************************** -->
+	    <div class="RIGHT">
+	        <div id="InfantMaleR"><img src="x.png" alt="InfantMaleR"></div>
+	        <div id="InfantFemaleR"><img src="x.png" alt="InfantFemaleR"></div>
+	        <div id="ChildMaleR"><img src="ChildMale.png" alt="ChildMaleR"></div>
+	        <div id="ChildMaleWheelchair_BoundR"><img src="x.png" alt="ChildMaleWheelchair_BoundR"></div>
+	        <div id="ChildMaleBlindR"><img src="x.png" alt="ChildMaleBlindR"></div>
+	        <div id="ChildFemaleR"><img src="ChildFemale.png" alt="ChildFemaleR"></div>
+	        <div id="ChildFemaleWheelchair_BoundR"><img src="x.png" alt="ChildFemaleWheelchair_BoundR"></div>
+	        <div id="ChildFemaleBlindR"><img src="x.png" alt="ChildFemaleBlindR"></div>
+	        <div id="AdultMaleR"><img src="AdultMale.png" alt="AdultMaleR"></div>
+	        <div id="AdultMaleWheelchair_BoundR"><img src="x.png" alt="AdultMaleWheelchair_BoundR"></div>
+	        <div id="AdultMaleHomelessR"><img src="x.png" alt="AdultMaleHomelessR"></div>
+	        <div id="AdultMaleHomelessWheelchair_BoundR"><img src="x.png" alt="AdultMaleHomelessWheelchair_BoundR"></div>
+	        <div id="AdultMaleEntrepreneurR"><img src="AdultMaleEntrepreneur.png" alt="AdultMaleEntrepreneurR"></div>
+	        <div id="AdultMaleEntrepreneurWheelchair_BoundR"><img src="x.png" alt="AdultMaleEntrepreneurWheelchair_BoundR"></div>
+	        <div id="AdultFemaleR"><img src="AdultFemale.png" alt="AdultFemaleR"></div>
+	        <div id="AdultFemaleWheelchair_BoundR"><img src="x.png" alt="AdultFemaleWheelchair_BoundR"></div>
+	        <div id="AdultFemaleHomelessR"><img src="x.png" alt="AdultFemaleHomelessR"></div>
+	        <div id="AdultFemaleHomelessWheelchair_BoundR"><img src="x.png" alt="AdultFemaleHomelessWheelchair_BoundR"></div>
+	        <div id="AdultFemaleEntrepreneurR"><img src="x.png" alt="AdultFemaleEntrepreneurR"></div>
+	        <div id="AdultFemaleEntrepreneurWheelchair_BoundR"><img src="x.png" alt="AdultFemaleEntrepreneurWheelchair_BoundR"></div>
+	        <div id="ElderlyMaleR"><img src="ElderlyMale.png" alt="ElderlyMaleR"></div>
+	        <div id="ElderlyMaleBlindR"><img src="x.png" alt="ElderlyMaleBlindR"></div>
+	        <div id="ElderlyMaleHomelessR"><img src="x.png" alt="ElderlyMaleHomelessR"></div>
+	        <div id="ElderlyMaleHomelessBlindR"><img src="x.png" alt="ElderlyMaleBlindR"></div>
+	        <div id="ElderlyFemaleR"><img src="ElderlyFemale.png" alt="ElderlyFemaleR"></div>
+	        <div id="ElderlyFemaleBlindR"><img src="x.png" alt="ElderlyFemaleBlinR"></div>
+	        <div id="ElderlyFemaleHomelessR"><img src="x.png" alt="ElderlyFemaleHomelessR"></div>
+	        <div id="ElderlyFemaleHomelessBlindR"><img src="x.png" alt="ElderlyFemaleHomelessBlindR"></div>
+		</div>
 
-    <!--RED LIGHT-->
-    <div class="red_light"><img src="Res/red_light.png" alt="redlight" width="55" height="165"></div>
-    <!--GREEN LIGHT-->
-    <div class="green_light"><img src="Res/green_light.png" alt="greenlight" width="55" height="165"></div>
+	    <!--RED LIGHT-->
+	    <div class="red_light"><img src="Res/red_light.png" alt="redlight" width="55" height="165"></div>
+	    <!--GREEN LIGHT-->
+	    <div class="green_light"><img src="Res/green_light.png" alt="greenlight" width="55" height="165"></div>
 
-    <!--*******************************************************************************************************************************************************-->
+	    <!--*******************************************************************************************************************************************************-->
 
-</div>
+	</div>
 
 
-<h2 id="questionNum">Scenario: 0/5</h2>
+	<h2 id="questionNum">Scenario: 0/5</h2>
 
-<p id="scen">You are approaching a <b><span id="crossing" style="color:#996600">crossing</span></b> and see a pedestrian
-    ahead, so the car goes to brake, when suddenly the brakes on the car are not working; the car has 3 options.</p>
-
-
-<form onsubmit="return false">
-    <div class="c1" onmouseover="overL()" onmouseout="outL()">
-        <b><input type="radio" class="radio" name="option" value="a" checked><u>Option A:</u></b>
-        <p><b><span style="color:#996600">Proceed in the same lane, but kill...</span></b>
-        <ul id="groupA">
-        </ul>
-        </p>
-    </div>
-
-    <div class="c2" onmouseover="overR()" onmouseout="outR()">
-        <b><input type="radio" class="radio" name="option" value="b"><u>Option B:</u></b>
-        <p><b><span style="color:#996600">Swerve to the other side of the road, but kill...</span></b>
-        <ul id="groupB">
-        </ul>
-        </p>
-    </div>
-
-							
-							<div class="c3" onmouseover="overC()" onmouseout="outC()">
-								<b class="c"><input type="radio" class="radio" name="option" value="c"><u>Option C:</u></b>
-								<p><b><span style="color:#996600">Swerve into a building, but kill...</span></b>
-									<ul id="groupC">
-										<li>Yourself</li>
-									</ul>
-								</p>
-							</div>
-							
-
-							<h5><input type="submit" class="submitbtn" value="Confirm"></h5>
-						</form>	
-					
-
-<!-- CAR -->
-<div id="car"><img src="Res/car.png" alt="car" width="100" height="55"></div>
+	<p id="scen">You are approaching a <b><span id="crossing" style="color:#996600">crossing</span></b> and see a pedestrian
+	    ahead, so the car goes to brake, when suddenly the brakes on the car are not working; the car has 3 options.</p>
 
 
-<!--Left Line-->
-<div class="LeftLine"><img src="Res/MiddleLine.png" alt="LeftLine" width="95" height="115"></div>
+					<form onsubmit="return false">
+					    <div class="c1" onmouseover="overL()" onmouseout="outL()">
+					        <b><input type="radio" class="radio" name="option" value="a" checked><u>Option A:</u></b>
+					        <p><b><span style="color:#996600">Proceed in the same lane, but kill...</span></b>
+					        <ul id="groupA">
+					        </ul>
+					        </p>
+					    </div>
 
-<!--Middle Line-->
-<div class="MiddleLine"><img src="Res/MiddleLine.png" alt="MiddleLine" width="95" height="115"></div>
+					    <div class="c2" onmouseover="overR()" onmouseout="outR()">
+					        <b><input type="radio" class="radio" name="option" value="b"><u>Option B:</u></b>
+					        <p><b><span style="color:#996600">Swerve to the other side of the road, but kill...</span></b>
+					        <ul id="groupB">
+					        </ul>
+					        </p>
+					    </div>
 
-<!--Right Line-->
-<div class="RightLine"><img src="Res/MiddleLine.png" alt="RightLine" width="110" height="120"></div>
+						
+						<div class="c3" onmouseover="overC()" onmouseout="outC()">
+							<b class="c"><input type="radio" class="radio" name="option" value="c"><u>Option C:</u></b>
+							<p><b><span style="color:#996600">Swerve into a building, but kill...</span></b>
+								<ul id="groupC">
+									<li>Yourself</li>
+								</ul>
+							</p>
+						</div>
+						
 
-</body>
+						<h5><input type="submit" class="submitbtn" value="Confirm"></h5>
+					</form>	
+				
+
+				<!-- CAR -->
+				<div id="car"><img src="Res/car.png" alt="car" width="100" height="55"></div>
+
+
+				<!--Left Line-->
+				<div class="LeftLine"><img src="Res/MiddleLine.png" alt="LeftLine" width="95" height="115"></div>
+
+				<!--Middle Line-->
+				<div class="MiddleLine"><img src="Res/MiddleLine.png" alt="MiddleLine" width="95" height="115"></div>
+
+				<!--Right Line-->
+				<div class="RightLine"><img src="Res/MiddleLine.png" alt="RightLine" width="110" height="120"></div>
+
+	</body>
 </html>
