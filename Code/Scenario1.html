@@ -46,7 +46,7 @@
                 if (count <= 20) {
                     $("#timer").text(`Timer: ${count}/20`)
                 } else {
-                	$("#timer").text(`Timer: 0/20`);
+                    $("#timer").text(`Timer: 0/20`);
                     submitForm(true);
                 }
             }
@@ -93,9 +93,9 @@
                     });
 
 
-	                if (data.crossingType !== "zebra_crossing") {    
-	                    $("#parent").append(`<img src='Res/${data.crossingType}.png' id="${data.crossingType}">`); // insert traffic light image into generated one given
-	                   }
+                    if (data.crossingType !== "zebra_crossing") {
+                        $("#parent").append(`<img src='Res/${data.crossingType}.png' id="${data.crossingType}">`); // insert traffic light image into generated one given
+                    }
 
                     $('#AdultMaleEntrepreneurL').mouseover(function () {
                         $('#InfantMaleL').fadeIn(500);
@@ -104,11 +104,11 @@
                     });
 
                     if (data.timer) {
-                    	$("#timer").text("Timer: 0/20");
+                        $("#timer").text("Timer: 0/20");
                         timer.timed = data.timer;
                         timer.start()
                     } else {
-                    	$("#timer").text("");
+                        $("#timer").text("");
                         timer.timed = data.timer
                     }
                 });
@@ -121,7 +121,7 @@
                     if (form.option.length > 0) {
                         form.option = form.option[form.option.length - 1]
                     }
-                } // reformatting option due to the way it's serialisedf
+                } // reformatting option due to the way it's serialised
                 $.post("choice", form, data => {	// post data
                     if (data) {		// if data was received create new questions
                         if ($("#warning").length) {
@@ -143,286 +143,291 @@
             getScene()
         });
 
-				function overL() {
-						$("#InfantMaleL").css("transform", "scale(1.5)");
-						$("#InfantFemaleL").css("transform", "scale(1.5)")
-						$("#ChildMaleL").css("transform", "scale(1.5)");
-						$("#ChildFemaleL").css("transform", "scale(1.5)");
-						$("#ChildMaleWheelchair_BoundL").css("transform", "scale(1.5)");
-						$("#ChildMaleBlindL").css("transform", "scale(1.5)");
-						$("#ChildFemaleWheelchair_BoundL").css("transform", "scale(1.5)");
-						$("#ChildFemaleBlindL").css("transform", "scale(1.5)");
-						$("#AdultMaleL").css("transform", "scale(1.5)");
-						$("#AdultMaleWheelchair_BoundL").css("transform", "scale(1.5)");
-						$("#AdultMaleHomelessL").css("transform", "scale(1.5)");
-						$("#AdultMaleHomelessWheelchair_BoundL").css("transform", "scale(1.5)");
-						$("#AdultMaleEntrepreneurL").css("transform", "scale(1.5)");
-						$("#AdultMaleEntrepreneurWheelchair_BoundL").css("transform", "scale(1.5)");
-						$("#AdultFemaleL").css("transform", "scale(1.5)");
-						$("#AdultFemaleWheelchair_BoundL").css("transform", "scale(1.5)");
-						$("#AdultFemaleHomelessL").css("transform", "scale(1.5)");
-						$("#AdultFemaleHomelessWheelchair_BoundL").css("transform", "scale(1.5)");
-						$("#AdultFemaleEntrepreneurL").css("transform", "scale(1.5)");
-						$("#AdultFemaleEntrepreneurWheelchair_BoundL").css("transform", "scale(1.5)");
-						$("#ElderlyMaleL").css("transform", "scale(1.5)");
-						$("#ElderlyMaleBlindL").css("transform", "scale(1.5)");
-						$("#ElderlyMaleHomelessL").css("transform", "scale(1.5)");
-						$("#ElderlyMaleHomelessBlindL").css("transform", "scale(1.5)");
-						$("#ElderlyFemaleL").css("transform", "scale(1.5)");
-						$("#ElderlyFemaleBlindL").css("transform", "scale(1.5)");
-						$("#ElderlyFemaleHomelessL").css("transform", "scale(1.5)");
-						$("#ElderlyFemaleHomelessBlindL").css("transform", "scale(1.5)");
-				}
+        function overL() {
+            $("#InfantMaleL").css("transform", "scale(1.5)");
+            $("#InfantFemaleL").css("transform", "scale(1.5)")
+            $("#ChildMaleL").css("transform", "scale(1.5)");
+            $("#ChildFemaleL").css("transform", "scale(1.5)");
+            $("#ChildMaleWheelchair_BoundL").css("transform", "scale(1.5)");
+            $("#ChildMaleBlindL").css("transform", "scale(1.5)");
+            $("#ChildFemaleWheelchair_BoundL").css("transform", "scale(1.5)");
+            $("#ChildFemaleBlindL").css("transform", "scale(1.5)");
+            $("#AdultMaleL").css("transform", "scale(1.5)");
+            $("#AdultMaleWheelchair_BoundL").css("transform", "scale(1.5)");
+            $("#AdultMaleHomelessL").css("transform", "scale(1.5)");
+            $("#AdultMaleHomelessWheelchair_BoundL").css("transform", "scale(1.5)");
+            $("#AdultMaleEntrepreneurL").css("transform", "scale(1.5)");
+            $("#AdultMaleEntrepreneurWheelchair_BoundL").css("transform", "scale(1.5)");
+            $("#AdultFemaleL").css("transform", "scale(1.5)");
+            $("#AdultFemaleWheelchair_BoundL").css("transform", "scale(1.5)");
+            $("#AdultFemaleHomelessL").css("transform", "scale(1.5)");
+            $("#AdultFemaleHomelessWheelchair_BoundL").css("transform", "scale(1.5)");
+            $("#AdultFemaleEntrepreneurL").css("transform", "scale(1.5)");
+            $("#AdultFemaleEntrepreneurWheelchair_BoundL").css("transform", "scale(1.5)");
+            $("#ElderlyMaleL").css("transform", "scale(1.5)");
+            $("#ElderlyMaleBlindL").css("transform", "scale(1.5)");
+            $("#ElderlyMaleHomelessL").css("transform", "scale(1.5)");
+            $("#ElderlyMaleHomelessBlindL").css("transform", "scale(1.5)");
+            $("#ElderlyFemaleL").css("transform", "scale(1.5)");
+            $("#ElderlyFemaleBlindL").css("transform", "scale(1.5)");
+            $("#ElderlyFemaleHomelessL").css("transform", "scale(1.5)");
+            $("#ElderlyFemaleHomelessBlindL").css("transform", "scale(1.5)");
+        }
 
-				function outL() {
-						$("#InfantMaleL").css("transform", "scale(1.0)");
-						$("#InfantFemaleL").css("transform", "scale(1.0)");
-						$("#ChildMaleL").css("transform", "scale(1.0)");
-						$("#ChildFemaleL").css("transform", "scale(1.0)");
-						$("#ChildMaleWheelchair_BoundL").css("transform", "scale(1.0)");
-						$("#ChildMaleBlindL").css("transform", "scale(1.0)");
-						$("#ChildFemaleWheelchair_BoundL").css("transform", "scale(1.0)");
-						$("#ChildFemaleBlindL").css("transform", "scale(1.0)");
-						$("#AdultMaleL").css("transform", "scale(1.0)");
-						$("#AdultMaleWheelchair_BoundL").css("transform", "scale(1.0)");
-						$("#AdultMaleHomelessL").css("transform", "scale(1.0)");
-						$("#AdultMaleHomelessWheelchair_BoundL").css("transform", "scale(1.0)");
-						$("#AdultMaleEntrepreneurL").css("transform", "scale(1.0)");
-						$("#AdultMaleEntrepreneurWheelchair_BoundL").css("transform", "scale(1.0)");
-						$("#AdultFemaleL").css("transform", "scale(1.0)");
-						$("#AdultFemaleWheelchair_BoundL").css("transform", "scale(1.0)");
-						$("#AdultFemaleHomelessL").css("transform", "scale(1.0)");
-						$("#AdultFemaleHomelessWheelchair_BoundL").css("transform", "scale(1.0)");
-						$("#AdultFemaleEntrepreneurL").css("transform", "scale(1.0)");
-						$("#AdultFemaleEntrepreneurWheelchair_BoundL").css("transform", "scale(1.0)");
-						$("#ElderlyMaleL").css("transform", "scale(1.0)");
-						$("#ElderlyMaleBlindL").css("transform", "scale(1.0)");
-						$("#ElderlyMaleHomelessL").css("transform", "scale(1.0)");
-						$("#ElderlyMaleHomelessBlindL").css("transform", "scale(1.0)");
-						$("#ElderlyFemaleL").css("transform", "scale(1.0)");
-						$("#ElderlyFemaleBlindL").css("transform", "scale(1.0)");
-						$("#ElderlyFemaleHomelessL").css("transform", "scale(1.0)");
-						$("#ElderlyFemaleHomelessBlindL").css("transform", "scale(1.0)");
-					}
-
-
+        function outL() {
+            $("#InfantMaleL").css("transform", "scale(1.0)");
+            $("#InfantFemaleL").css("transform", "scale(1.0)");
+            $("#ChildMaleL").css("transform", "scale(1.0)");
+            $("#ChildFemaleL").css("transform", "scale(1.0)");
+            $("#ChildMaleWheelchair_BoundL").css("transform", "scale(1.0)");
+            $("#ChildMaleBlindL").css("transform", "scale(1.0)");
+            $("#ChildFemaleWheelchair_BoundL").css("transform", "scale(1.0)");
+            $("#ChildFemaleBlindL").css("transform", "scale(1.0)");
+            $("#AdultMaleL").css("transform", "scale(1.0)");
+            $("#AdultMaleWheelchair_BoundL").css("transform", "scale(1.0)");
+            $("#AdultMaleHomelessL").css("transform", "scale(1.0)");
+            $("#AdultMaleHomelessWheelchair_BoundL").css("transform", "scale(1.0)");
+            $("#AdultMaleEntrepreneurL").css("transform", "scale(1.0)");
+            $("#AdultMaleEntrepreneurWheelchair_BoundL").css("transform", "scale(1.0)");
+            $("#AdultFemaleL").css("transform", "scale(1.0)");
+            $("#AdultFemaleWheelchair_BoundL").css("transform", "scale(1.0)");
+            $("#AdultFemaleHomelessL").css("transform", "scale(1.0)");
+            $("#AdultFemaleHomelessWheelchair_BoundL").css("transform", "scale(1.0)");
+            $("#AdultFemaleEntrepreneurL").css("transform", "scale(1.0)");
+            $("#AdultFemaleEntrepreneurWheelchair_BoundL").css("transform", "scale(1.0)");
+            $("#ElderlyMaleL").css("transform", "scale(1.0)");
+            $("#ElderlyMaleBlindL").css("transform", "scale(1.0)");
+            $("#ElderlyMaleHomelessL").css("transform", "scale(1.0)");
+            $("#ElderlyMaleHomelessBlindL").css("transform", "scale(1.0)");
+            $("#ElderlyFemaleL").css("transform", "scale(1.0)");
+            $("#ElderlyFemaleBlindL").css("transform", "scale(1.0)");
+            $("#ElderlyFemaleHomelessL").css("transform", "scale(1.0)");
+            $("#ElderlyFemaleHomelessBlindL").css("transform", "scale(1.0)");
+        }
 
 
-				function overR() {
-						$("#InfantMaleR").css("transform", "scale(1.5)");
-						$("#InfantFemaleR").css("transform", "scale(1.5)");
-						$("#ChildMaleR").css("transform", "scale(1.5)");
-						$("#ChildFemaleR").css("transform", "scale(1.5)");
-						$("#ChildMaleWheelchair_BoundR").css("transform", "scale(1.5)");
-						$("#ChildMaleBlindR").css("transform", "scale(1.5)");
-						$("#ChildFemaleWheelchair_BoundR").css("transform", "scale(1.5)");
-						$("#ChildFemaleBlindR").css("transform", "scale(1.5)");
-						$("#AdultMaleR").css("transform", "scale(1.5)");
-						$("#AdultMaleWheelchair_BoundR").css("transform", "scale(1.5)");
-						$("#AdultMaleHomelessR").css("transform", "scale(1.5)");
-						$("#AdultMaleHomelessWheelchair_BoundR").css("transform", "scale(1.5)");
-						$("#AdultMaleEntrepreneurR").css("transform", "scale(1.5)");
-						$("#AdultMaleEntrepreneurWheelchair_BoundR").css("transform", "scale(1.5)");
-						$("#AdultFemaleR").css("transform", "scale(1.5)");
-						$("#AdultFemaleWheelchair_BoundR").css("transform", "scale(1.5)");
-						$("#AdultFemaleHomelessR").css("transform", "scale(1.5)");
-						$("#AdultFemaleHomelessWheelchair_BoundR").css("transform", "scale(1.5)");
-						$("#AdultFemaleEntrepreneurR").css("transform", "scale(1.5)");
-						$("#AdultFemaleEntrepreneurWheelchair_BoundR").css("transform", "scale(1.5)");
-						$("#ElderlyMaleR").css("transform", "scale(1.5)");
-						$("#ElderlyMaleBlindR").css("transform", "scale(1.5)");
-						$("#ElderlyMaleHomelessR").css("transform", "scale(1.5)");
-						$("#ElderlyMaleHomelessBlindR").css("transform", "scale(1.5)");
-						$("#ElderlyFemaleR").css("transform", "scale(1.5)");
-						$("#ElderlyFemaleBlindR").css("transform", "scale(1.5)");
-						$("#ElderlyFemaleHomelessR").css("transform", "scale(1.5)");
-						$("#ElderlyFemaleHomelessBlindR").css("transform", "scale(1.5)");
-				}
+        function overR() {
+            $("#InfantMaleR").css("transform", "scale(1.5)");
+            $("#InfantFemaleR").css("transform", "scale(1.5)");
+            $("#ChildMaleR").css("transform", "scale(1.5)");
+            $("#ChildFemaleR").css("transform", "scale(1.5)");
+            $("#ChildMaleWheelchair_BoundR").css("transform", "scale(1.5)");
+            $("#ChildMaleBlindR").css("transform", "scale(1.5)");
+            $("#ChildFemaleWheelchair_BoundR").css("transform", "scale(1.5)");
+            $("#ChildFemaleBlindR").css("transform", "scale(1.5)");
+            $("#AdultMaleR").css("transform", "scale(1.5)");
+            $("#AdultMaleWheelchair_BoundR").css("transform", "scale(1.5)");
+            $("#AdultMaleHomelessR").css("transform", "scale(1.5)");
+            $("#AdultMaleHomelessWheelchair_BoundR").css("transform", "scale(1.5)");
+            $("#AdultMaleEntrepreneurR").css("transform", "scale(1.5)");
+            $("#AdultMaleEntrepreneurWheelchair_BoundR").css("transform", "scale(1.5)");
+            $("#AdultFemaleR").css("transform", "scale(1.5)");
+            $("#AdultFemaleWheelchair_BoundR").css("transform", "scale(1.5)");
+            $("#AdultFemaleHomelessR").css("transform", "scale(1.5)");
+            $("#AdultFemaleHomelessWheelchair_BoundR").css("transform", "scale(1.5)");
+            $("#AdultFemaleEntrepreneurR").css("transform", "scale(1.5)");
+            $("#AdultFemaleEntrepreneurWheelchair_BoundR").css("transform", "scale(1.5)");
+            $("#ElderlyMaleR").css("transform", "scale(1.5)");
+            $("#ElderlyMaleBlindR").css("transform", "scale(1.5)");
+            $("#ElderlyMaleHomelessR").css("transform", "scale(1.5)");
+            $("#ElderlyMaleHomelessBlindR").css("transform", "scale(1.5)");
+            $("#ElderlyFemaleR").css("transform", "scale(1.5)");
+            $("#ElderlyFemaleBlindR").css("transform", "scale(1.5)");
+            $("#ElderlyFemaleHomelessR").css("transform", "scale(1.5)");
+            $("#ElderlyFemaleHomelessBlindR").css("transform", "scale(1.5)");
+        }
 
-				function outR() {
-						$("#InfantMaleR").css("transform", "scale(1.0)");
-						$("#InfantFemaleR").css("transform", "scale(1.0)");
-						$("#ChildMaleR").css("transform", "scale(1.0)");
-						$("#ChildFemaleR").css("transform", "scale(1.0)");
-						$("#ChildMaleWheelchair_BoundR").css("transform", "scale(1.0)");
-						$("#ChildMaleBlindR").css("transform", "scale(1.0)");
-						$("#ChildFemaleWheelchair_BoundR").css("transform", "scale(1.0)");
-						$("#ChildFemaleBlindR").css("transform", "scale(1.0)");
-						$("#AdultMaleR").css("transform", "scale(1.0)");
-						$("#AdultMaleWheelchair_BoundR").css("transform", "scale(1.0)");
-						$("#AdultMaleHomelessR").css("transform", "scale(1.0)");
-						$("#AdultMaleHomelessWheelchair_BoundR").css("transform", "scale(1.0)");
-						$("#AdultMaleEntrepreneurR").css("transform", "scale(1.0)");
-						$("#AdultMaleEntrepreneurWheelchair_BoundR").css("transform", "scale(1.0)");
-						$("#AdultFemaleR").css("transform", "scale(1.0)");
-						$("#AdultFemaleWheelchair_BoundR").css("transform", "scale(1.0)");
-						$("#AdultFemaleHomelessR").css("transform", "scale(1.0)");
-						$("#AdultFemaleHomelessWheelchair_BoundR").css("transform", "scale(1.0)");
-						$("#AdultFemaleEntrepreneurR").css("transform", "scale(1.0)");
-						$("#AdultFemaleEntrepreneurWheelchair_BoundR").css("transform", "scale(1.0)");
-						$("#ElderlyMaleR").css("transform", "scale(1.0)");
-						$("#ElderlyMaleBlindR").css("transform", "scale(1.0)");
-						$("#ElderlyMaleHomelessR").css("transform", "scale(1.0)");
-						$("#ElderlyMaleHomelessBlindR").css("transform", "scale(1.0)");
-						$("#ElderlyFemaleR").css("transform", "scale(1.0)");
-						$("#ElderlyFemaleBlindR").css("transform", "scale(1.0)");
-						$("#ElderlyFemaleHomelessR").css("transform", "scale(1.0)");
-						$("#ElderlyFemaleHomelessBlindR").css("transform", "scale(1.0)");
-					}
+        function outR() {
+            $("#InfantMaleR").css("transform", "scale(1.0)");
+            $("#InfantFemaleR").css("transform", "scale(1.0)");
+            $("#ChildMaleR").css("transform", "scale(1.0)");
+            $("#ChildFemaleR").css("transform", "scale(1.0)");
+            $("#ChildMaleWheelchair_BoundR").css("transform", "scale(1.0)");
+            $("#ChildMaleBlindR").css("transform", "scale(1.0)");
+            $("#ChildFemaleWheelchair_BoundR").css("transform", "scale(1.0)");
+            $("#ChildFemaleBlindR").css("transform", "scale(1.0)");
+            $("#AdultMaleR").css("transform", "scale(1.0)");
+            $("#AdultMaleWheelchair_BoundR").css("transform", "scale(1.0)");
+            $("#AdultMaleHomelessR").css("transform", "scale(1.0)");
+            $("#AdultMaleHomelessWheelchair_BoundR").css("transform", "scale(1.0)");
+            $("#AdultMaleEntrepreneurR").css("transform", "scale(1.0)");
+            $("#AdultMaleEntrepreneurWheelchair_BoundR").css("transform", "scale(1.0)");
+            $("#AdultFemaleR").css("transform", "scale(1.0)");
+            $("#AdultFemaleWheelchair_BoundR").css("transform", "scale(1.0)");
+            $("#AdultFemaleHomelessR").css("transform", "scale(1.0)");
+            $("#AdultFemaleHomelessWheelchair_BoundR").css("transform", "scale(1.0)");
+            $("#AdultFemaleEntrepreneurR").css("transform", "scale(1.0)");
+            $("#AdultFemaleEntrepreneurWheelchair_BoundR").css("transform", "scale(1.0)");
+            $("#ElderlyMaleR").css("transform", "scale(1.0)");
+            $("#ElderlyMaleBlindR").css("transform", "scale(1.0)");
+            $("#ElderlyMaleHomelessR").css("transform", "scale(1.0)");
+            $("#ElderlyMaleHomelessBlindR").css("transform", "scale(1.0)");
+            $("#ElderlyFemaleR").css("transform", "scale(1.0)");
+            $("#ElderlyFemaleBlindR").css("transform", "scale(1.0)");
+            $("#ElderlyFemaleHomelessR").css("transform", "scale(1.0)");
+            $("#ElderlyFemaleHomelessBlindR").css("transform", "scale(1.0)");
+        }
 
-				function overC() {
-						$("#car").css("filter", "invert(100%)");
-				}
+        function overC() {
+            $("#car").css("filter", "invert(100%)");
+        }
 
-				function outC() {
-						$("#car").css("filter", "invert(0%)");
-				}
+        function outC() {
+            $("#car").css("filter", "invert(0%)");
+        }
 
 
-			</script>
+    </script>
 
 </head>
-	<body>
+<body>
 
-		<h1>
-		    <center>ETHICS GENERATOR</center>
-		</h1>
+<h1>
+    <center>ETHICS GENERATOR</center>
+</h1>
 
-		<div class="nav">
-		    <ul>
-		        <li><a href="homepage">HOME</a></li>
-		        <li><a href="newUser">LOGIN</a></li>
-		        <li><a href="scenario1">GENERATOR</a></li>
-		        <li><a href="results">RESULTS</a></li>
-				<li id="timer">Timer: 0/20</li>
-		    </ul>
-		</div>
+<div class="nav">
+    <ul>
+        <li><a href="homepage">HOME</a></li>
+        <li><a href="newUser">LOGIN</a></li>
+        <li><a href="scenario1">GENERATOR</a></li>
+        <li><a href="results">RESULTS</a></li>
+        <li id="timer">Timer: 0/20</li>
+    </ul>
+</div>
 
-		<div id="parent">
+<div id="parent">
 
-		    <div class="envir"><img src="View1C.png" alt="View1" width="1000" height="500"></div>
+    <div class="envir"><img src="View1C.png" alt="View1" width="1000" height="500"></div>
 
-		    <!-- ***********************************************************LEFT******************************************************************* -->
-		    <div class="LEFT">
-		        <div id="InfantMaleL"><img src="x.png" alt="InfantMaleL"></div>
-		        <div id="InfantFemaleL"><img src="x.png" alt="InfantFemaleL"></div>
-		        <div id="ChildMaleL"><img src="ChildMale.png" alt="ChildMaleL"></div>
-		        <div id="ChildMaleWheelchair_BoundL"><img src="x.png" alt="ChildMaleWheelchair_BoundL"></div>
-		        <div id="ChildMaleBlindL"><img src="x.png" alt="ChildMaleBlindL"></div>
-		        <div id="ChildFemaleL"><img src="ChildFemale.png" alt="ChildFemaleL"></div>
-		        <div id="ChildFemaleWheelchair_BoundL"><img src="x.png" alt="ChildFemaleWheelchair_BoundL"></div>
-		        <div id="ChildFemaleBlindL"><img src="x.png" alt="ChildFemaleBlindL"></div>
-		        <div id="AdultMaleL"><img src="AdultMale.png" alt="AdultMaleL"></div>
-		        <div id="AdultMaleWheelchair_BoundL"><img src="x.png" alt="AdultMaleWheelchair_BoundL"></div>
-		        <div id="AdultMaleHomelessL"><img src="x.png" alt="AdultMaleHomelessL"></div>
-		        <div id="AdultMaleHomelessWheelchair_BoundL"><img src="x.png" alt="AdultMaleHomelessWheelchair_BoundL"></div>
-		        <div id="AdultMaleEntrepreneurL"><img src="AdultMaleEntrepreneur.png" alt="AdultMaleEntrepreneurL"></div>
-		        <div id="AdultMaleEntrepreneurWheelchair_BoundL"><img src="x.png" alt="AdultMaleEntrepreneurWheelchair_BoundL"></div>
-		        <div id="AdultFemaleL"><img src="AdultFemale.png" alt="AdultFemaleL"></div>
-		        <div id="AdultFemaleWheelchair_BoundL"><img src="x.png" alt="AdultFemaleWheelchair_BoundL"></div>
-		        <div id="AdultFemaleHomelessL"><img src="x.png" alt="AdultFemaleHomelessL"></div>
-		        <div id="AdultFemaleHomelessWheelchair_BoundL"><img src="x.png" alt="AdultFemaleHomelessWheelchair_BoundL"></div>
-		        <div id="AdultFemaleEntrepreneurL"><img src="x.png" alt="AdultFemaleEntrepreneurL"></div>
-		        <div id="AdultFemaleEntrepreneurWheelchair_BoundL"><img src="x.png" alt="AdultFemaleEntrepreneurWheelchair_BoundL"></div>
-		        <div id="ElderlyMaleL"><img src="ElderlyMale.png" alt="ElderlyMaleL"></div>
-		        <div id="ElderlyMaleBlindL"><img src="x.png" alt="ElderlyMaleBlindL"></div>
-		        <div id="ElderlyMaleHomelessL"><img src="x.png" alt="ElderlyMaleHomelessL"></div>
-		        <div id="ElderlyMaleHomelessBlindL"><img src="x.png" alt="ElderlyMaleBlindL"></div>
-		        <div id="ElderlyFemaleL"><img src="ElderlyFemale.png" alt="ElderlyFemaleL"></div>
-		        <div id="ElderlyFemaleBlindL"><img src="x.png" alt="ElderlyFemaleBlinL"></div>
-		        <div id="ElderlyFemaleHomelessL"><img src="x.png" alt="ElderlyFemaleHomelessL"></div>
-		        <div id="ElderlyFemaleHomelessBlindL"><img src="x.png" alt="ElderlyFemaleHomelessBlindL"></div>
-		    </div>
-		    <!-- *******************************************************RIGHT********************************************************************** -->
-		    <div class="RIGHT">
-		        <div id="InfantMaleR"><img src="x.png" alt="InfantMaleR"></div>
-		        <div id="InfantFemaleR"><img src="x.png" alt="InfantFemaleR"></div>
-		        <div id="ChildMaleR"><img src="ChildMale.png" alt="ChildMaleR"></div>
-		        <div id="ChildMaleWheelchair_BoundR"><img src="x.png" alt="ChildMaleWheelchair_BoundR"></div>
-		        <div id="ChildMaleBlindR"><img src="x.png" alt="ChildMaleBlindR"></div>
-		        <div id="ChildFemaleR"><img src="ChildFemale.png" alt="ChildFemaleR"></div>
-		        <div id="ChildFemaleWheelchair_BoundR"><img src="x.png" alt="ChildFemaleWheelchair_BoundR"></div>
-		        <div id="ChildFemaleBlindR"><img src="x.png" alt="ChildFemaleBlindR"></div>
-		        <div id="AdultMaleR"><img src="AdultMale.png" alt="AdultMaleR"></div>
-		        <div id="AdultMaleWheelchair_BoundR"><img src="x.png" alt="AdultMaleWheelchair_BoundR"></div>
-		        <div id="AdultMaleHomelessR"><img src="x.png" alt="AdultMaleHomelessR"></div>
-		        <div id="AdultMaleHomelessWheelchair_BoundR"><img src="x.png" alt="AdultMaleHomelessWheelchair_BoundR"></div>
-		        <div id="AdultMaleEntrepreneurR"><img src="AdultMaleEntrepreneur.png" alt="AdultMaleEntrepreneurR"></div>
-		        <div id="AdultMaleEntrepreneurWheelchair_BoundR"><img src="x.png" alt="AdultMaleEntrepreneurWheelchair_BoundR"></div>
-		        <div id="AdultFemaleR"><img src="AdultFemale.png" alt="AdultFemaleR"></div>
-		        <div id="AdultFemaleWheelchair_BoundR"><img src="x.png" alt="AdultFemaleWheelchair_BoundR"></div>
-		        <div id="AdultFemaleHomelessR"><img src="x.png" alt="AdultFemaleHomelessR"></div>
-		        <div id="AdultFemaleHomelessWheelchair_BoundR"><img src="x.png" alt="AdultFemaleHomelessWheelchair_BoundR"></div>
-		        <div id="AdultFemaleEntrepreneurR"><img src="x.png" alt="AdultFemaleEntrepreneurR"></div>
-		        <div id="AdultFemaleEntrepreneurWheelchair_BoundR"><img src="x.png" alt="AdultFemaleEntrepreneurWheelchair_BoundR"></div>
-		        <div id="ElderlyMaleR"><img src="ElderlyMale.png" alt="ElderlyMaleR"></div>
-		        <div id="ElderlyMaleBlindR"><img src="x.png" alt="ElderlyMaleBlindR"></div>
-		        <div id="ElderlyMaleHomelessR"><img src="x.png" alt="ElderlyMaleHomelessR"></div>
-		        <div id="ElderlyMaleHomelessBlindR"><img src="x.png" alt="ElderlyMaleBlindR"></div>
-		        <div id="ElderlyFemaleR"><img src="ElderlyFemale.png" alt="ElderlyFemaleR"></div>
-		        <div id="ElderlyFemaleBlindR"><img src="x.png" alt="ElderlyFemaleBlinR"></div>
-		        <div id="ElderlyFemaleHomelessR"><img src="x.png" alt="ElderlyFemaleHomelessR"></div>
-		        <div id="ElderlyFemaleHomelessBlindR"><img src="x.png" alt="ElderlyFemaleHomelessBlindR"></div>
-			</div>
+    <!-- ***********************************************************LEFT******************************************************************* -->
+    <div class="LEFT">
+        <div id="InfantMaleL"><img src="x.png" alt="InfantMaleL"></div>
+        <div id="InfantFemaleL"><img src="x.png" alt="InfantFemaleL"></div>
+        <div id="ChildMaleL"><img src="ChildMale.png" alt="ChildMaleL"></div>
+        <div id="ChildMaleWheelchair_BoundL"><img src="x.png" alt="ChildMaleWheelchair_BoundL"></div>
+        <div id="ChildMaleBlindL"><img src="x.png" alt="ChildMaleBlindL"></div>
+        <div id="ChildFemaleL"><img src="ChildFemale.png" alt="ChildFemaleL"></div>
+        <div id="ChildFemaleWheelchair_BoundL"><img src="x.png" alt="ChildFemaleWheelchair_BoundL"></div>
+        <div id="ChildFemaleBlindL"><img src="x.png" alt="ChildFemaleBlindL"></div>
+        <div id="AdultMaleL"><img src="AdultMale.png" alt="AdultMaleL"></div>
+        <div id="AdultMaleWheelchair_BoundL"><img src="x.png" alt="AdultMaleWheelchair_BoundL"></div>
+        <div id="AdultMaleHomelessL"><img src="x.png" alt="AdultMaleHomelessL"></div>
+        <div id="AdultMaleHomelessWheelchair_BoundL"><img src="x.png" alt="AdultMaleHomelessWheelchair_BoundL"></div>
+        <div id="AdultMaleEntrepreneurL"><img src="AdultMaleEntrepreneur.png" alt="AdultMaleEntrepreneurL"></div>
+        <div id="AdultMaleEntrepreneurWheelchair_BoundL"><img src="x.png" alt="AdultMaleEntrepreneurWheelchair_BoundL">
+        </div>
+        <div id="AdultFemaleL"><img src="AdultFemale.png" alt="AdultFemaleL"></div>
+        <div id="AdultFemaleWheelchair_BoundL"><img src="x.png" alt="AdultFemaleWheelchair_BoundL"></div>
+        <div id="AdultFemaleHomelessL"><img src="x.png" alt="AdultFemaleHomelessL"></div>
+        <div id="AdultFemaleHomelessWheelchair_BoundL"><img src="x.png" alt="AdultFemaleHomelessWheelchair_BoundL">
+        </div>
+        <div id="AdultFemaleEntrepreneurL"><img src="x.png" alt="AdultFemaleEntrepreneurL"></div>
+        <div id="AdultFemaleEntrepreneurWheelchair_BoundL"><img src="x.png"
+                                                                alt="AdultFemaleEntrepreneurWheelchair_BoundL"></div>
+        <div id="ElderlyMaleL"><img src="ElderlyMale.png" alt="ElderlyMaleL"></div>
+        <div id="ElderlyMaleBlindL"><img src="x.png" alt="ElderlyMaleBlindL"></div>
+        <div id="ElderlyMaleHomelessL"><img src="x.png" alt="ElderlyMaleHomelessL"></div>
+        <div id="ElderlyMaleHomelessBlindL"><img src="x.png" alt="ElderlyMaleBlindL"></div>
+        <div id="ElderlyFemaleL"><img src="ElderlyFemale.png" alt="ElderlyFemaleL"></div>
+        <div id="ElderlyFemaleBlindL"><img src="x.png" alt="ElderlyFemaleBlinL"></div>
+        <div id="ElderlyFemaleHomelessL"><img src="x.png" alt="ElderlyFemaleHomelessL"></div>
+        <div id="ElderlyFemaleHomelessBlindL"><img src="x.png" alt="ElderlyFemaleHomelessBlindL"></div>
+    </div>
+    <!-- *******************************************************RIGHT********************************************************************** -->
+    <div class="RIGHT">
+        <div id="InfantMaleR"><img src="x.png" alt="InfantMaleR"></div>
+        <div id="InfantFemaleR"><img src="x.png" alt="InfantFemaleR"></div>
+        <div id="ChildMaleR"><img src="ChildMale.png" alt="ChildMaleR"></div>
+        <div id="ChildMaleWheelchair_BoundR"><img src="x.png" alt="ChildMaleWheelchair_BoundR"></div>
+        <div id="ChildMaleBlindR"><img src="x.png" alt="ChildMaleBlindR"></div>
+        <div id="ChildFemaleR"><img src="ChildFemale.png" alt="ChildFemaleR"></div>
+        <div id="ChildFemaleWheelchair_BoundR"><img src="x.png" alt="ChildFemaleWheelchair_BoundR"></div>
+        <div id="ChildFemaleBlindR"><img src="x.png" alt="ChildFemaleBlindR"></div>
+        <div id="AdultMaleR"><img src="AdultMale.png" alt="AdultMaleR"></div>
+        <div id="AdultMaleWheelchair_BoundR"><img src="x.png" alt="AdultMaleWheelchair_BoundR"></div>
+        <div id="AdultMaleHomelessR"><img src="x.png" alt="AdultMaleHomelessR"></div>
+        <div id="AdultMaleHomelessWheelchair_BoundR"><img src="x.png" alt="AdultMaleHomelessWheelchair_BoundR"></div>
+        <div id="AdultMaleEntrepreneurR"><img src="AdultMaleEntrepreneur.png" alt="AdultMaleEntrepreneurR"></div>
+        <div id="AdultMaleEntrepreneurWheelchair_BoundR"><img src="x.png" alt="AdultMaleEntrepreneurWheelchair_BoundR">
+        </div>
+        <div id="AdultFemaleR"><img src="AdultFemale.png" alt="AdultFemaleR"></div>
+        <div id="AdultFemaleWheelchair_BoundR"><img src="x.png" alt="AdultFemaleWheelchair_BoundR"></div>
+        <div id="AdultFemaleHomelessR"><img src="x.png" alt="AdultFemaleHomelessR"></div>
+        <div id="AdultFemaleHomelessWheelchair_BoundR"><img src="x.png" alt="AdultFemaleHomelessWheelchair_BoundR">
+        </div>
+        <div id="AdultFemaleEntrepreneurR"><img src="x.png" alt="AdultFemaleEntrepreneurR"></div>
+        <div id="AdultFemaleEntrepreneurWheelchair_BoundR"><img src="x.png"
+                                                                alt="AdultFemaleEntrepreneurWheelchair_BoundR"></div>
+        <div id="ElderlyMaleR"><img src="ElderlyMale.png" alt="ElderlyMaleR"></div>
+        <div id="ElderlyMaleBlindR"><img src="x.png" alt="ElderlyMaleBlindR"></div>
+        <div id="ElderlyMaleHomelessR"><img src="x.png" alt="ElderlyMaleHomelessR"></div>
+        <div id="ElderlyMaleHomelessBlindR"><img src="x.png" alt="ElderlyMaleBlindR"></div>
+        <div id="ElderlyFemaleR"><img src="ElderlyFemale.png" alt="ElderlyFemaleR"></div>
+        <div id="ElderlyFemaleBlindR"><img src="x.png" alt="ElderlyFemaleBlinR"></div>
+        <div id="ElderlyFemaleHomelessR"><img src="x.png" alt="ElderlyFemaleHomelessR"></div>
+        <div id="ElderlyFemaleHomelessBlindR"><img src="x.png" alt="ElderlyFemaleHomelessBlindR"></div>
+    </div>
 
-		    <!--RED LIGHT-->
-		    <div id="red_light"><img src="Res/red_light.png" alt="redlight"></div>
-		    <!--GREEN LIGHT-->
-		    <div id="green_light"><img src="Res/green_light.png" alt="greenlight"></div>
+    <!--RED LIGHT-->
+    <div id="red_light"><img src="Res/red_light.png" alt="redlight"></div>
+    <!--GREEN LIGHT-->
+    <div id="green_light"><img src="Res/green_light.png" alt="greenlight"></div>
 
-		</div>
-
-
-		<h2 id="questionNum">Scenario: 0/5</h2>
-
-		<p id="scen">You are approaching a <b><span id="crossing" style="color:#996600">crossing</span></b> and see a pedestrian ahead, so the car goes to brake, when suddenly the brakes on the car are not working; the car has 3 options.</p>
-
-
-			<form onsubmit="return false">
-			    <div class="c1" onmouseover="overL()" onmouseout="outL()">
-			        <b><input type="radio" class="radio" name="option" value="a" checked><u>Option A:</u></b>
-			        <p><b><span style="color:#996600">Proceed in the same lane, but kill...</span></b>
-			        <ul id="groupA">
-			        </ul>
-			        </p>
-			    </div>
-
-			    <div class="c2" onmouseover="overR()" onmouseout="outR()">
-			        <b><input type="radio" class="radio" name="option" value="b"><u>Option B:</u></b>
-			        <p><b><span style="color:#996600">Swerve to the other side of the road, but kill...</span></b>
-			        <ul id="groupB">
-			        </ul>
-			        </p>
-			    </div>
-
-				
-				<div class="c3" onmouseover="overC()" onmouseout="outC()">
-					<b class="c"><input type="radio" class="radio" name="option" value="c"><u>Option C:</u></b>
-					<p><b><span style="color:#996600">Swerve into a building, but kill...</span></b>
-						<ul id="groupC">
-							<li>Yourself</li>
-						</ul>
-					</p>
-				</div>
-				
-
-				<h5><input type="submit" class="submitbtn" value="Confirm"></h5>
-			</form>	
-		
-
-		<!-- CAR -->
-		<div id="car"><img src="Res/car.png" alt="car" width="100" height="55"></div>
+</div>
 
 
-		<!--Left Line-->
-		<div class="LeftLine"><img src="Res/MiddleLine.png" alt="LeftLine" width="95" height="115"></div>
+<h2 id="questionNum">Scenario: 0/5</h2>
 
-		<!--Middle Line-->
-		<div class="MiddleLine"><img src="Res/MiddleLine.png" alt="MiddleLine" width="95" height="115"></div>
+<p id="scen">You are approaching a <b><span id="crossing" style="color:#996600">crossing</span></b> and see a pedestrian
+    ahead, so the car goes to brake, when suddenly the brakes on the car are not working; the car has 3 options.</p>
 
-		<!--Right Line-->
-		<div class="RightLine"><img src="Res/MiddleLine.png" alt="RightLine" width="110" height="120"></div>
 
-	</body>
+<form onsubmit="return false">
+    <div class="c1" onmouseover="overL()" onmouseout="outL()">
+        <b><input type="radio" class="radio" name="option" value="a" checked><u>Option A:</u></b>
+        <p><b><span style="color:#996600">Proceed in the same lane, but kill...</span></b>
+        <ul id="groupA">
+        </ul>
+        </p>
+    </div>
+
+    <div class="c2" onmouseover="overR()" onmouseout="outR()">
+        <b><input type="radio" class="radio" name="option" value="b"><u>Option B:</u></b>
+        <p><b><span style="color:#996600">Swerve to the other side of the road, but kill...</span></b>
+        <ul id="groupB">
+        </ul>
+        </p>
+    </div>
+
+
+    <div class="c3" onmouseover="overC()" onmouseout="outC()">
+        <b class="c"><input type="radio" class="radio" name="option" value="c"><u>Option C:</u></b>
+        <p><b><span style="color:#996600">Swerve into a building, but kill...</span></b>
+        <ul id="groupC">
+            <li>Yourself</li>
+        </ul>
+        </p>
+    </div>
+
+
+    <h5><input type="submit" class="submitbtn" value="Confirm"></h5>
+</form>
+
+
+<!-- CAR -->
+<div id="car"><img src="Res/car.png" alt="car" width="100" height="55"></div>
+
+
+<!--Left Line-->
+<div class="LeftLine"><img src="Res/MiddleLine.png" alt="LeftLine" width="95" height="115"></div>
+
+<!--Middle Line-->
+<div class="MiddleLine"><img src="Res/MiddleLine.png" alt="MiddleLine" width="95" height="115"></div>
+
+<!--Right Line-->
+<div class="RightLine"><img src="Res/MiddleLine.png" alt="RightLine" width="110" height="120"></div>
+
+</body>
 
 </html>
