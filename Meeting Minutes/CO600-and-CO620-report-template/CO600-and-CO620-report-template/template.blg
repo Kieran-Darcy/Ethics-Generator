@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: template.aux
+The style file: kentHarvard.bst
+Database file #1: sample.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--empty pages in adorf
+Warning--empty pages in ginsberg
+Warning--empty pages in hopfield
+Warning--empty pages in mj-early
+Warning--empty pages in johnston
+Warning--empty pages in langley
+Warning--empty pages in min-aaai
+Warning--empty pages in simmons-aaai88
+You've used 13 entries,
+            3351 wiz_defined-function locations,
+            745 strings with 6716 characters,
+and the built_in function-call counts, 8395 in all, are:
+= -- 763
+> -- 284
+< -- 5
++ -- 131
+- -- 87
+* -- 548
+:= -- 1238
+add.period$ -- 39
+call.type$ -- 13
+change.case$ -- 100
+chr.to.int$ -- 14
+cite$ -- 21
+duplicate$ -- 709
+empty$ -- 652
+format.name$ -- 107
+if$ -- 1704
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 102
+newline$ -- 46
+num.names$ -- 52
+pop$ -- 358
+preamble$ -- 1
+purify$ -- 86
+quote$ -- 0
+skip$ -- 253
+stack$ -- 0
+substring$ -- 504
+swap$ -- 251
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 111
+warning$ -- 8
+while$ -- 61
+width$ -- 0
+write$ -- 140
+(There were 8 warnings)

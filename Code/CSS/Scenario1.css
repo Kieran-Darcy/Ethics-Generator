@@ -120,16 +120,16 @@ li a:hover {
 	position: absolute;
 	right: 30%;
 	top: 76%;
-	width: 15px;
-	height: 8px;
+	width: 23px;
+	height: 15px;
 }
 
 #InfantFemaleL {
 	position: absolute;
 	right: 30.5%;
 	top: 76%;
-	width: 15px;
-	height: 8px;
+	width: 23px;
+	height: 15px;
 }
 
 #ChildMaleL {
@@ -210,8 +210,8 @@ li a:hover {
 	position: absolute;
 	right: 31%;
 	top: 70%;
-	width: 15px;
-	height: 25px;
+	width: 35px;
+	height: 35px;
 }
 
 
@@ -228,8 +228,8 @@ li a:hover {
 	position: absolute;
 	right: 31%;
 	top: 69%;
-	width: 22px;
-	height: 32.5px;
+	width: 35px;
+	height: 35px;
 	z-index: 1;
 }
 
@@ -358,16 +358,16 @@ li a:hover {
 	position: absolute;
 	right: 25%;
 	top: 77%;
-	width: 15px;
-	height: 8px;
+	width: 23px;
+	height: 15px;
 }
 
 #InfantFemaleR {
 	position: absolute;
 	right: 30%;
 	top: 78%;
-	width: 15px;
-	height: 8px;
+	width: 23px;
+	height: 15px;
 }
 
 
@@ -449,8 +449,8 @@ li a:hover {
 	position: absolute;
 	right: 27%;
 	top: 73%;
-	width: 22px;
-	height: 32.5px;
+	width: 35px;
+	height: 35px;
 	z-index: 0;
 }
 
