@@ -93,8 +93,9 @@
                     });
 
 
-                    $("#parent").append(`<img src='Res/${data.crossingType}.png' id="${data.crossingType}">`); // insert traffic light image into generated one given
-
+	                if (data.crossingType !== "zebra_crossing") {    
+	                    $("#parent").append(`<img src='Res/${data.crossingType}.png' id="${data.crossingType}">`); // insert traffic light image into generated one given
+	                   }
 
                     $('#AdultMaleEntrepreneurL').mouseover(function () {
                         $('#InfantMaleL').fadeIn(500);
@@ -365,9 +366,9 @@
 			</div>
 
 		    <!--RED LIGHT-->
-		    <div class="red_light"><img src="Res/red_light.png" alt="redlight" width="55" height="165"></div>
+		    <div id="red_light"><img src="Res/red_light.png" alt="redlight"></div>
 		    <!--GREEN LIGHT-->
-		    <div class="green_light"><img src="Res/green_light.png" alt="greenlight" width="55" height="165"></div>
+		    <div id="green_light"><img src="Res/green_light.png" alt="greenlight"></div>
 
 		</div>
 

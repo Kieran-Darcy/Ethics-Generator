@@ -635,16 +635,22 @@ form {
 	border-radius: 20%;
 }
 
-.red_light {
+#red_light {
 	position: absolute;
-	right: 34%;
-	top: 79%;
+	right: 32.5%;
+	top: 55.5%;
+	width: 5%;
+	height: 25%;
+	z-index: 8;
 }
 
-.green_light {
+#green_light {
 	position: absolute;
-	right: 31%;
-	top: 83%;
+	right: 32.5%;
+	top: 55.5%;
+	width: 5%;
+	height: 25%;
+	z-index: 8;
 }
 
 .LeftLine {
