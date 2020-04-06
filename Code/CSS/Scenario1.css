@@ -47,6 +47,19 @@ li a:hover {
     background-color: #111;
 }
 
+#timer {
+	display: block;
+	padding: 14px 16px;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	font-family: 'Poppins';
+	font-weight: 900;
+	font-style: normal;
+	font-size: 16px;
+	float: right;
+}
+
 .c1 b {
 	font-family: 'Poppins';
 	font-size: 12px;
@@ -606,7 +619,7 @@ margin-top: 1%;
 }
 
 form {
-	background-color: rgb(153,102,255, 0.6);
+	background-color: rgba(153,102,255, 0.6);
 	width: 23%;
 	border-radius: 7.5%;
 	padding-left: 1%;

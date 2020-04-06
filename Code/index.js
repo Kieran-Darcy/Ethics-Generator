@@ -93,7 +93,12 @@ function makeScene(id, response) {
 }
 
 function saveResults(id, scene, choice, time) {
-    query(`INSERT INTO results (id, scenario, choice, timer) VALUES ('${id}', '${scene}', '${choice}', ${time})`)
+    if(time) {
+        console.log("Save Results: ",time);
+        query(`INSERT INTO results (id, scenario, choice, timer) VALUES ('${id}', '${scene}', '${choice}', ${time})`)
+    } else {
+        query(`INSERT INTO results (id, scenario, choice) VALUES ('${id}', '${scene}', '${choice}')`)
+    }
 }
 
 function getResults(id, response) {
@@ -255,10 +260,11 @@ app.post('/register', (req, res) => {
 });
 
 app.post('/choice', (req, res) => {
-    const option = req.body.option;
+    const {option, timer} = req.body;
+    console.log("Option: ", option, "Timer: ", timer);
     // if the option isn't null add it to the database along with the question
     if (option) {
-       saveResults(req.session.userID, (JSON.stringify(currentScenario)), option, (Date.now()-timer)/1000);    // uncomment when ready
+       saveResults(req.session.userID, (JSON.stringify(currentScenario)), option, timer);    // uncomment when ready
     }
     res.send(option !== undefined);
 });
