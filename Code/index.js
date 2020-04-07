@@ -21,7 +21,7 @@ app.use(session({
 
 // Create connection
 const connection = mysql.createConnection({
-    host: "151.231.205.6",
+    host: "94.192.253.196",
     user: "user",
     password: "password",
     database: "ethicsgenerator",
@@ -45,7 +45,6 @@ const redirectLogin = (req, res, next) => {
 };
 
 const checkOver18 = (req, res, next) => {
-    console.log("check age:", req.session);
     if(!req.session.ofAge){
         res.send(`
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -277,7 +276,6 @@ app.post('/register', (req, res) => {
 
 app.post('/choice', (req, res) => {
     const {option, timer} = req.body;
-    console.log("Option: ", option, "Timer: ", timer);
     // if the option isn't null add it to the database along with the question
     if (option) {
        saveResults(req.session.userID, (JSON.stringify(currentScenario)), option, timer);    // uncomment when ready
