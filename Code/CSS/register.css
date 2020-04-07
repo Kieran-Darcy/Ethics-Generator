@@ -22,7 +22,7 @@ body {
 }
 
 label {
-    width: 20%;
+    text-align: center;
     color: white;
     margin-top: 30px;
 }
@@ -56,4 +56,11 @@ input[type="submit"]:hover {
 strong {
     color: white;
     font-size: 1em;
+}
+
+em {
+    font-family: Arial, Helvetica, sans-serif;
+    color: crimson;
+    font-size: 1.1em;
+    text-align: center;
 }

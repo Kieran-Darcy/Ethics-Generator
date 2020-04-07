@@ -37,9 +37,25 @@ const connection = mysql.createConnection({
 });*/
 
 const redirectLogin = (req, res, next) => {
-    //req.session.userID = 'fakeuser';    // please delete when production ready
     if(!req.session.userID) {
         res.sendFile('register.html', {root: __dirname})
+    } else {
+        next()
+    }
+};
+
+const checkOver18 = (req, res, next) => {
+    console.log("check age:", req.session);
+    if(!req.session.ofAge){
+        res.send(`
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+let o18 = confirm("You need to be over 18 to use this website. \\nPress OK to confirm you are over 18.");
+$.post("over18", {ofAge: o18}, data => {
+    window.location.href = data;
+}
+);
+</script>`)
     } else {
         next()
     }
@@ -213,7 +229,7 @@ app.get('/', (req, res) => {
     res.sendFile('homepage.html', {root: __dirname})
 });
 
-app.get('/scenario1', redirectLogin, (req, res) => {
+app.get('/scenario1', checkOver18, redirectLogin, (req, res) => {
     res.sendFile('Scenario1.html', {root: __dirname})
 });
 
@@ -221,7 +237,7 @@ app.get('/homepage', (req, res) => {
     res.sendFile('homepage.html', {root: __dirname})
 });
 
-app.get('/results', (req, res) => {
+app.get('/results', checkOver18, (req, res) => {
     res.sendFile('results.html', {root: __dirname})
 });
 
@@ -267,6 +283,12 @@ app.post('/choice', (req, res) => {
        saveResults(req.session.userID, (JSON.stringify(currentScenario)), option, timer);    // uncomment when ready
     }
     res.send(option !== undefined);
+});
+
+app.post('/over18', (req, res) => {
+    const {ofAge} = req.body;
+    req.session.ofAge = JSON.parse(ofAge);
+    res.send("homepage")
 });
 
 app.listen(port, () => console.log(`Starting server at http://localhost:80`));

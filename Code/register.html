@@ -10,7 +10,7 @@
             $("form").on("submit", () => {
                 const form = $("form").serialize();
                 $.post("register", form, result => {
-                    if(result) {
+                    if (result) {
                         alert("Username already exists. Please enter a different one!")
                     } else {
                         window.location.href = "scenario1";
@@ -21,15 +21,16 @@
     </script>
 </head>
 <body>
-    <div id="container">
-        <div id="usernameinput">
-    <strong>Enter a unique username and your session will last for 2 hours</strong>
+<div id="container">
+    <div id="usernameinput">
+        <strong>Enter a unique username and your session will last for 2 hours</strong>
+        <em>To remain anonymous do not use your real name!</em>
         <form onsubmit="return false">
-            <label for="username">Username:</label>
+            <label for="username">  Username:</label>
             <input id="username" type="text" name="username">
             <input type="submit">
         </form>
-        </div>
     </div>
+</div>
 </body>
 </html>
