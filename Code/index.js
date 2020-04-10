@@ -269,14 +269,18 @@ app.get('/newUser', (req, res) => {
 
 app.post('/register', (req, res) => {
     const {username} = req.body;
-    checkUser(username.toLowerCase(), exists => {
-        if (!exists) {
-            req.session.userID = username.toLowerCase();
-            res.send(exists)
-        } else {
-            res.send(exists)
-        }
-    })
+    if(!(/^[a-zA-Z]/.test(username))) {res.send(false)
+    } else {
+        checkUser(username.toLowerCase(), exists => {
+            if (!exists) {
+                req.session.userID = username.toLowerCase();
+                res.send(exists)
+            } else {
+                res.send(exists)
+            }
+        })
+    }
+
 });
 
 app.post('/choice', (req, res) => {
