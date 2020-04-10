@@ -37,7 +37,7 @@ const connection = mysql.createConnection({
 });*/
 
 const redirectLogin = (req, res, next) => {
-    if(!req.session.userID) {
+    if (!req.session.userID) {
         res.sendFile('register.html', {root: __dirname})
     } else {
         next()
@@ -45,7 +45,7 @@ const redirectLogin = (req, res, next) => {
 };
 
 const checkOver18 = (req, res, next) => {
-    if(!req.session.ofAge){
+    if (!req.session.ofAge) {
         res.send(`
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
@@ -63,7 +63,7 @@ $.post("over18", {ofAge: o18}, data => {
 function sortPeople(groupAB, groupC) {
     let people = groupAB;
     //const variation = Math.round(Math.random() - Math.random()); // chooses a random number between -1 - 1
-    const peopleA = people.splice(0, Math.round(people.length/2) /*+ variation*/); // split into group A
+    const peopleA = people.splice(0, Math.round(people.length / 2) /*+ variation*/); // split into group A
     return {groupA: peopleA, groupB: people, groupC: groupC} // return groups
 }
 
@@ -89,18 +89,18 @@ function getCrossing(response) {
 
 // Make a scene for 2 group Scenarios
 function makeScene(id, response) {
-    const numOfPeople = 2+(Math.round(Math.random()*(10-2)));
+    const numOfPeople = 2 + (Math.round(Math.random() * (10 - 2)));
     getPeople(numOfPeople, groupAB => {
-        getPeople((numOfPeople > 4) ? 1+Math.round(Math.random()*(4-1)) : 0, groupC => {
+        getPeople((numOfPeople > 4) ? 1 + Math.round(Math.random() * (4 - 1)) : 0, groupC => {
             getCrossing(crossing => {
-                query(`SELECT COUNT(id) FROM results WHERE id = '${id}'`,count => {
+                query(`SELECT COUNT(id) FROM results WHERE id = '${id}'`, count => {
                     return count[0]["COUNT(id)"] < 5 ?
-                    response({
-                        people: sortPeople(groupAB, groupC),  //  {groupA : [GroupA], groupB : [GroupB], groupC : [GroupC]}
-                        crossingType: crossing,  // crossing / green light / red light
-                        timer: Math.random() >= 0.5,
-                        questionNum: count[0]["COUNT(id)"]+1   // questions answered
-                    }) : response('results.html')
+                        response({
+                            people: sortPeople(groupAB, groupC),  //  {groupA : [GroupA], groupB : [GroupB], groupC : [GroupC]}
+                            crossingType: crossing,  // crossing / green light / red light
+                            timer: Math.random() >= 0.5,
+                            questionNum: count[0]["COUNT(id)"] + 1   // questions answered
+                        }) : response('results.html')
                 })
             })
         })
@@ -108,8 +108,7 @@ function makeScene(id, response) {
 }
 
 function saveResults(id, scene, choice, time) {
-    if(time) {
-        console.log("Save Results: ",time);
+    if (time) {
         query(`INSERT INTO results (id, scenario, choice, timer) VALUES ('${id}', '${scene}', '${choice}', ${time})`)
     } else {
         query(`INSERT INTO results (id, scenario, choice) VALUES ('${id}', '${scene}', '${choice}')`)
@@ -117,21 +116,13 @@ function saveResults(id, scene, choice, time) {
 }
 
 function getResults(id, response) {
-    if(!id) {
-        query(`SELECT * FROM results`, results => {
-            results.forEach(result => {
-                result.scenario = JSON.parse(result.scenario)
-            });
-            return response({results: results, user: id})
-        })
-    } else {
-        query(`SELECT * FROM results WHERE id = '${id}'`, results => {
-            results.forEach(result => {
-                result.scenario = JSON.parse(result.scenario)
-            });
-            return response({results: results, user: id})
-        })
-    }
+    query(`SELECT *
+           FROM results`, results => {
+        results.forEach(result => {
+            result.scenario = JSON.parse(result.scenario)
+        });
+        return response({results: results, user: id})
+    })
 }
 
 function checkUser(username, response) {
@@ -154,15 +145,27 @@ function getMax(arr) {
     return max;
 }
 
+function getMin(arr) {
+    let max = null;
+    for (let key in arr) {
+        if (max) {
+            if (arr[max] > arr[key]) {
+                max = key
+            }
+        } else {
+            max = key;
+        }
+    }
+    return max;
+}
+
 function getStats(people) {
-    const user = people.user;
-    people = people.results;
     let choices = {
         a: 0,
         b: 0,
         c: 0
     };
-    let mostHatedAge = {
+    let mostKilledAge = {
         Infant: 0,
         Child: 0,
         Adult: 0,
@@ -174,16 +177,16 @@ function getStats(people) {
         Adult: 0,
         Elderly: 0
     };
-    let count = {};
+    let mostKilledPerson = {};
     people.forEach(result => {
         if (result.choice === 'a') {
             choices.a++;
             result.scenario.people.groupA.forEach(person => {
-                mostHatedAge[person.age]++;
-                if (count[JSON.stringify(person)]) {
-                    count[JSON.stringify(person)]++;
+                mostKilledAge[person.age]++;
+                if (mostKilledPerson[JSON.stringify(person)]) {
+                    mostKilledPerson[JSON.stringify(person)]++;
                 } else {
-                    count[JSON.stringify(person)] = 1;
+                    mostKilledPerson[JSON.stringify(person)] = 1;
                 }
             });
             result.scenario.people.groupB.forEach(person => mostFavouredAge[person.age]++);
@@ -191,11 +194,11 @@ function getStats(people) {
         } else if (result.choice === 'b') {
             choices.b++;
             result.scenario.people.groupB.forEach(person => {
-                mostHatedAge[person.age]++;
-                if (count[JSON.stringify(person)]) {
-                    count[JSON.stringify(person)]++;
+                mostKilledAge[person.age]++;
+                if (mostKilledPerson[JSON.stringify(person)]) {
+                    mostKilledPerson[JSON.stringify(person)]++;
                 } else {
-                    count[JSON.stringify(person)] = 1;
+                    mostKilledPerson[JSON.stringify(person)] = 1;
                 }
             });
             result.scenario.people.groupA.forEach(person => mostFavouredAge[person.age]++);
@@ -203,11 +206,11 @@ function getStats(people) {
         } else {
             choices.c++;
             result.scenario.people.groupC.forEach(person => {
-                mostHatedAge[person.age]++;
-                if (count[JSON.stringify(person)]) {
-                    count[JSON.stringify(person)]++;
+                mostKilledAge[person.age]++;
+                if (mostKilledPerson[JSON.stringify(person)]) {
+                    mostKilledPerson[JSON.stringify(person)]++;
                 } else {
-                    count[JSON.stringify(person)] = 1;
+                    mostKilledPerson[JSON.stringify(person)] = 1;
                 }
             });
             result.scenario.people.groupA.forEach(person => mostFavouredAge[person.age]++);
@@ -215,11 +218,10 @@ function getStats(people) {
         }
     });
     return {
-        userID: user,
-        mostHatedPerson: JSON.parse(getMax(count)),
+        mostKilledPerson: JSON.parse(getMax(mostKilledPerson)),
         mostPickedOption: getMax(choices),
-        mostHatedAge: getMax(mostHatedAge),
-        mostFavouredAge: getMax(mostFavouredAge),
+        mostHatedAge: getMax(mostKilledAge),
+        mostFavouredAge: getMin(mostKilledAge),
         results: people
     }
 }
@@ -242,7 +244,10 @@ app.get('/results', checkOver18, (req, res) => {
 
 app.get('/getResults', (req, res) => {
     getResults(req.session.userID, results => {
-        res.send(getStats(results))
+        res.send({
+            all : getStats(results.results),
+            personal : getStats(results.results.filter(result => {return result.id===results.user}))
+        })
     });
 });
 
@@ -251,7 +256,7 @@ app.get('/CSS/background.png', (req, res) => {
 });
 
 app.get('/scene', (req, res) => {
-    makeScene(req.session.userID,results => {
+    makeScene(req.session.userID, results => {
         timer = Date.now();
         currentScenario = results;
         res.send(currentScenario)
@@ -278,7 +283,7 @@ app.post('/choice', (req, res) => {
     const {option, timer} = req.body;
     // if the option isn't null add it to the database along with the question
     if (option) {
-       saveResults(req.session.userID, (JSON.stringify(currentScenario)), option, timer);    // uncomment when ready
+        saveResults(req.session.userID, (JSON.stringify(currentScenario)), option, timer);    // uncomment when ready
     }
     res.send(option !== undefined);
 });

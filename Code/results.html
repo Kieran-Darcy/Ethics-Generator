@@ -1,99 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-          <title>Results</title>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <meta http-equiv="X-UA-Compatible" content="ie=edge">
-          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-          <link rel="stylesheet" href="CSS/result.css">
-          <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(() => {
-
-
-            $.get("getResults", everything => {
-                // everything has everything in it. it looks like this {mostHatedPerson: ..., mostPickedOption: ..., mostHatedAge: ..., mostFavouredAge: ..., results: ...}
+<head>
+    <title>Results</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/result.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(() => {
+            let allResults;
+            let personalScenes;
 
 
 
-                // appends the text and image of the most hated person
-                $("body").append(`<h1>Person you killed the most was a ${everything.mostHatedPerson.disability ? 'disabled' : ''} ${everything.mostHatedPerson.profession} ${everything.mostHatedPerson.gender} ${everything.mostHatedPerson.age}</h1><img src="Res/${everything.mostHatedPerson.age}${everything.mostHatedPerson.gender}${everything.mostHatedPerson.profession}${everything.mostHatedPerson.disability}.png" width="100" height="100">`);
+            $.get("getResults", bothResults => {
+                allResults = bothResults;
+                personalScenes = bothResults.personal.results.length;
+                if (personalScenes) {
+                    $("#allResults").css("background-color", "#e2281f");
+                    $("#result").css("background-color", "#e2a942");
+                    loadInfo(bothResults.personal)
+                } else {
+                    $("#result").css("background-color", "#e2281f");
+                    $("#allResults").css("background-color", "#e2a942");
+                    loadInfo(bothResults.all)
+                }
+            });
 
-                
-                // appends the text and image of the most hated age, most favoured age, most picked option
-                $("body").append(`<h1>Age you killed the most was ${everything.mostHatedAge}</h1><p></p><h1>Age you killed the least was ${everything.mostFavouredAge}</h1><p>If your favoured aged was the child, you can say that this was from a utilitarian perspective as the child has more of a potenital for to impact the future, plus has mre of a life to live and pssoibly more people will be impacted if the child was to die.<br>Choosing an adult over a child, shows Virtue. This is an ethical theory in which you judge people via charaterisics. In the terms of the autonomous car situation, the charateristics of an adult is they benefit the present and alot of the times are self sufficient.</p><h1>Most picked option was ${everything.mostPickedOption.toUpperCase()}${everything.mostPickedOption === 'a' ? ' meaning you\'re bAsic</h1><p>If your most picked option was A</p><br>' : everything.mostPickedOption === 'b' ? ' meaning you\'re Basic</h1><p> If your most picked option was B it shows that you have a deontological approach to making decisions. In regards to autonomous cars, the decision will be based on protecting yourself and passengers in the car, then if you do that minimise the damage of the outside. In simple terms a deontological approach is protect yourself first, than the rest.</p><br>' : ' meaning you\'re Utilitarian</h1><p>If your most picked option was C it shows that you have a utilitarian approach to life. What this means is as an individual you take into consideration the future and greater good, when making decisions. In relation to autonomous car, you will always choose to sacrifice yourself, as you believe that an action is correct as long as it promotes greater happiness for a greater number of people and that it will have a greater impact in the future. In this case choosing to save the life of others, even if means there will be a negative consequence if you do so.</p>'}`);
+            function loadInfo(everything) {
+                // everything has everything in it. it looks like this {mostKilledPerson: ..., mostPickedOption: ..., mostHatedAge: ..., mostFavouredAge: ..., results: ...}
+                $("#result h1").text((personalScenes ? "Your Results" : "All Results"));
+                $("#allResults h1").text((personalScenes ? "All Results" : "Your Results"));
+
+                // appends the text of the most killed person
+                $("#pkm").text(`${everything.mostKilledPerson.disability ? "Disabled" : ""} ${everything.mostKilledPerson.profession ? everything.mostKilledPerson.profession : ""} ${everything.mostKilledPerson.gender} ${everything.mostKilledPerson.age}`);
+
+                // appends the image of the most killed person
+                $("#pkmImg").html(`<img src="Res/${everything.mostKilledPerson.age}${everything.mostKilledPerson.gender}${everything.mostKilledPerson.profession}${everything.mostKilledPerson.disability}.png" width="100px" height="200px">`); //image not sizing properly
+
+                // appends the text and image of the most killed age, least killed age, most picked option
+                $("#akm").text(everything.mostHatedAge);
+                $("#akmDesc").text(`${(everything.mostFavouredAge === "Child" || everything.mostFavouredAge === "Infant" ? "If your favoured aged was the child or Infant, you can say that this was from a utilitarian perspective as the child or infant has more of a potential for to impact the future, plus has more of a life to live and possibly more people will be impacted if the child was to die." : "Choosing an adult or elderly over a child, shows Virtue. This is an ethical theory in which you judge people via characteristics. In the terms of the autonomous car situation, the characteristics of an adult is they benefit the present and a lot of the times are self sufficient.")}`);
+
+                $("#akl").text(everything.mostFavouredAge);
+
+                $("#mpo").text(everything.mostPickedOption.toUpperCase());
+                $("#mpoDesc").text(`${everything.mostPickedOption === "a" ? " meaning you\'re deontological. If your most picked option was A it shows that you have a deontological approach to making decisions. In regards to autonomous cars, the decision will be based on protecting yourself and passengers in the car. Since people with deontological ethics see that people should be treated equally, therefore since you were already heading straight, it\'s unfair to change direction." : everything.mostPickedOption === "b" ? " meaning you\'re Virtue. If your most picked option was B it shows that you have a virtue approach to making decisions. In regards to autonomous cars, the decision will be based on making decisions in light of your favoured virtues. By choosing B you chose to turn right, rather then carry on going straight, it shows you weighed up the options and thought that the people in front suited your virtues, therefore saving them and not the ones on the right." : " meaning you\'re Utilitarian. If your most picked option was C it shows that you have a utilitarian approach to life. What this means is as an individual you take into consideration the future and greater good, when making decisions. In relation to autonomous car, you will always choose to sacrifice yourself, as you believe that an action is correct as long as it promotes greater happiness for a greater number of people and that it will have a greater impact in the future. In this case choosing to save the life of others, even if means there will be a negative consequence if you do so."}`);
+
 
                 // this is just all the results in case you wanted to display them all
-
-                let count = 1;
+                $("#t2").empty();
+                $("#t2").append("<tr><th>ID</th><th>Scenario</th><th>Choice</th><th>Time Taken (seconds)</th></tr>");
                 everything.results.forEach(result => {
-                    $("body").append(`<strong>Question ${count}</strong><br><p>${"ID: "+result.id+", You chose option "+result.choice+", You took "+result.timer+" seconds"}</p><br>`)
-                    count++;
+                    $("#t2").append(`
+                                        <tr>
+                                            <td>${result.id}</td>
+                                            <td onmouseover="showScene(this)" onmouseout="hideScene(this)">Hover for more info</td>
+                                            <td>${result.choice.toUpperCase()}</td>
+                                            <td>${result.timer ? result.timer : "Not Timed"}</td>
+                                        </tr>
+                                        <tr class="hidden">
+                                            <td colspan="4">
+                                                <table id="t3">
+                                                    <tr>
+                                                        <th colspan="3">People</th>
+                                                        <th>Crossing Type</th>
+                                                        <th>Timed</th>
+                                                        <th>Question Number</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Group A</th>
+                                                        <th>Group B</th>
+                                                        <th>Group C</th>
+                                                        <td rowspan="2">${result.scenario.crossingType}</td>
+                                                        <td rowspan="2">${result.scenario.timer}</td>
+                                                        <td rowspan="2">${result.scenario.questionNum ? result.scenario.questionNum : "N/A"}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>${JSON.stringify(result.scenario.people.groupA)}</td>
+                                                        <td>${JSON.stringify(result.scenario.people.groupB)}</td>
+                                                        <td>${JSON.stringify(result.scenario.people.groupC)}</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        `)
                 });
+            }
 
-            })
+
+
+            // gives killed the least the same hover affects as the row above it
+            $("#t1 tr:nth-child(2)").hover(() => {
+                $("#akl").css("background-color", "rgb(255, 255, 255)")
+            }, () => {
+                $("#akl").css("background-color", "rgb(218, 211, 255)")
+            });
+
+            $("#allResults").hover(() => {
+                $("#allResults h1").css({"font-size": "2em", "transition-duration": "0.5s"});
+            }, () => {
+                $("#allResults h1").css({"font-size": "0.9em", "transition-duration": "0ms"});
+            });
+
+            $("#allResults").click(() => {
+                if (personalScenes) {
+                    personalScenes = !personalScenes;
+                    $("#allResults").css("background-color", "#e2281f");
+                    $("#result").css("background-color", "#e2a942");
+                    loadInfo(allResults.all)
+                } else {
+                    personalScenes = allResults.personal.results.length;
+                    if (personalScenes) {
+                        $("#result").css("background-color", "#e2281f");
+                        $("#allResults").css("background-color", "#e2a942");
+                        loadInfo(allResults.personal)
+                    } else {
+                        alert("You haven't completed any scenarios!")
+                    }
+                }
+
+            });
+
+
+
+
         });
 
+        function showScene(element) {
+            $(element).parent().next().show();
+        }
 
-        /*google.charts.load('current', {'packages':['bar']});
-        google.charts.setOnLoadCallback(drawStuff);
+        function hideScene(element) {
+            $(element).parent().next().hide();
+        }
 
-        function drawStuff() {
-            let data = new google.visualization.arrayToDataTable([
-                ['Opening Move', 'Percentage'],
-                ["Saving yourself", 44],
-                ["Old over young", 31],
-                ["Young over old", 12],
-                ["Groups over Individual", 10],
-                ['Other', 3]
-            ]);
+    </script>
+</head>
 
-            let options = {
-                title: 'Results',
-                width: 900,
-                legend: { position: 'none' },
-                chart: { title: 'Results',
-                    subtitle: 'popularity by percentage' },
-                bars: 'horizontal', // Required for Material Bar Charts.
-                axes: {
-                    x: {
-                        0: { side: 'top', label: 'Percentage'} // Top x-axis.
-                    }
-                },
-                bar: { groupWidth: "90%" }
-            };
+<body>
 
-            let chart = new google.charts.Bar(document.getElementById('top_x_div'));
-            chart.draw(data, options);
-        }*/
+<h1>
+    <center>GENERATOR RESULTS</center>
+</h1>
 
-        </script>
-    </head>
+<div class="nav">
+    <ul>
+        <li><a href="homepage">HOME</a></li>
+        <li><a href="newUser">LOGIN</a></li>
+        <li><a href="scenario1">GENERATOR</a></li>
+        <li><a href="results">RESULTS</a></li>
+    </ul>
+</div>
 
-  <body>
+<div class="row">
+    <div id="result"><h1></h1></div>
+    <div id="allResults"><h1></h1></div>
+</div>
 
-      <h1>
-          <center>GENERATOR RESULTS</center>
-      </h1>
+<table id="t1">
+    <tr>
+        <th>Person killed the most...</th>
+        <td id="pkm"></td>
+        <td id="pkmImg"></td>
+    </tr>
+    <tr>
+        <th>Age killed the most...</th>
+        <td id="akm"></td>
+        <td id="akmDesc" rowspan="2"></td>
+    </tr>
+    <tr>
+        <th>Age killed the least...</th>
+        <td id="akl"></td>
+    </tr>
+    <tr>
+        <th>Most picked option...</th>
+        <td id="mpo"></td>
+        <td id="mpoDesc"></td>
+    </tr>
+</table>
 
-      <div class="nav">
-          <ul>
-              <li><a href="homepage">HOME</a></li>
-              <li><a href="newUser">LOGIN</a></li>
-              <li><a href="scenario1">GENERATOR</a></li>
-              <li><a href="results">RESULTS</a></li>
-          </ul>
-      </div>
-
-      <div class="type-info">
-          <h1>
-              <span> Your Results </span>
-          </h1>
-      </div>
-
-  </body>
+<table id="t2">
+    <tr>
+        <th>ID</th>
+        <th>Scenario</th>
+        <th>Choice</th>
+        <th>Time Taken (seconds)</th>
+    </tr>
+</table>
 
 
+</body>
 </html>
